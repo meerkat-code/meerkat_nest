@@ -2,10 +2,21 @@
 Data resource for upload data
 """
 from flask_restful import Resource
+from flask import request
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 import json
+import os
+import uuid
+import datetime
 from pprint import pprint
 
-class sendData(Resource):
+from meerkat_nest import model
+
+db_url = os.environ['MEERKAT_NEST_DB_URL']
+engine = create_engine(db_url)
+
+class uploadData(Resource):
     """
     Receives JSON data and stores it in Meerkat Nest database
     
@@ -14,8 +25,13 @@ class sendData(Resource):
     """
     #decorators = [authenticate]
 
+    def get(self):
+        return "upload data GET"
+
     def post(self):
 
+        pprint("DEBUG: Received POST request")
+        pprint(request.json)
         data_entry = request.json
 
         # Validate request
@@ -28,15 +44,22 @@ class sendData(Resource):
         except AssertionError:
             return {"message":"Input was not valid ODK Aggregate JSON item"}
 
+        upload_to_raw_data(content=data_entry['content'], data_entry=data_entry)
 
-        pprint(data_entry)
+        return data_entry
 
-class downloadData(Resource):
-    def get(self):
-        """
-        Initiates the download of the whole data set from Meerkat Nest
-        
-        Returns:\n
-            HTTP return code\n
-        """
-        pprint("Download data called")
+def upload_to_raw_data(content, data_entry):
+
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    if content == 'test':
+        model.rawDataOdkCollect.__table__.insert(
+                uuid = str(uuid.uuid4()),
+                timestamp = datetime.datetime.now(),
+                token = data_entry['token'],
+                content = data_entry['content'],
+                formId = data_entry['content'],
+                formVersion = data_entry['content'],
+                data = data_entry['content']
+            )
