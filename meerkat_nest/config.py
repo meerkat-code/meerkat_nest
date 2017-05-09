@@ -24,10 +24,18 @@ from meerkat_nest.country_config import demo_config
 #country_config_file = os.environ("COUNTRY_CONFIG")
 country_config = demo_config.country_config
 
-#spec = importlib.util.spec_from_file_location(
-#    "country_config_module",
-#    config_directory + country_config_file
-#)
-#country_config_module = importlib.util.module_from_spec(spec)
-#spec.loader.exec_module(country_config_module)
-#country_config = country_config_module.country_config
+class Config(object):
+    DEBUG = True
+    TESTING = False
+    
+class Production(Config):
+    DEBUG = False
+    TESTING = False
+
+class Development(Config):
+    DEBUG = True
+    TESTING = True
+
+class Testing(Config):
+    DEBUG = False
+    TESTING = True

@@ -33,22 +33,30 @@ class uploadData(Resource):
 
         data_entry = request.json
 
+
         # Validate request
         try:
             assert('token' in data_entry)
             assert('content' in data_entry)
-            #assert('formId' in data_entry)
-            #assert('formVersion' in data_entry)
+            assert('formId' in data_entry)
+            assert('formVersion' in data_entry)
             assert('data' in data_entry)
         except AssertionError:
             return {"message":"Input was not a valid Meerkat Nest JSON item"}
 
-        uuid = upload_to_raw_data(data_entry = data_entry)
-        process(uuid, data_entry)
+        uuid_pk = upload_to_raw_data(data_entry = data_entry)
+
+        if not uuid_pk:
+            return {"message":"Raw input type '" + data_entry['content'] + "' is not supported"}
+
+        entered = process(uuid_pk, data_entry)
+
+        if not entered:
+            return {"message":"Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"}
 
         return data_entry
 
-def upload_to_raw_data( data_entry):
+def upload_to_raw_data(data_entry):
     """
     Stores data in Meerkat Nest database
     
@@ -56,29 +64,51 @@ def upload_to_raw_data( data_entry):
         uuid for the PK of the raw data row\n
     """
 
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    uuid_pk = str(uuid.uuid4())
 
-    uuid = str(uuid.uuid4())
-
-    if data_entry['content'] == 'test':
-        model.rawDataOdkCollect.__table__.insert(
-                uuid =uuid,
+    insert_row = None
+    if data_entry['content'] == 'form':
+        insert_row = model.rawDataOdkCollect.__table__.insert().values(
+                uuid =uuid_pk,
                 timestamp = datetime.datetime.now(),
                 token = data_entry['token'],
                 content = data_entry['content'],
-                formId = data_entry['content'],
-                formVersion = data_entry['content'],
-                data = data_entry['content']
+                formId = data_entry['formId'],
+                formVersion = data_entry['formVersion'],
+                data = data_entry['data']
             )
 
-    return uuid
+    if insert_row is not None:
+        try:
+            connection = engine.connect()
+            connection.execute(insert_row)
+            connection.close()
+        except Exception as e:
+            return None
 
-def process(uuid, data_entry):
+        return uuid_pk
 
-    if data_entry['content'] == 'test':
+    else:
+        return False
+
+def process(uuid_pk, data_entry):
+
+    insert_row = None
+    if data_entry['content'] == 'form':
         if data_entry['formId'] in config.country_config['tables']:
-            pprint(data_entry)
-            #model.data_type_tables[data_entry['formId']].insert()
+            insert_row = model.data_type_tables[data_entry['formId']].__table__.insert().values(
+                   uuid=uuid_pk,
+                   data=data_entry['data']
+                )
+    if insert_row is not None:
+        try:
+            connection = engine.connect()
+            connection.execute(insert_row)
+            connection.close()
+            return True
+        except Exception as e:
+            return False
+        
 
-    return True
+    else:
+        return False

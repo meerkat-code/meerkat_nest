@@ -16,6 +16,7 @@ from meerkat_nest import model
 # Create the Flask app
 app = Flask(__name__)
 api = Api(app)
+app.config.from_object('meerkat_nest.config.Config')
 
 db_url = os.environ['MEERKAT_NEST_DB_URL']
 setup_database.create_db(db_url, model.Base, drop=False)
