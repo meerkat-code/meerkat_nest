@@ -12,6 +12,7 @@ import datetime
 from pprint import pprint
 
 from meerkat_nest import model
+from meerkat_nest import config
 
 db_url = os.environ['MEERKAT_NEST_DB_URL']
 engine = create_engine(db_url)
@@ -30,32 +31,39 @@ class uploadData(Resource):
 
     def post(self):
 
-        pprint("DEBUG: Received POST request")
-        pprint(request.json)
         data_entry = request.json
 
         # Validate request
         try:
             assert('token' in data_entry)
             assert('content' in data_entry)
-            assert('formId' in data_entry)
-            assert('formVersion' in data_entry)
+            #assert('formId' in data_entry)
+            #assert('formVersion' in data_entry)
             assert('data' in data_entry)
         except AssertionError:
-            return {"message":"Input was not valid ODK Aggregate JSON item"}
+            return {"message":"Input was not a valid Meerkat Nest JSON item"}
 
-        upload_to_raw_data(content=data_entry['content'], data_entry=data_entry)
+        uuid = upload_to_raw_data(data_entry = data_entry)
+        process(uuid, data_entry)
 
         return data_entry
 
-def upload_to_raw_data(content, data_entry):
+def upload_to_raw_data( data_entry):
+    """
+    Stores data in Meerkat Nest database
+    
+    Returns:\n
+        uuid for the PK of the raw data row\n
+    """
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    if content == 'test':
+    uuid = str(uuid.uuid4())
+
+    if data_entry['content'] == 'test':
         model.rawDataOdkCollect.__table__.insert(
-                uuid = str(uuid.uuid4()),
+                uuid =uuid,
                 timestamp = datetime.datetime.now(),
                 token = data_entry['token'],
                 content = data_entry['content'],
@@ -63,3 +71,14 @@ def upload_to_raw_data(content, data_entry):
                 formVersion = data_entry['content'],
                 data = data_entry['content']
             )
+
+    return uuid
+
+def process(uuid, data_entry):
+
+    if data_entry['content'] == 'test':
+        if data_entry['formId'] in config.country_config['tables']:
+            pprint(data_entry)
+            #model.data_type_tables[data_entry['formId']].insert()
+
+    return True
