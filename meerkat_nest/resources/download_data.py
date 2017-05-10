@@ -31,7 +31,7 @@ class downloadData(Resource):
         ret = {}
 
         for table in config.country_config['tables']:
-            ret[table] = str(session.query(model.data_type_tables[table]).all())
+            ret[table] = str(session.query(model.data_type_tables[table].data).all())
 
 
         return ret

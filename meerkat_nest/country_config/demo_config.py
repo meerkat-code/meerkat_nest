@@ -11,6 +11,7 @@ country_config = {
     "scramble_fields": {
     	"demo_case":[],
         "demo_alert":[],
-        "demo_register":[]
+        "demo_register":[],
+        "test":["turtle","master"]
     }
  }

@@ -32,16 +32,4 @@ class rawDataOdkCollect(Base):
     formVersion = Column(String)
     data = Column(JSONB)
 
-class stagingTable(Base):
-    __tablename__='staging_table'
-
-    uuid = Column(String, primary_key=True)
-    timestamp = Column(DateTime)
-    token = Column(String)
-    content = Column(String)
-    formId = Column(String)
-    formVersion = Column(String)
-    data = Column(JSONB)
-
-
 

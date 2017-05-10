@@ -13,6 +13,8 @@ from pprint import pprint
 
 from meerkat_nest import model
 from meerkat_nest import config
+from meerkat_nest.util.scramble import scramble
+#from meerkat_nest import message_service
 
 db_url = os.environ['MEERKAT_NEST_DB_URL']
 engine = create_engine(db_url)
@@ -49,16 +51,18 @@ class uploadData(Resource):
         if not uuid_pk:
             return {"message":"Raw input type '" + data_entry['content'] + "' is not supported"}
 
-        entered = process(uuid_pk, data_entry)
+        processed_data_entry = process(uuid_pk, data_entry)
 
-        if not entered:
+        if not processed_data_entry:
             return {"message":"Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"}
 
-        return data_entry
+        #sent = message_service.send_data(processed_data_entry)
+
+        return processed_data_entry
 
 def upload_to_raw_data(data_entry):
     """
-    Stores data in Meerkat Nest database
+    Stores raw data in Meerkat Nest database
     
     Returns:\n
         uuid for the PK of the raw data row\n
@@ -84,7 +88,7 @@ def upload_to_raw_data(data_entry):
             connection.execute(insert_row)
             connection.close()
         except Exception as e:
-            return None
+            return False
 
         return uuid_pk
 
@@ -92,23 +96,54 @@ def upload_to_raw_data(data_entry):
         return False
 
 def process(uuid_pk, data_entry):
+    """
+    Processes raw data and stores the processed data entry in in Meerkat Nest database
+    
+    Returns:\n
+        processed data_entry if processing was successful, False otherwise
+    """
+
+    processed_data_entry = scramble_fields(data_entry)
 
     insert_row = None
     if data_entry['content'] == 'form':
         if data_entry['formId'] in config.country_config['tables']:
-            insert_row = model.data_type_tables[data_entry['formId']].__table__.insert().values(
+            insert_row = model.data_type_tables[processed_data_entry['formId']].__table__.insert().values(
                    uuid=uuid_pk,
-                   data=data_entry['data']
+                   data=processed_data_entry['data']
                 )
     if insert_row is not None:
         try:
             connection = engine.connect()
             connection.execute(insert_row)
             connection.close()
-            return True
+            return processed_data_entry
         except Exception as e:
+            print(e)
             return False
         
 
     else:
         return False
+
+def scramble_fields(data_entry):
+    """
+    Scrambles fields in data entry based on configuraionts
+    
+    Returns:\n
+        True if processing was successful, False otherwise
+    """
+
+    data_entry_scrambled = data_entry
+
+    try:
+        fields = config.country_config['scramble_fields'][data_entry['formId']]
+    except KeyError as e:
+        return data_entry_scrambled
+
+    for field in fields:
+        if field in data_entry_scrambled['data'].keys():
+            data_entry_scrambled['data'][field]=scramble(data_entry_scrambled['data'][field])
+
+    return data_entry_scrambled
+
