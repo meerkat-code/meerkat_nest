@@ -35,18 +35,11 @@ class uploadData(Resource):
 
         data_entry = request.json
 
+        valid = validate_request(data_entry)
+        if not valid['value']:
+            return {"message":"Input was not a valid Meerkat Nest JSON object"}
 
-        # Validate request
-        try:
-            assert('token' in data_entry)
-            assert('content' in data_entry)
-            assert('formId' in data_entry)
-            assert('formVersion' in data_entry)
-            assert('data' in data_entry)
-        except AssertionError:
-            return {"message":"Input was not a valid Meerkat Nest JSON item"}
-
-        uuid_pk = upload_to_raw_data(data_entry = data_entry)
+        uuid_pk = upload_to_raw_data(data_entry)
 
         if not uuid_pk:
             return {"message":"Raw input type '" + data_entry['content'] + "' is not supported"}
@@ -71,11 +64,13 @@ def upload_to_raw_data(data_entry):
     uuid_pk = str(uuid.uuid4())
 
     insert_row = None
+
     if data_entry['content'] == 'form':
         insert_row = model.rawDataOdkCollect.__table__.insert().values(
                 uuid =uuid_pk,
-                timestamp = datetime.datetime.now(),
-                token = data_entry['token'],
+                received_on = datetime.datetime.now(),
+                valid_from = datetime.datetime.now(),
+                authentication_token = data_entry['token'],
                 content = data_entry['content'],
                 formId = data_entry['formId'],
                 formVersion = data_entry['formVersion'],
@@ -88,6 +83,7 @@ def upload_to_raw_data(data_entry):
             connection.execute(insert_row)
             connection.close()
         except Exception as e:
+            print(e)
             return False
 
         return uuid_pk
@@ -147,3 +143,16 @@ def scramble_fields(data_entry):
 
     return data_entry_scrambled
 
+def validate_request(data_entry):
+
+    try:
+        assert('token' in data_entry)
+        assert('content' in data_entry)
+        assert(data_entry['content'] in config.country_config['supported_content'])
+
+        assert('formId' in data_entry)
+        assert('formVersion' in data_entry)
+        assert('data' in data_entry)
+        return {"value":1, "message":"valid"}
+    except AssertionError as e:
+        return {"value":0,"message":str(e)}

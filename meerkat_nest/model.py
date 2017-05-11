@@ -22,14 +22,21 @@ for table in config.country_config["tables"]:
 
 
 class rawDataOdkCollect(Base):
+    """
+    ORM for raw data table for ODK form input
+    """
     __tablename__ = 'raw_data_odk_collect'
 
     uuid = Column(String, primary_key=True)
-    timestamp = Column(DateTime)
-    token = Column(String)
+    received_on = Column(DateTime)
+    valid_from = Column(DateTime)
+    authentication_token = Column(String)
     content = Column(String)
     formId = Column(String)
     formVersion = Column(String)
     data = Column(JSONB)
+
+#class rawDataOdkCollectArchive(rawDataOdkCollect):
+
 
 

@@ -13,5 +13,8 @@ country_config = {
         "demo_alert":[],
         "demo_register":[],
         "test":["turtle","master"]
-    }
+    },
+    "supported_content": [
+        "form"
+    ]
  }
