@@ -14,7 +14,7 @@ from pprint import pprint
 from meerkat_nest import model
 from meerkat_nest import config
 from meerkat_nest.util.scramble import scramble
-#from meerkat_nest import message_service
+from meerkat_nest import message_service
 
 db_url = os.environ['MEERKAT_NEST_DB_URL']
 engine = create_engine(db_url)
@@ -49,7 +49,7 @@ class uploadData(Resource):
         if not processed_data_entry:
             return {"message":"Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"}
 
-        #sent = message_service.send_data(processed_data_entry)
+        sent = message_service.send_data(processed_data_entry)
 
         return processed_data_entry
 

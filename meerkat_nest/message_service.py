@@ -5,8 +5,8 @@ import boto3
 import json
 from meerkat_nest.util.create_queue_name import create_queue_name
 
-sqs_client = boto3.client('sqs')
-sts_client = boto3.client('sts')
+sqs_client = boto3.client('sqs', region_name='eu-west-1')
+sts_client = boto3.client('sts', region_name='eu-west-1')
 
 def get_account_id():
     """
@@ -25,11 +25,11 @@ def get_queue_url(queue_name):
     Returns:\n
         URL for the given queue\n
     """
-	response = client.get_queue_url(
-    	QueueName=queue_name,
-    	QueueOwnerAWSAccountId=get_account_id()
-	)
-	return response['QueueUrl']
+    response = client.get_queue_url(
+        QueueName=queue_name,
+        QueueOwnerAWSAccountId=get_account_id()
+    )
+    return response['QueueUrl']
 
 def create_queue(data_entry):
     """
@@ -41,7 +41,7 @@ def create_queue(data_entry):
     try:
         queue_name = create_queue_name(data_entry)
         return True
-    except Exception e:
+    except Exception as e:
         print(e)
         return False
 
@@ -52,6 +52,10 @@ def send_data(data_entry):
     Returns:\n
         uuid for the PK of the raw data row\n
     """
+
+    created = create_queue(data_entry)
+    if not created: return False
+
     queue_name = create_queue_name(data_entry)
     try:
         response = sqs_client.send_message(
