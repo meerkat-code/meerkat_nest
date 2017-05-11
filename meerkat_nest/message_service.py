@@ -25,7 +25,7 @@ def get_queue_url(queue_name):
     Returns:\n
         URL for the given queue\n
     """
-    response = client.get_queue_url(
+    response = sqs_client.get_queue_url(
         QueueName=queue_name,
         QueueOwnerAWSAccountId=get_account_id()
     )
@@ -40,6 +40,9 @@ def create_queue(data_entry):
     """
     try:
         queue_name = create_queue_name(data_entry)
+        response = sqs_client.create_queue(
+            QueueName=queue_name
+        )
         return True
     except Exception as e:
         print(e)
@@ -60,10 +63,19 @@ def send_data(data_entry):
     try:
         response = sqs_client.send_message(
             QueueUrl=get_queue_url(create_queue_name(data_entry)),
-            MessageBody=json.dumps(data_entry['data']),
-            DelaySeconds=123
+            MessageBody=json.dumps(data_entry['data'])
         )
         return True
     except Exception as e:
+        print('Sending data to SQS failed')
         print(e)
         return False
+
+def receive_data(queue_name,n=100):
+    return_set = []
+
+    for i in range(1,n):
+        sqs_client.receive_message(
+            QueueUrl='string',
+            )
+    return return_set
