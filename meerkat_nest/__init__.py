@@ -27,6 +27,8 @@ def nest_root_url():
 
 from meerkat_nest.resources.upload_data import uploadData
 from meerkat_nest.resources.download_data import downloadData
+from meerkat_nest.resources.amend_data import amendData
 
 api.add_resource(uploadData, "/upload")
 api.add_resource(downloadData, "/download")
+api.add_resource(amendData,"/amend")

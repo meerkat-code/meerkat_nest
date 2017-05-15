@@ -1,7 +1,7 @@
 """
 Database model definition
 """
-from sqlalchemy import Column, String, DateTime, DDL, Integer
+from sqlalchemy import Column, String, DateTime, DDL, Integer, Boolean, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.event import listen
@@ -28,15 +28,31 @@ class rawDataOdkCollect(Base):
     __tablename__ = 'raw_data_odk_collect'
 
     uuid = Column(String, primary_key=True)
-    received_on = Column(DateTime)
-    valid_from = Column(DateTime)
+    received_on = Column(DateTime, nullable=False)
+    active_from = Column(DateTime, nullable=False)
     authentication_token = Column(String)
-    content = Column(String)
+    content = Column(String, nullable=False)
     formId = Column(String)
     formVersion = Column(String)
     data = Column(JSONB)
 
-#class rawDataOdkCollectArchive(rawDataOdkCollect):
+class rawDataOdkCollectArchive(Base):
+    """
+    ORM table for archived raw data from ODK form input
+    """
+    __tablename__ = 'archive_raw_data_odk_collect'
+
+    uuid = Column(String, primary_key=True)
+    active_uuid = Column(String)
+    received_on = Column(DateTime, nullable=False)
+    active_from = Column(DateTime, nullable=False)
+    active_until = Column(DateTime, nullable=False)
+    authentication_token = Column(String)
+    content = Column(String, nullable=False)
+    formId = Column(String)
+    formVersion = Column(String)
+    data = Column(JSONB)
+
 
 
 

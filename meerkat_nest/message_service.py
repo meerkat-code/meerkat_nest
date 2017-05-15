@@ -3,7 +3,6 @@ Data resource for interacting with Amazon Simple Queue Service
 """
 import boto3
 import json
-from meerkat_nest.util.create_queue_name import create_queue_name
 
 sqs_client = boto3.client('sqs', region_name='eu-west-1')
 sts_client = boto3.client('sts', region_name='eu-west-1')
@@ -17,6 +16,16 @@ def get_account_id():
     """
     account_id = sts_client.get_caller_identity()["Account"]
     return account_id
+
+def create_queue_name(data_entry):
+    """
+    Creates a queue name based on organization, entry content
+    and entry subcontent
+    
+    Returns:\n
+        automatically generated SQS queue name\n
+    """
+    return 'nest-queue-' + config.country_config['country_name'].lower() + '-' + data_entry['content'] + '-' + data_entry['formId']
 
 def get_queue_url(queue_name):
     """

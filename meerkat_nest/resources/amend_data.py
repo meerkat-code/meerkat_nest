@@ -19,9 +19,9 @@ from meerkat_nest import message_service
 db_url = os.environ['MEERKAT_NEST_DB_URL']
 engine = create_engine(db_url)
 
-class uploadData(Resource):
+class amendData(Resource):
     """
-    Receives JSON data and stores it in Meerkat Nest database
+    Receives JSON data and amends an existing entry in Meerkat DB
     
     Returns:\n
         HTTP return code\n
@@ -29,7 +29,7 @@ class uploadData(Resource):
     #decorators = [authenticate]
 
     def get(self):
-        return "upload data GET"
+        return "amend data GET"
 
     def post(self):
 
@@ -53,7 +53,7 @@ class uploadData(Resource):
 
         return processed_data_entry
 
-def upload_to_raw_data(data_entry):
+def amend_raw_data(data_entry):
     """
     Stores raw data in Meerkat Nest database
     
@@ -90,75 +90,6 @@ def upload_to_raw_data(data_entry):
 
     else:
         return False
-
-def process(uuid_pk, data_entry):
-    """
-    Processes raw data and stores the processed data entry in in Meerkat Nest database
-    
-    Returns:\n
-        processed data_entry if processing was successful, False otherwise
-    """
-
-    processed_data_entry = scramble_fields(data_entry)
-    processed_data_entry = format_field_keys(processed_data_entry)
-
-    insert_row = None
-    if data_entry['content'] == 'form':
-        if data_entry['formId'] in config.country_config['tables']:
-            insert_row = model.data_type_tables[processed_data_entry['formId']].__table__.insert().values(
-                   uuid=uuid_pk,
-                   data=processed_data_entry['data']
-                )
-    if insert_row is not None:
-        try:
-            connection = engine.connect()
-            connection.execute(insert_row)
-            connection.close()
-            return processed_data_entry
-        except Exception as e:
-            print(e)
-            return False
-        
-
-    else:
-        return False
-
-def scramble_fields(data_entry):
-    """
-    Scrambles fields in data entry based on configurations
-    
-    Returns:\n
-        data entry structure with scrambled fields
-    """
-
-    data_entry_scrambled = data_entry
-
-    try:
-        fields = config.country_config['scramble_fields'][data_entry['formId']]
-    except KeyError as e:
-        return data_entry_scrambled
-
-    for field in fields:
-        if field in data_entry_scrambled['data'].keys():
-            data_entry_scrambled['data'][field]=scramble(data_entry_scrambled['data'][field])
-
-    return data_entry_scrambled
-
-def format_field_keys(data_entry):
-    """
-    Formats the field names in the data entry
-    
-    Returns:\n
-        data entry structure with formatted field namess
-    """
-    processed_data_entry = data_entry
-    processed_data_entry['data']={}
-
-    for key in data_entry['data'].keys():
-        processed_data_entry['data'].update({format_form_field_key(key):data_entry['data'][key]})
-
-    print('DEBUG: ' + str(processed_data_entry))
-    return processed_data_entry 
 
 def validate_request(data_entry):
     """
