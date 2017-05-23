@@ -35,13 +35,14 @@ class amendData(Resource):
 
         data_entry = request.json
 
-        valid = validate_request(data_entry)
-        if not valid['value']:
-            return {"message":"Input was not a valid Meerkat Nest JSON object"}
+        try:
+            validate_request(data_entry)
+        except AssertionError as e:
+            return {"message":"Input was not a valid Meerkat Nest JSON object: " + e.args[0]}
 
-        uuid_pk = upload_to_raw_data(data_entry)
-
-        if not uuid_pk:
+        try:
+            uuid_pk = amend_raw_data(data_entry)
+        except AssertionError as e:
             return {"message":"Raw input type '" + data_entry['content'] + "' is not supported"}
 
         processed_data_entry = process(uuid_pk, data_entry)
@@ -65,6 +66,8 @@ def amend_raw_data(data_entry):
 
     insert_row = None
 
+    assert(data_entry['content'] in ['form'])
+
     if data_entry['content'] == 'form':
         insert_row = model.rawDataOdkCollect.__table__.insert().values(
                 uuid =uuid_pk,
@@ -83,13 +86,9 @@ def amend_raw_data(data_entry):
             connection.execute(insert_row)
             connection.close()
         except Exception as e:
-            print(e)
-            return False
+            raise
 
         return uuid_pk
-
-    else:
-        return False
 
 def validate_request(data_entry):
     """
@@ -103,10 +102,21 @@ def validate_request(data_entry):
         assert('token' in data_entry)
         assert('content' in data_entry)
         assert(data_entry['content'] in config.country_config['supported_content'])
-
         assert('formId' in data_entry)
         assert('formVersion' in data_entry)
         assert('data' in data_entry)
+        assert('uuid' in data_entry['data'])
         return {"value":1, "message":"valid"}
     except AssertionError as e:
-        return {"value":0,"message":str(e)}
+        message = e.args[0]
+        message += "\nRequest validation failed."
+        e.args = (message,) #wrap it up in new tuple
+        raise
+
+    """try:
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        validation_select = session.query(model.rawDataOdkCollect.uuid).filter(model.rawDataOdkCollect.uuid = data_entry['data']['uuid']).all()
+    except Exception as e:
+        print(e)
+        raise"""

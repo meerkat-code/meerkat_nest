@@ -35,21 +35,27 @@ class uploadData(Resource):
 
         data_entry = request.json
 
-        valid = validate_request(data_entry)
-        if not valid['value']:
-            return {"message":"Input was not a valid Meerkat Nest JSON object"}
+        try:
+            validate_request(data_entry)
+        except AssertionError as e:
+            return {"message":"Input was not a valid Meerkat Nest JSON object: " + e.args[0]}
 
-        uuid_pk = upload_to_raw_data(data_entry)
-
-        if not uuid_pk:
+        try:
+            uuid_pk = upload_to_raw_data(data_entry)
+        except AssertionError as e:
             return {"message":"Raw input type '" + data_entry['content'] + "' is not supported"}
 
-        processed_data_entry = process(uuid_pk, data_entry)
-
-        if not processed_data_entry:
+        try:
+            processed_data_entry = process(uuid_pk, data_entry)
+        except AssertionError as e:
             return {"message":"Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"}
 
-        sent = message_service.send_data(processed_data_entry)
+        return processed_data_entry
+
+        try:
+            sent = message_service.send_data(processed_data_entry)
+        except Exception as e:
+            return {"message":"An error was encountered " + e.args[0]}
 
         return processed_data_entry
 
@@ -65,6 +71,8 @@ def upload_to_raw_data(data_entry):
 
     insert_row = None
 
+    assert(data_entry['content'] in ['form'])
+
     if data_entry['content'] == 'form':
         insert_row = model.rawDataOdkCollect.__table__.insert().values(
                 uuid =uuid_pk,
@@ -75,21 +83,17 @@ def upload_to_raw_data(data_entry):
                 formId = data_entry['formId'],
                 formVersion = data_entry['formVersion'],
                 data = data_entry['data']
-            )
+        )
 
-    if insert_row is not None:
-        try:
-            connection = engine.connect()
-            connection.execute(insert_row)
-            connection.close()
-        except Exception as e:
-            print(e)
-            return False
+    assert(insert_row is not None)
+    try:
+        connection = engine.connect()
+        connection.execute(insert_row)
+        connection.close()
+    except Exception as e:
+        raise
 
-        return uuid_pk
-
-    else:
-        return False
+    return uuid_pk
 
 def process(uuid_pk, data_entry):
     """
@@ -102,26 +106,25 @@ def process(uuid_pk, data_entry):
     processed_data_entry = scramble_fields(data_entry)
     processed_data_entry = format_field_keys(processed_data_entry)
 
-    insert_row = None
-    if data_entry['content'] == 'form':
-        if data_entry['formId'] in config.country_config['tables']:
-            insert_row = model.data_type_tables[processed_data_entry['formId']].__table__.insert().values(
-                   uuid=uuid_pk,
-                   data=processed_data_entry['data']
-                )
-    if insert_row is not None:
-        try:
-            connection = engine.connect()
-            connection.execute(insert_row)
-            connection.close()
-            return processed_data_entry
-        except Exception as e:
-            print(e)
-            return False
-        
+    return processed_data_entry
 
-    else:
-        return False
+    assert(data_entry['content'] in ['form'])
+    assert(data_entry['formId'] in config.country_config['tables'])
+
+    insert_row = model.data_type_tables[processed_data_entry['formId']].__table__.insert().values(
+           uuid=uuid_pk,
+           data=processed_data_entry['data']
+        )
+
+    try:
+        connection = engine.connect()
+        connection.execute(insert_row)
+        connection.close()
+        return processed_data_entry
+    except Exception as e:
+        raise
+
+    return processed_data_entry
 
 def scramble_fields(data_entry):
     """
@@ -151,14 +154,15 @@ def format_field_keys(data_entry):
     Returns:\n
         data entry structure with formatted field namess
     """
-    processed_data_entry = data_entry
-    processed_data_entry['data']={}
 
     for key in data_entry['data'].keys():
-        processed_data_entry['data'].update({format_form_field_key(key):data_entry['data'][key]})
+        new_key = format_form_field_key(key)
+        if new_key != key:
+            data_entry['data'].update({new_key: data_entry['data'][key]})
+            data_entry['data'].pop(key)
 
-    print('DEBUG: ' + str(processed_data_entry))
-    return processed_data_entry 
+    print('DEBUG: ' + str(data_entry))
+    return data_entry 
 
 def validate_request(data_entry):
     """
@@ -172,10 +176,11 @@ def validate_request(data_entry):
         assert('token' in data_entry)
         assert('content' in data_entry)
         assert(data_entry['content'] in config.country_config['supported_content'])
-
         assert('formId' in data_entry)
         assert('formVersion' in data_entry)
         assert('data' in data_entry)
-        return {"value":1, "message":"valid"}
     except AssertionError as e:
-        return {"value":0,"message":str(e)}
+           message = e.args[0]
+           message += "\nRequest validation failed."
+           e.args = (message,)
+           raise

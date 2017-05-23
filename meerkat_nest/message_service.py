@@ -74,11 +74,8 @@ def send_data(data_entry):
             QueueUrl=get_queue_url(create_queue_name(data_entry)),
             MessageBody=json.dumps(data_entry['data'])
         )
-        return True
     except Exception as e:
-        print('Sending data to SQS failed')
-        print(e)
-        return False
+        raise
 
 def receive_data(queue_name,n=100):
     return_set = []
