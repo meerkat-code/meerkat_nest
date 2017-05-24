@@ -8,7 +8,7 @@ def scramble(value):
 	scrambles the input string value
 	"""
 	ret = ''
-	return
+	return ret
 
 def format_form_field_key(value):
 	"""

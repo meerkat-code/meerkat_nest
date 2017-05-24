@@ -4,6 +4,8 @@ Data resource for interacting with Amazon Simple Queue Service
 import boto3
 import json
 
+from meerkat_nest import config
+
 sqs_client = boto3.client('sqs', region_name='eu-west-1')
 sts_client = boto3.client('sts', region_name='eu-west-1')
 
@@ -53,9 +55,11 @@ def create_queue(data_entry):
             QueueName=queue_name
         )
         return True
-    except Exception as e:
-        print(e)
-        return False
+    except AssertionError as e:
+        message = e.args[0]
+        message += "\Message queue creation failed."
+        e.args = (message,)
+        raise
 
 def send_data(data_entry):
     """
@@ -66,7 +70,13 @@ def send_data(data_entry):
     """
 
     created = create_queue(data_entry)
-    if not created: return False
+    try:
+        assert created, "Queue could not be created" 
+    except AssertionError as e:
+        message = e.args[0]
+        message += "\Message queue creation failed."
+        e.args = (message,)
+        raise
 
     queue_name = create_queue_name(data_entry)
     try:
@@ -74,6 +84,7 @@ def send_data(data_entry):
             QueueUrl=get_queue_url(create_queue_name(data_entry)),
             MessageBody=json.dumps(data_entry['data'])
         )
+        print('DEBUG: ' + str(response))
     except Exception as e:
         raise
 

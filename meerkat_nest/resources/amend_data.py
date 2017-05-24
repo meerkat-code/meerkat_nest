@@ -110,7 +110,7 @@ def validate_request(data_entry):
     except AssertionError as e:
         message = e.args[0]
         message += "\nRequest validation failed."
-        e.args = (message,) #wrap it up in new tuple
+        e.args = (message,)
         raise
 
     """try:

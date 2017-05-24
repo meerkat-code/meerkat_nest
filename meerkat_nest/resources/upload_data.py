@@ -38,24 +38,24 @@ class uploadData(Resource):
         try:
             validate_request(data_entry)
         except AssertionError as e:
-            return {"message":"Input was not a valid Meerkat Nest JSON object: " + e.args[0]}
+            return {"message":("Input was not a valid Meerkat Nest JSON object: " + e.args[0])}
 
         try:
             uuid_pk = upload_to_raw_data(data_entry)
         except AssertionError as e:
             return {"message":"Raw input type '" + data_entry['content'] + "' is not supported"}
+        except Exception as e:
+            return {"message": "Error in uploading data: " + e.args[0]}
 
         try:
             processed_data_entry = process(uuid_pk, data_entry)
         except AssertionError as e:
             return {"message":"Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"}
 
-        return processed_data_entry
-
         try:
             sent = message_service.send_data(processed_data_entry)
-        except Exception as e:
-            return {"message":"An error was encountered " + e.args[0]}
+        except AssertionError as e:
+            return {"message":"Error in forwarding data to message queue: " + str(e)}#e.args[0]}
 
         return processed_data_entry
 
@@ -71,7 +71,7 @@ def upload_to_raw_data(data_entry):
 
     insert_row = None
 
-    assert(data_entry['content'] in ['form'])
+    assert data_entry['content'] in ['form'], "Content not supported"
 
     if data_entry['content'] == 'form':
         insert_row = model.rawDataOdkCollect.__table__.insert().values(
@@ -85,7 +85,7 @@ def upload_to_raw_data(data_entry):
                 data = data_entry['data']
         )
 
-    assert(insert_row is not None)
+    assert insert_row is not None, "Content handling not implemented"
     try:
         connection = engine.connect()
         connection.execute(insert_row)
@@ -108,8 +108,8 @@ def process(uuid_pk, data_entry):
 
     return processed_data_entry
 
-    assert(data_entry['content'] in ['form'])
-    assert(data_entry['formId'] in config.country_config['tables'])
+    assert data_entry['content'] in ['form'], "Content not supported"
+    assert data_entry['formId'] in config.country_config['tables'], "Form not supported"
 
     insert_row = model.data_type_tables[processed_data_entry['formId']].__table__.insert().values(
            uuid=uuid_pk,
@@ -161,7 +161,6 @@ def format_field_keys(data_entry):
             data_entry['data'].update({new_key: data_entry['data'][key]})
             data_entry['data'].pop(key)
 
-    print('DEBUG: ' + str(data_entry))
     return data_entry 
 
 def validate_request(data_entry):
@@ -171,16 +170,20 @@ def validate_request(data_entry):
     Returns:\n
         True if processing was successful, False otherwise
     """
+    valid_data_structure = {
+        'key_token': 'token',
+        'key_content': 'content',
+        'key_formId': 'formId',
+        'key_formVersion': 'formVersion',
+        'key_data': 'data'
+    }
 
     try:
-        assert('token' in data_entry)
-        assert('content' in data_entry)
-        assert(data_entry['content'] in config.country_config['supported_content'])
-        assert('formId' in data_entry)
-        assert('formVersion' in data_entry)
-        assert('data' in data_entry)
+        for key in valid_data_structure:
+            assert valid_data_structure[key] in data_entry, "Missing key '" + valid_data_structure[key] + "' in input data"
+            assert data_entry['content'] in config.country_config['supported_content'], "Content '" + data_entry['content'] + "'' not supported"
     except AssertionError as e:
-           message = e.args[0]
-           message += "\nRequest validation failed."
-           e.args = (message,)
-           raise
+        message = e.args[0]
+        message += "\nRequest validation failed."
+        e.args = (message,)
+        raise
