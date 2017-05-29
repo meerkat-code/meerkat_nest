@@ -14,7 +14,12 @@ country_config = {
         "demo_register":[],
         "test":["turtle","master"]
     },
-    "supported_content": [
-        "form"
-    ]
+    "supported_content":
+        {"form": {
+            "token":"",
+            "content":"",
+            "formId":"",
+            "formVersion":"",
+            "data":""
+     }}
  }

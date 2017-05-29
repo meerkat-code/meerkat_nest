@@ -13,7 +13,7 @@ from pprint import pprint
 
 from meerkat_nest import model
 from meerkat_nest import config
-from meerkat_nest.util import scramble, format_form_field_key
+from meerkat_nest.util import scramble, format_form_field_key, validate_request
 from meerkat_nest import message_service
 
 db_url = os.environ['MEERKAT_NEST_DB_URL']
@@ -42,13 +42,14 @@ class uploadData(Resource):
 
         try:
             uuid_pk = upload_to_raw_data(data_entry)
+            data_entry['uuid'] = uuid_pk
         except AssertionError as e:
             return {"message":"Raw input type '" + data_entry['content'] + "' is not supported"}
         except Exception as e:
             return {"message": "Error in uploading data: " + e.args[0]}
 
         try:
-            processed_data_entry = process(uuid_pk, data_entry)
+            processed_data_entry = process(data_entry)
         except AssertionError as e:
             return {"message":"Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"}
 
@@ -95,7 +96,7 @@ def upload_to_raw_data(data_entry):
 
     return uuid_pk
 
-def process(uuid_pk, data_entry):
+def process(data_entry):
     """
     Processes raw data and stores the processed data entry in in Meerkat Nest database
     
@@ -112,7 +113,7 @@ def process(uuid_pk, data_entry):
     assert data_entry['formId'] in config.country_config['tables'], "Form not supported"
 
     insert_row = model.data_type_tables[processed_data_entry['formId']].__table__.insert().values(
-           uuid=uuid_pk,
+           uuid=processed_data_entry['uuid'],
            data=processed_data_entry['data']
         )
 
@@ -163,27 +164,4 @@ def format_field_keys(data_entry):
 
     return data_entry 
 
-def validate_request(data_entry):
-    """
-    Validates the data entry as supported input
-    
-    Returns:\n
-        True if processing was successful, False otherwise
-    """
-    valid_data_structure = {
-        'key_token': 'token',
-        'key_content': 'content',
-        'key_formId': 'formId',
-        'key_formVersion': 'formVersion',
-        'key_data': 'data'
-    }
 
-    try:
-        for key in valid_data_structure:
-            assert valid_data_structure[key] in data_entry, "Missing key '" + valid_data_structure[key] + "' in input data"
-            assert data_entry['content'] in config.country_config['supported_content'], "Content '" + data_entry['content'] + "'' not supported"
-    except AssertionError as e:
-        message = e.args[0]
-        message += "\nRequest validation failed."
-        e.args = (message,)
-        raise
