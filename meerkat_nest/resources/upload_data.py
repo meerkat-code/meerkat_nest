@@ -2,13 +2,14 @@
 Data resource for upload data
 """
 from flask_restful import Resource
-from flask import request
+from flask import request, Response
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import json
 import os
 import uuid
 import datetime
+import logging
 from pprint import pprint
 
 from meerkat_nest import model
@@ -33,31 +34,49 @@ class uploadData(Resource):
 
     def post(self):
 
-        data_entry = request.json
+        logging.warning("received upload request")
+        logging.warning(str(request.headers))
+        data_entry = request.get_json()
+        logging.warning(str(data_entry))
 
         try:
             validate_request(data_entry)
         except AssertionError as e:
-            return {"message":("Input was not a valid Meerkat Nest JSON object: " + e.args[0])}
-
+            logging.error("Input was not a valid Meerkat Nest JSON object: " + e.args[0])
+            return Response(json.dumps({"message":("Input was not a valid Meerkat Nest JSON object: " + e.args[0])}),
+                        status=400,
+                        mimetype='application/json')
         try:
             uuid_pk = upload_to_raw_data(data_entry)
             data_entry['uuid'] = uuid_pk
         except AssertionError as e:
-            return {"message":"Raw input type '" + data_entry['content'] + "' is not supported"}
+            logging.error("Raw input type '" + data_entry['content'] + "' is not supported")
+            return Response(json.dumps({"message":"Raw input type '" + data_entry['content'] + "' is not supported"}),
+                        status=400,
+                        mimetype='application/json')
         except Exception as e:
-            return {"message": "Error in uploading data: " + e.args[0]}
+            logging.error("Error in uploading data: " + e.args[0])
+            return Response(json.dumps({"message": "Error in uploading data: " + e.args[0]}),
+                        status=502,
+                        mimetype='application/json')
 
         try:
             processed_data_entry = process(data_entry)
         except AssertionError as e:
-            return {"message":"Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"}
+            logging.error("Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'")
+            return Response(json.dumps({"message":"Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"}),
+                        status=400,
+                        mimetype='application/json')
 
         try:
             sent = message_service.send_data(processed_data_entry)
         except AssertionError as e:
-            return {"message":"Error in forwarding data to message queue: " + str(e)}#e.args[0]}
+            logging.error("Error in forwarding data to message queue: " + str(e))
+            return Response(json.dumps({"message":"Error in forwarding data to message queue: " + str(e)}),
+                        status=502,
+                        mimetype='application/json')
 
+        logging.warning("processed upload request")
         return processed_data_entry
 
 def upload_to_raw_data(data_entry):
@@ -72,9 +91,7 @@ def upload_to_raw_data(data_entry):
 
     insert_row = None
 
-    assert data_entry['content'] in ['form'], "Content not supported"
-
-    if data_entry['content'] == 'form':
+    if data_entry['content'] == 'record':
         insert_row = model.rawDataOdkCollect.__table__.insert().values(
                 uuid =uuid_pk,
                 received_on = datetime.datetime.now(),
@@ -103,13 +120,11 @@ def process(data_entry):
     Returns:\n
         processed data_entry if processing was successful, False otherwise
     """
-
-    processed_data_entry = scramble_fields(data_entry)
+    processed_data_entry = restructure_aggregate_data(data_entry)
+    processed_data_entry = scramble_fields(processed_data_entry)
     processed_data_entry = format_field_keys(processed_data_entry)
 
-    return processed_data_entry
-
-    assert data_entry['content'] in ['form'], "Content not supported"
+    assert data_entry['content'] in ['form', 'record'], "Content not supported"
     assert data_entry['formId'] in config.country_config['tables'], "Form not supported"
 
     insert_row = model.data_type_tables[processed_data_entry['formId']].__table__.insert().values(
@@ -126,6 +141,19 @@ def process(data_entry):
         raise
 
     return processed_data_entry
+
+def restructure_aggregate_data(data_entry):
+    """
+    Restructures data from aggregate JSON feed
+    
+    Returns:\n
+        restructured data entry
+    """
+    restructured_data = data_entry['data'][0]
+    data_entry['data'] = restructured_data
+
+    return data_entry
+
 
 def scramble_fields(data_entry):
     """
