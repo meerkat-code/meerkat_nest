@@ -19,16 +19,16 @@ api = Api(app)
 app.config.from_object('meerkat_nest.config.Config')
 
 db_url = os.environ['MEERKAT_NEST_DB_URL']
-setup_database.create_db(db_url, model.Base, drop=True)
+setup_database.create_db(db_url, model.Base, drop=False)
 
 @app.route('/')
 def nest_root_url():
     return "Meerkat Nest"
 
 from meerkat_nest.resources.upload_data import uploadData
-from meerkat_nest.resources.download_data import downloadData
+#from meerkat_nest.resources.download_data import downloadData
 from meerkat_nest.resources.amend_data import amendData
 
 api.add_resource(uploadData, "/upload")
-api.add_resource(downloadData, "/download")
+#api.add_resource(downloadData, "/download")
 api.add_resource(amendData,"/amend")

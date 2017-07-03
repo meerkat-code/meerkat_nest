@@ -34,49 +34,58 @@ class uploadData(Resource):
 
     def post(self):
 
-        logging.warning("received upload request")
-        logging.warning(str(request.headers))
+        logging.debug("received upload request")
+        logging.debug(str(request.headers))
         data_entry = request.get_json()
-        logging.warning(str(data_entry))
+        logging.debug(str(data_entry))
 
+        # Validate the request
         try:
             validate_request(data_entry)
         except AssertionError as e:
-            logging.error("Input was not a valid Meerkat Nest JSON object: " + e.args[0])
-            return Response(json.dumps({"message":("Input was not a valid Meerkat Nest JSON object: " + e.args[0])}),
+            msg="Input was not a valid Meerkat Nest JSON object: " + e.args[0]
+            logging.error(msg)
+            return Response(json.dumps({"message":msg}),
                         status=400,
                         mimetype='application/json')
+        # Upload the data entry in to raw data storage
         try:
             uuid_pk = upload_to_raw_data(data_entry)
             data_entry['uuid'] = uuid_pk
         except AssertionError as e:
-            logging.error("Raw input type '" + data_entry['content'] + "' is not supported")
-            return Response(json.dumps({"message":"Raw input type '" + data_entry['content'] + "' is not supported"}),
+            msg="Raw input type '" + data_entry['content'] + "' is not supported"
+            logging.error(msg)
+            return Response(json.dumps({"message":msg}),
                         status=400,
                         mimetype='application/json')
         except Exception as e:
-            logging.error("Error in uploading data: " + e.args[0])
-            return Response(json.dumps({"message": "Error in uploading data: " + e.args[0]}),
+            msg = "Error in uploading data: " + e.args[0]
+            logging.error(msg)
+            return Response(json.dumps({"message":msg}),
                         status=502,
                         mimetype='application/json')
 
+        # Process the data entry
         try:
             processed_data_entry = process(data_entry)
         except AssertionError as e:
-            logging.error("Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'")
-            return Response(json.dumps({"message":"Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"}),
+            msg = "Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"
+            logging.error(msg)
+            return Response(json.dumps({"message":msg}),
                         status=400,
                         mimetype='application/json')
 
+        # Send processed data forward to the cloud
         try:
             sent = message_service.send_data(processed_data_entry)
         except AssertionError as e:
-            logging.error("Error in forwarding data to message queue: " + str(e))
-            return Response(json.dumps({"message":"Error in forwarding data to message queue: " + str(e)}),
+            msg = "Error in forwarding data to message queue: " + str(e)
+            logging.error(msg)
+            return Response(json.dumps({"message":msg}),
                         status=502,
                         mimetype='application/json')
 
-        logging.warning("processed upload request")
+        logging.debug("processed upload request")
         return processed_data_entry
 
 def upload_to_raw_data(data_entry):

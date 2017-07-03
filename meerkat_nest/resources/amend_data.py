@@ -32,28 +32,48 @@ class amendData(Resource):
         return "amend data GET"
 
     def post(self):
-
-        data_entry = request.json
+        logging.info("received amend request")
+        logging.info(str(request.headers))
+        data_entry = request.get_json()
+        logging.info(str(data_entry))
 
         try:
             validate_request(data_entry)
         except AssertionError as e:
-            return {"message":"Input was not a valid Meerkat Nest JSON object: " + e.args[0]}
-
+            logging.error("Input was not a valid Meerkat Nest JSON object: " + e.args[0])
+            return Response(json.dumps({"message":("Input was not a valid Meerkat Nest JSON object: " + e.args[0])}),
+                        status=400,
+                        mimetype='application/json')
         try:
             new_row = amend_raw_data(data_entry)
         except AssertionError as e:
-            return {"message":"No record with uuid " + data_entry['uuid'] + " found"}
+            logging.error("No record with uuid " + data_entry['uuid'] + " found")
+            return Response(json.dumps({"message":"No record with uuid " + data_entry['uuid'] + " found"}),
+                        status=400,
+                        mimetype='application/json')
+        except Exception as e:
+            logging.error("Error in uploading data: " + e.args[0])
+            return Response(json.dumps({"message": "Error in uploading data: " + e.args[0]}),
+                        status=502,
+                        mimetype='application/json')
 
-        return raw_odk_data_to_dict(new_row)
+        try:
+            processed_data_entry = process(data_entry)
+        except AssertionError as e:
+            logging.error("Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'")
+            return Response(json.dumps({"message":"Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"}),
+                        status=400,
+                        mimetype='application/json')
 
-        processed_data_entry = process(uuid_pk, data_entry)
+        try:
+            sent = message_service.send_data(processed_data_entry)
+        except AssertionError as e:
+            logging.error("Error in forwarding data to message queue: " + str(e))
+            return Response(json.dumps({"message":"Error in forwarding data to message queue: " + str(e)}),
+                        status=502,
+                        mimetype='application/json')
 
-        if not processed_data_entry:
-            return {"message":"Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"}
-
-        sent = message_service.send_data(processed_data_entry)
-
+        logging.warning("processed amend request")
         return processed_data_entry
 
 def amend_raw_data(data_entry):
