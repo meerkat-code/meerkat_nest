@@ -32,7 +32,8 @@ def get_queue_name(data_entry):
     Returns:\n
         automatically generated SQS queue name\n
     """
-    return 'nest-queue-' + config.country_config['country_name'].lower() + '-' + data_entry['content'] + '-' + data_entry['formId']
+    return 'nest-queue-' + config.country_config['country_name'].lower() + '-'\
+           + data_entry['content'] + '-' + data_entry['formId']
 
 
 def get_dead_letter_queue_name(data_entry):
@@ -102,7 +103,7 @@ def send_data(data_entry):
         assert created, "Queue could not be created" 
     except AssertionError as e:
         message = e.args[0]
-        message += "\Message queue creation failed."
+        message += " Message queue creation failed."
         e.args = (message,)
         raise
 

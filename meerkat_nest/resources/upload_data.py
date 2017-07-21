@@ -20,14 +20,14 @@ from meerkat_nest import message_service
 db_url = os.environ['MEERKAT_NEST_DB_URL']
 engine = create_engine(db_url)
 
-class uploadData(Resource):
+
+class UploadData(Resource):
     """
     Receives JSON data and stores it in Meerkat Nest database
     
     Returns:\n
         HTTP return code\n
     """
-    #decorators = [authenticate]
 
     def get(self):
         return "upload data GET"
@@ -43,37 +43,38 @@ class uploadData(Resource):
         try:
             validate_request(data_entry)
         except AssertionError as e:
-            msg="Input was not a valid Meerkat Nest JSON object: " + e.args[0]
+            msg = "Input was not a valid Meerkat Nest JSON object: " + e.args[0]
             logging.error(msg)
-            return Response(json.dumps({"message":msg}),
-                        status=400,
-                        mimetype='application/json')
+            return Response(json.dumps({"message": msg}),
+                            status=400,
+                            mimetype='application/json')
         # Upload the data entry in to raw data storage
         try:
             uuid_pk = upload_to_raw_data(data_entry)
             data_entry['uuid'] = uuid_pk
         except AssertionError as e:
-            msg="Raw input type '" + data_entry['content'] + "' is not supported"
+            msg = "Raw input type '" + data_entry['content'] + "' is not supported"
             logging.error(msg)
-            return Response(json.dumps({"message":msg}),
-                        status=400,
-                        mimetype='application/json')
+            return Response(json.dumps({"message": msg}),
+                            status=400,
+                            mimetype='application/json')
         except Exception as e:
             msg = "Error in uploading data: " + e.args[0]
             logging.error(msg)
-            return Response(json.dumps({"message":msg}),
-                        status=502,
-                        mimetype='application/json')
+            return Response(json.dumps({"message": msg}),
+                            status=502,
+                            mimetype='application/json')
 
         # Process the data entry
         try:
             processed_data_entry = process(data_entry)
         except AssertionError as e:
-            msg = "Data type '" + data_entry['formId'] + "' is not supported for input type '" + data_entry['content'] + "'"
+            msg = "Data type '" + data_entry['formId'] + "' is not supported for input type '"\
+                + data_entry['content'] + "'"
             logging.error(msg)
-            return Response(json.dumps({"message":msg}),
-                        status=400,
-                        mimetype='application/json')
+            return Response(json.dumps({"message": msg}),
+                            status=400,
+                            mimetype='application/json')
 
         # Send processed data forward to the cloud
         try:
@@ -81,12 +82,13 @@ class uploadData(Resource):
         except AssertionError as e:
             msg = "Error in forwarding data to message queue: " + str(e)
             logging.error(msg)
-            return Response(json.dumps({"message":msg}),
-                        status=502,
-                        mimetype='application/json')
+            return Response(json.dumps({"message": msg}),
+                            status=502,
+                            mimetype='application/json')
 
         logging.debug("processed upload request")
         return processed_data_entry
+
 
 def upload_to_raw_data(data_entry):
     """
@@ -102,25 +104,24 @@ def upload_to_raw_data(data_entry):
 
     if data_entry['content'] == 'record':
         insert_row = model.rawDataOdkCollect.__table__.insert().values(
-                uuid =uuid_pk,
-                received_on = datetime.datetime.now(),
-                active_from = datetime.datetime.now(),
-                authentication_token = data_entry['token'],
-                content = data_entry['content'],
-                formId = data_entry['formId'],
-                formVersion = data_entry['formVersion'],
-                data = data_entry['data']
+                uuid=uuid_pk,
+                received_on=datetime.datetime.now(),
+                active_from=datetime.datetime.now(),
+                authentication_token=data_entry['token'],
+                content=data_entry['content'],
+                formId=data_entry['formId'],
+                formVersion=data_entry['formVersion'],
+                data=data_entry['data']
         )
 
     assert insert_row is not None, "Content handling not implemented"
-    try:
-        connection = engine.connect()
-        connection.execute(insert_row)
-        connection.close()
-    except Exception as e:
-        raise
+
+    connection = engine.connect()
+    connection.execute(insert_row)
+    connection.close()
 
     return uuid_pk
+
 
 def process(data_entry):
     """
@@ -149,7 +150,6 @@ def process(data_entry):
     except Exception as e:
         raise
 
-    return processed_data_entry
 
 def restructure_aggregate_data(data_entry):
     """
@@ -181,9 +181,10 @@ def scramble_fields(data_entry):
 
     for field in fields:
         if field in data_entry_scrambled['data'].keys():
-            data_entry_scrambled['data'][field]=scramble(data_entry_scrambled['data'][field])
+            data_entry_scrambled['data'][field] = scramble(data_entry_scrambled['data'][field])
 
     return data_entry_scrambled
+
 
 def format_field_keys(data_entry):
     """
@@ -200,5 +201,3 @@ def format_field_keys(data_entry):
             data_entry['data'].pop(key)
 
     return data_entry 
-
-
