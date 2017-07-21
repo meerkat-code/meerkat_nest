@@ -5,19 +5,21 @@ from meerkat_nest import config
 
 
 def scramble(value):
-	"""
-	scrambles the input string value
-	"""
-	ret = ''
-	return ret
+    """
+    scrambles the input string value
+    """
+    ret = ''
+    return ret
+
 
 def format_form_field_key(value):
-	"""
-	formats the field name
-	"""
-	ret = value.replace('-','/')
+    """
+    formats the field name
+    """
+    ret = value.replace('-','/')
 
-	return ret
+    return ret
+
 
 def validate_request(data_entry):
     """
@@ -39,6 +41,7 @@ def validate_request(data_entry):
         message += "\nRequest validation failed."
         e.args = (message,)
         raise
+
 
 def raw_odk_data_to_dict(data_object):
 

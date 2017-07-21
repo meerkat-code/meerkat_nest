@@ -1,8 +1,10 @@
 from sqlalchemy import create_engine, exc
 from sqlalchemy_utils import database_exists, create_database, drop_database
 import time
+import logging
 
 from meerkat_nest import model
+
 
 def create_db(url, base, drop=False):
     """
@@ -28,9 +30,9 @@ def create_db(url, base, drop=False):
                 break
 
         except exc.OperationalError as e:
-            print('There was an error connecting to the db.')
-            print(e)
-            print('Trying again in 5 seconds...')
+            logging.error('There was an error connecting to the db.')
+            logging.error(e)
+            logging.error('Trying again in 5 seconds...')
             time.sleep(5)
         
         counter = counter + 1
