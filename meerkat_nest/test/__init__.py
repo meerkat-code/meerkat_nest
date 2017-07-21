@@ -42,6 +42,8 @@ class MeerkatNestTest(unittest.TestCase):
         pass
 
     # test sending data to SQS
+    @mock.patch('meerkat_nest.message_service.sqs_client.send_message')
+    @mock.patch('meerkat_nest.message_service.sns_client.publish')
     def test_data_sending(self, request_mock):
         pass
 
