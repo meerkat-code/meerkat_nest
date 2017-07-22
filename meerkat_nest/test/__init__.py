@@ -5,6 +5,7 @@ Unit tests Meerkat Nest
 """
 
 import meerkat_nest
+import meerkat_nest.util
 from meerkat_nest.test import test_data
 from meerkat_nest import app
 from meerkat_nest.test.test_data.upload_payload import upload_payload, processed_upload_payload
@@ -44,7 +45,15 @@ class MeerkatNestUploadTest(unittest.TestCase):
 
     # test validating data
     def test_data_validation(self):
-        pass
+
+        # Check that a valid entry goes through
+        meerkat_nest.util.validate_request(self.data_entry)
+
+        # Check that content checking works
+        with self.assertRaises(AssertionError) as e:
+            faulty_data_entry = self.data_entry
+            faulty_data_entry.pop('content')
+            meerkat_nest.util.validate_request(faulty_data_entry)
 
     # test processing data
     def test_data_processing(self):
