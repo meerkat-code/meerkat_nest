@@ -57,7 +57,7 @@ def create_sns_topic():
         Name='nest-incoming-topic-' + config.country_config['country_name'].lower()
     )
 
-    return topic_arn
+    return topic_arn['TopicArn']
 
 
 def get_queue_url(queue_name):
@@ -83,6 +83,7 @@ def create_queue(data_entry):
         response = sqs_client.create_queue(
             QueueName=queue_name
         )
+        return response
     except Exception as e:
         message = e.args[0]
         message += "\Message queue creation failed."
@@ -131,8 +132,8 @@ def notify_sns(queue_name, dead_letter_queue_name):
     Notify Simple Notification service that queue has new data
     """
     message = {
-        "queue":queue_name,
-        "dead-letter-queue":dead_letter_queue_name
+        "queue": queue_name,
+        "dead-letter-queue": dead_letter_queue_name
     }
 
     response = sns_client.publish(
