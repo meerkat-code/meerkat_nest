@@ -4,6 +4,12 @@ python:
 env:
   global:
   - CONFIG_OBJECT="config.Testing"
+  - MEERKAT_NEST_DB_URL="postgresql+psycopg2://postgres:postgres@localhost/meerkat_nest_db"
+
+addons:
+  postgresql: '9.6'
+services:
+- postgresql
 
 install:
 - pip install .
