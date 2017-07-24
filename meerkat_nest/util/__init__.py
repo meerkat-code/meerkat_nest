@@ -16,7 +16,7 @@ def format_form_field_key(value):
     """
     formats the field name
     """
-    ret = value.replace('-','/')
+    ret = value.replace('-', '/')
 
     return ret
 
@@ -32,7 +32,8 @@ def validate_request(data_entry):
 
     try:
         assert 'content' in data_entry.keys(), "Content not defined" 
-        assert data_entry['content'] in valid_data_structure.keys(), "Content '" + data_entry['content'] + "'' not supported"
+        assert data_entry['content'] in valid_data_structure.keys(),\
+            "Content '" + data_entry['content'] + "' not supported"
         for key in valid_data_structure[data_entry['content']].keys():
             assert key in data_entry.keys(), "Key " + str(key) + " required" 
  
@@ -46,14 +47,14 @@ def validate_request(data_entry):
 def raw_odk_data_to_dict(data_object):
 
     data_dict = {
-        "uuid":data_object.uuid,
+        "uuid": data_object.uuid,
         "received_on": str(data_object.received_on),
         "active_from": str(data_object.active_from),
         "authentication_token": data_object.authentication_token,
-        "content":data_object.content,
-        "formId":data_object.formId,
+        "content": data_object.content,
+        "formId": data_object.formId,
         "formVersion": data_object.formVersion,
-        "data":data_object.data
+        "data": data_object.data
     }
 
     return data_dict

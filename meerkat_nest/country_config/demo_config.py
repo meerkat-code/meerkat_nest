@@ -10,27 +10,27 @@ country_config = {
         "test"
     ],
     "scramble_fields": {
-    	"demo_case":[],
-        "demo_alert":[],
-        "demo_register":[],
-        "jor_evaluation":[],
-        "test":["turtle","master"]
+        "demo_case": [],
+        "demo_alert": [],
+        "demo_register": [],
+        "jor_evaluation": [],
+        "test": ["turtle", "master"]
     },
     "supported_content":
         {
         "form": {
-            "token":"",
-            "content":"",
-            "formId":"",
-            "formVersion":"",
-            "data":""
+            "token": "",
+            "content": "",
+            "formId": "",
+            "formVersion": "",
+            "data": ""
         },
         "record": {
-            "token":"",
-            "content":"",
-            "formId":"",
-            "formVersion":"",
-            "data":""
+            "token": "",
+            "content": "",
+            "formId": "",
+            "formVersion": "",
+            "data": ""
         }
     }
  }
