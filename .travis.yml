@@ -1,0 +1,11 @@
+language: python
+python:
+- '3.6'
+env:
+  global:
+  - CONFIG_OBJECT="config.Testing"
+
+install:
+- pip install .
+- pip install -r requirements.txt
+script: nosetests --logging-level=WARNING
