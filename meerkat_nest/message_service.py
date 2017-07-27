@@ -53,11 +53,11 @@ def create_sns_topic():
     Returns:\n
         Topic ARN
     """
-    topic_arn = sns_client.create_topic(
+    topic = sns_client.create_topic(
         Name='nest-incoming-topic-' + config.country_config['country_name'].lower()
     )
 
-    return topic_arn['TopicArn']
+    return topic['TopicArn']
 
 
 def get_queue_url(queue_name):
@@ -117,13 +117,14 @@ def send_data(data_entry):
     notify_sns(get_queue_name(data_entry), get_dead_letter_queue_name(data_entry))
 
 
-def receive_data(queue_name,n=100):
+def receive_data(queue_name, n=100):
     return_set = []
 
-    for i in range(1,n):
-        sqs_client.receive_message(
+    for i in range(0, n):
+        return_set.append(sqs_client.receive_message(
             QueueUrl=get_queue_url(queue_name),
             )
+        )
     return return_set
 
 
