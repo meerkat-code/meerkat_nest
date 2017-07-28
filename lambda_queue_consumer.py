@@ -28,11 +28,11 @@ class LambdaQueueHandler():
         """
         response = self.sqs_client.get_queue_url(
             QueueName=queue_name,
-            QueueOwnerAWSAccountId=get_account_id()
+            QueueOwnerAWSAccountId=self.get_account_id()
         )
         return response['QueueUrl']
     
-    def get_outgoing_subscriptions(topic_arn):
+    def get_outgoing_subscriptions(self, topic_arn):
         """
         Get all subscribers that have subscribed to the output of the Lambda function
         :param topic_arn: ARN of the output topic
@@ -55,21 +55,18 @@ class LambdaQueueHandler():
             subscriptions += response['Subscriptions']
     
         return subscriptions
-    
-    
-    def get_outgoing_queue(subscriber, incoming_queue):
+
+    def get_outgoing_queue(self, subscriber, incoming_queue):
         return incoming_queue + '-' + subscriber['Endpoint']
-    
-    
-    def get_outgoing_topic():
+
+    def get_outgoing_topic(self):
         """
         Get the topic for outgoing data from Lambda queue consumer
         :return: Topic name where lambda publishes notifications about new data
         """
         return 'nest-outgoing-topic-' + os.environ['ORG'].lower()
-    
-    
-    def get_incoming_data(queue_name, n=1):
+
+    def get_incoming_data(self, queue_name, n=1):
         """
         Fetch data from SQS
         :param queue_name: name of the queue with incoming data
@@ -81,32 +78,29 @@ class LambdaQueueHandler():
     
         for i in range(0, n):
             return_set += (self.sqs_client.receive_message(
-                QueueUrl=get_queue_url(queue_name),
+                QueueUrl=self.get_queue_url(queue_name),
                 MaxNumberOfMessages=10
                 )
             )['Messages']
         return return_set
-    
-    
-    def notify_outgoing_subscribers(queue):
+
+    def notify_outgoing_subscribers(self, queue):
         # TODO
         pass
-    
-    
-    def acknowledge_data_entry(queue, data_entry):
+
+    def acknowledge_data_entry(self, queue, data_entry):
         """
         Sends an ACK message to SQS to delete the message from queue
         :param data_entry: data entry returned by SQS receive_message
         :return: AWS delete message return value
         """
         response = self.sqs_client.delete_message(
-            QueueUrl=get_queue_url(queue),
+            QueueUrl=self.get_queue_url(queue),
             ReceiptHandle=data_entry['ReceiptHandle']
         )
         return response
-    
-    
-    def redirect_data_to_subscriber(subscriber, incoming_queue, data_entry):
+
+    def redirect_data_to_subscriber(self, subscriber, incoming_queue, data_entry):
         """
         Sends data fetched from the incoming queue to the subscriber and data type specific queues
         :param subscriber: Subscriber to redirect data to
@@ -114,13 +108,13 @@ class LambdaQueueHandler():
         :param data_entry: Data entry to be forwarded
         :return: 
         """
-        outgoing_queue = get_outgoing_queue(subscriber, incoming_queue)
+        outgoing_queue = self.get_outgoing_queue(subscriber, incoming_queue)
         queue_response = self.sqs_client.create_queue(
             QueueName=outgoing_queue
         )
         send_data_response = self.sqs_client.send_message(
-            QueueUrl=get_queue_url(outgoing_queue),
-            MessageBody=json.dumps(data_entry['data'])
+            QueueUrl=self.handler.get_queue_url(outgoing_queue),
+            MessageBody=data_entry['data']
         )
         topic = self.sns_client.create_topic(
             Name='get_outgoing_topic_'
@@ -130,21 +124,23 @@ class LambdaQueueHandler():
         # TODO
     
     
-    def lambda_handler(event, context):
-        """
-        Iterates through the subscribers of a country data flow and distributers data forwards
-        :param event: Includes the queue name of the queue that has new data available
-        :param context:
-        :return: returns information about where the data was forwarded to
-        """
-        subscriptions = get_outgoing_subscriptions(get_outgoing_topic())
-    
-        incoming_queue = event['queue']
-        incoming_data = get_incoming_data(incoming_queue)
-        for data_entry in incoming_data:
-            for subscriber in subscriptions:
-                redirect_data_to_subscriber(subscriber, incoming_queue, data_entry)
-            notify_outgoing_subscribers(incoming_queue)
-            acknowledge_data_entry(incoming_queue, data_entry)
-    
-        return 'Hello from Lambda'
+def lambda_handler(event, context):
+    """
+    Iterates through the subscribers of a country data flow and distributers data forwards
+    :param event: Includes the queue name of the queue that has new data available
+    :param context:
+    :return: returns information about where the data was forwarded to
+    """
+    handler = LambdaQueueHandler()
+
+    subscriptions = handler.get_outgoing_subscriptions(handler.get_outgoing_topic())
+
+    incoming_queue = event['queue']
+    incoming_data = handler.get_incoming_data(incoming_queue)
+    for data_entry in incoming_data:
+        for subscriber in subscriptions:
+            handler.redirect_data_to_subscriber(subscriber, incoming_queue, data_entry)
+        handler.notify_outgoing_subscribers(incoming_queue)
+        handler.acknowledge_data_entry(incoming_queue, data_entry)
+
+    return 'Hello from Lambda'
