@@ -7,16 +7,14 @@ country_config = {
         "demo_alert",
         "demo_register",
         "jor_evaluation",
-        "dem_evaluation",
-        "test"
+        "dem_test"
     ],
     "scramble_fields": {
         "demo_case": [],
         "demo_alert": [],
         "demo_register": [],
         "jor_evaluation": [],
-        "dem_evaluation": [],
-        "test": ["turtle", "master"]
+        "dem_evaluation": ["simid", "phonenumber"]
     },
     "supported_content":
         {
