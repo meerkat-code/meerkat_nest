@@ -136,7 +136,8 @@ class MeerkatNestUploadTest(unittest.TestCase):
         self.assertTrue(mock_publish.called)
         mock_publish.assert_called_with(
             TopicArn=self.topic_arn,
-            Message=json.dumps(message)
+            Message=json.dumps({'default': json.dumps(message)}),
+            MessageStructure='json'
         )
 
 

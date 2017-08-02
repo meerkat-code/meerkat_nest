@@ -139,6 +139,7 @@ def notify_sns(queue_name, dead_letter_queue_name):
 
     response = sns_client.publish(
         TopicArn=create_sns_topic(),
-        Message=json.dumps(message)
+        Message=json.dumps({'default': json.dumps(message)}),
+        MessageStructure='json'
     )
     logging.debug("SNS notification response " + str(response))
