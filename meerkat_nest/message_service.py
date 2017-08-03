@@ -110,14 +110,14 @@ def send_data(data_entry):
 
     response = sqs_client.send_message(
         QueueUrl=get_queue_url(get_queue_name(data_entry)),
-        MessageBody=json.dumps(data_entry['data'])
+        MessageBody=json.dumps(data_entry)
     )
     logging.debug("SQS send message response " + str(response))
 
     notify_sns(get_queue_name(data_entry), get_dead_letter_queue_name(data_entry))
 
 
-def receive_data(queue_name, n=100):
+def receive_data(queue_name, n=1):
     return_set = []
 
     for i in range(0, n):
