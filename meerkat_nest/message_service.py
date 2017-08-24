@@ -8,7 +8,8 @@ import logging
 from meerkat_nest import config
 
 region_name = 'eu-west-1'
-sqs_client = boto3.client('sqs', region_name=region_name)
+sqs_client = boto3.client('sqs', region_name=region_name,
+                          endpoint_url=config.SQS_ENDPOINT)
 sts_client = boto3.client('sts', region_name=region_name)
 sns_client = boto3.client('sns', region_name=region_name)
 
@@ -20,6 +21,8 @@ def get_account_id():
     Returns:\n
         account ID for the configured AWS user\n
     """
+    if hasattr(config, "LOCAL"):
+        return ""
     account_id = sts_client.get_caller_identity()["Account"]
     return account_id
 
@@ -32,8 +35,8 @@ def get_queue_name(data_entry):
     Returns:\n
         automatically generated SQS queue name\n
     """
-    return 'nest-queue-' + config.country_config['country_name'].lower() + '-'\
-           + data_entry['content'] + '-' + data_entry['formId']
+    return 'nest-queue-' + config.country_config['country_name'].lower() #+ '-'\
+#           + data_entry['content'] + '-' + data_entry['formId']
 
 
 def get_dead_letter_queue_name(data_entry):
