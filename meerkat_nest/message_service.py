@@ -21,7 +21,7 @@ def get_account_id():
     Returns:\n
         account ID for the configured AWS user\n
     """
-    if hasattr(config, "LOCAL"):
+    if hasattr(config, "LOCAL") and config.LOCAL:
         return ""
     account_id = sts_client.get_caller_identity()["Account"]
     return account_id
@@ -46,7 +46,7 @@ def get_dead_letter_queue_name(data_entry):
     Returns:\n
         automatically generated SQS queue name\n
     """
-    return 'nest-dead-letter-queue-' + config.country_config['country_name'].lower() + '-' + data_entry['content']
+    return 'nest-dead-letter-queue-' + config.country_config['country_name'].lower()# + '-' + data_entry['content']
 
 
 def create_sns_topic():
