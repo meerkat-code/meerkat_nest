@@ -7,7 +7,8 @@ upload_payload = {
     "token": "", 
     "content": "record", 
     "formId": "dem_test",
-    "formVersion": "", 
+    "formVersion": "",
+    "token": "",
     "data": [
         {
             "*meta-instance-id*": "uuid:75099745-d218-4129-8b27-de3520c1281a",
