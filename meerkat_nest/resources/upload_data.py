@@ -87,7 +87,9 @@ class UploadData(Resource):
                             mimetype='application/json')
 
         logging.debug("processed upload request")
-        return processed_data_entry
+        return Response(json.dumps(processed_data_entry),
+                        status=200,
+                        mimetype='application/json')
 
 
 def upload_to_raw_data(data_entry):
@@ -103,7 +105,7 @@ def upload_to_raw_data(data_entry):
     insert_row = None
 
     if data_entry['content'] == 'record':
-        insert_row = model.rawDataOdkCollect.__table__.insert().values(
+        insert_row = model.RawDataOdkCollect.__table__.insert().values(
                 uuid=uuid_pk,
                 received_on=datetime.datetime.now(),
                 active_from=datetime.datetime.now(),
