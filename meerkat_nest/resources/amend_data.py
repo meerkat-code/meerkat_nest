@@ -2,14 +2,14 @@
 Data resource for upload data
 """
 from flask_restful import Resource
-from flask import request
+from flask import request, Response
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import json
 import os
 import uuid
 import datetime
-from pprint import pprint
+import logging
 
 from meerkat_nest import model
 from meerkat_nest import config
@@ -70,11 +70,12 @@ class amendData(Resource):
         except AssertionError as e:
             logging.error("Error in forwarding data to message queue: " + str(e))
             return Response(json.dumps({"message":"Error in forwarding data to message queue: " + str(e)}),
-                        status=502,
-                        mimetype='application/json')
+                                        status=502,
+                                        mimetype='application/json')
 
         logging.warning("processed amend request")
         return processed_data_entry
+
 
 def amend_raw_data(data_entry):
     """
@@ -87,10 +88,10 @@ def amend_raw_data(data_entry):
     assert(data_entry['content'] in ['form'])
 
     if data_entry['content'] == 'form':
-        Session = sessionmaker(bind=engine)
-        session = Session()
-        old_row_query = session.query(model.rawDataOdkCollect)\
-            .filter(model.rawDataOdkCollect.uuid == data_entry['uuid']).all()
+        session_maker = sessionmaker(bind=engine)
+        session = session_maker()
+        old_row_query = session.query(model.RawDataOdkCollect)\
+            .filter(model.RawDataOdkCollect.uuid == data_entry['uuid']).all()
 
         assert len(old_row_query) == 1, "No record with uuid " + data_entry['uuid'] + " found"
 
@@ -100,20 +101,20 @@ def amend_raw_data(data_entry):
 
         timestamp_now = datetime.datetime.now()
 
-        archived_row = model.rawDataOdkCollectArchive(
-            uuid = data_entry['uuid'],
-            active_uuid = new_uuid,
-            received_on = old_row.received_on,
-            active_from = old_row.active_from,
-            active_until = timestamp_now,
-            authentication_token = old_row.authentication_token,
-            content = old_row.content,
-            formId = old_row.formId,
-            formVersion = old_row.formVersion,
-            data = old_row.data
+        archived_row = model.RawDataOdkCollect(
+            uuid=old_row.uuid,
+            active_uuid=new_uuid,
+            received_on=old_row.received_on,
+            active_from=old_row.active_from,
+            active_until=timestamp_now,
+            authentication_token=old_row.authentication_token,
+            content=old_row.content,
+            formId=old_row.formId,
+            formVersion=old_row.formVersion,
+            data=old_row.data
         )
 
-        new_row = model.rawDataOdkCollect(
+        new_row = model.RawDataOdkCollect(
             uuid = new_uuid,
             received_on = old_row.received_on,
             active_from = timestamp_now,
