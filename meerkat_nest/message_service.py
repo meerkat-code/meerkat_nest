@@ -8,8 +8,11 @@ import logging
 from meerkat_nest import config
 
 region_name = 'eu-west-1'
-sqs_client = boto3.client('sqs', region_name=region_name,
-                          endpoint_url=config.SQS_ENDPOINT)
+if hasattr(config, "LOCAL") and config.LOCAL:
+    sqs_client = boto3.client('sqs', region_name=region_name,
+                              endpoint_url=config.SQS_ENDPOINT)
+else:
+    sqs_client = boto3.client('sqs', region_name=region_name)
 sts_client = boto3.client('sts', region_name=region_name)
 sns_client = boto3.client('sns', region_name=region_name)
 
