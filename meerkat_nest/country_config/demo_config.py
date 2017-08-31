@@ -2,6 +2,7 @@
 
 country_config = {
     "country_name": "Demo",
+    "authentication_token": "",
     "tables": [
         "demo_case",
         "demo_alert",
