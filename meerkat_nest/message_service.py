@@ -123,6 +123,29 @@ def send_data(data_entry):
     notify_sns(get_queue_name(data_entry), get_dead_letter_queue_name(data_entry))
 
 
+def send_deactivation_message(data_entry):
+    created = create_queue(data_entry)
+    try:
+        assert created, "Queue could not be created"
+    except AssertionError as e:
+        message = e.args[0]
+        message += " Message queue creation failed."
+        e.args = (message,)
+        raise
+
+    data_entry_delete = data_entry
+    data_entry_delete['data'] = 'delete'
+    response = sqs_client.send_message(
+        QueueUrl=get_queue_url(get_queue_name(data_entry_delete)),
+        MessageBody=json.dumps(data_entry)
+    )
+    logging.debug("SQS send message response " + str(response))
+
+    notify_sns(get_queue_name(data_entry), get_dead_letter_queue_name(data_entry))
+
+    return data_entry_delete
+
+
 def receive_data(queue_name, n=1):
     return_set = []
 
