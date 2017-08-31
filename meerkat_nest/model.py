@@ -30,23 +30,8 @@ class rawDataOdkCollect(Base):
     uuid = Column(String, primary_key=True)
     received_on = Column(DateTime, nullable=False)
     active_from = Column(DateTime, nullable=False)
-    authentication_token = Column(String)
-    content = Column(String, nullable=False)
-    formId = Column(String)
-    formVersion = Column(String)
-    data = Column(JSONB)
-
-class rawDataOdkCollectArchive(Base):
-    """
-    ORM table for archived raw data from ODK form input
-    """
-    __tablename__ = 'archive_raw_data_odk_collect'
-
-    uuid = Column(String, primary_key=True)
-    active_uuid = Column(String)
-    received_on = Column(DateTime, nullable=False)
-    active_from = Column(DateTime, nullable=False)
-    active_until = Column(DateTime, nullable=False)
+    active_until = Column(DateTime)
+    replaced_by = Column(String)
     authentication_token = Column(String)
     content = Column(String, nullable=False)
     formId = Column(String)

@@ -51,7 +51,7 @@ class UploadData(Resource):
         # Upload the data entry in to raw data storage
         try:
             uuid_pk = upload_to_raw_data(data_entry)
-            data_entry['uuid'] = uuid_pk
+            # data_entry['uuid'] = uuid_pk
         except AssertionError as e:
             msg = "Raw input type '" + data_entry['content'] + "' is not supported"
             logging.error(msg)
@@ -158,8 +158,11 @@ def restructure_aggregate_data(data_entry):
     Returns:\n
         restructured data entry
     """
+
     restructured_data = data_entry['data'][0]
     data_entry['data'] = restructured_data
+
+    data_entry['uuid'] = data_entry['data']['*meta-instance-id*']
 
     return data_entry
 
