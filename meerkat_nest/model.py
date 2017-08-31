@@ -21,7 +21,7 @@ for table in config.country_config["tables"]:
                                "data": Column(JSONB)})
 
 
-class rawDataOdkCollect(Base):
+class RawDataOdkCollect(Base):
     """
     ORM for raw data table for ODK form input
     """
