@@ -199,10 +199,10 @@ def format_field_keys(data_entry):
         data entry structure with formatted field namess
     """
 
+    new_data_entry = {}
+
     for key in data_entry['data'].keys():
         new_key = format_form_field_key(key)
-        if new_key != key:
-            data_entry['data'].update({new_key: data_entry['data'][key]})
-            data_entry['data'].pop(key)
+        new_data_entry['data'].update({new_key: data_entry['data'][key]})
 
     return data_entry 
