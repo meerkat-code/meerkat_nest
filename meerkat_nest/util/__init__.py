@@ -16,7 +16,14 @@ def format_form_field_key(value):
     """
     formats the field name
     """
-    ret = value.replace('-', '/')
+    if value == '*meta-instance-id*':
+        ret = 'meta/instanceID'
+    elif value == '*meta-submission-date*':
+        ret = 'SubmissionDate'
+    else:
+        ret = value
+
+    ret = ret.replace('-', '/')
 
     return ret
 
@@ -31,6 +38,8 @@ def validate_request(data_entry):
     valid_data_structure = config.country_config['supported_content']
 
     try:
+        if "authentication_token" in config.country_config.keys():
+            assert data_entry['token'] == config.country_config["authentication_token"]
         assert 'content' in data_entry.keys(), "Content not defined" 
         assert data_entry['content'] in valid_data_structure.keys(),\
             "Content '" + data_entry['content'] + "' not supported"

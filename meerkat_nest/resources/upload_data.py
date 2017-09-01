@@ -51,7 +51,7 @@ class UploadData(Resource):
         # Upload the data entry in to raw data storage
         try:
             uuid_pk = upload_to_raw_data(data_entry)
-            data_entry['uuid'] = uuid_pk
+            # data_entry['uuid'] = uuid_pk
         except AssertionError as e:
             msg = "Raw input type '" + data_entry['content'] + "' is not supported"
             logging.error(msg)
@@ -87,7 +87,9 @@ class UploadData(Resource):
                             mimetype='application/json')
 
         logging.debug("processed upload request")
-        return processed_data_entry
+        return Response(json.dumps(processed_data_entry),
+                        status=200,
+                        mimetype='application/json')
 
 
 def upload_to_raw_data(data_entry):
@@ -103,7 +105,7 @@ def upload_to_raw_data(data_entry):
     insert_row = None
 
     if data_entry['content'] == 'record':
-        insert_row = model.rawDataOdkCollect.__table__.insert().values(
+        insert_row = model.RawDataOdkCollect.__table__.insert().values(
                 uuid=uuid_pk,
                 received_on=datetime.datetime.now(),
                 active_from=datetime.datetime.now(),
@@ -158,8 +160,11 @@ def restructure_aggregate_data(data_entry):
     Returns:\n
         restructured data entry
     """
+
     restructured_data = data_entry['data'][0]
     data_entry['data'] = restructured_data
+
+    data_entry['uuid'] = data_entry['data']['*meta-instance-id*']
 
     return data_entry
 

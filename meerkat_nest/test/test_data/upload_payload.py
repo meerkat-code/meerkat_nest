@@ -7,7 +7,8 @@ upload_payload = {
     "token": "", 
     "content": "record", 
     "formId": "dem_test",
-    "formVersion": "", 
+    "formVersion": "",
+    "token": "",
     "data": [
         {
             "*meta-instance-id*": "uuid:75099745-d218-4129-8b27-de3520c1281a",
@@ -35,10 +36,10 @@ processed_upload_payload = {
     "formVersion": "",
     "data": [
         {
-            "*meta-instance-id*": "uuid:75099745-d218-4129-8b27-de3520c1281a",
+            "meta/instanceID": "uuid:75099745-d218-4129-8b27-de3520c1281a",
             "*meta-model-version*": "",
             "*meta-ui-version*": "",
-            "*meta-submission-date*": "2017-06-23T15:51:33.415Z",
+            "SubmissionDate": "2017-06-23T15:51:33.415Z",
             "*meta-is-complete*": True,
             "*meta-date-marked-as-complete*": "2017-06-23T15:51:33.415Z",
             "start": "2017-06-22T14:21:53.490Z",

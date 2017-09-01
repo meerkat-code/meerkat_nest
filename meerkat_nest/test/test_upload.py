@@ -31,7 +31,7 @@ class MeerkatNestUploadTest(unittest.TestCase):
         logging.getLogger('nose').setLevel(logging.WARNING)
 
     def setUp(self):
-        self.queue_name = 'nest-queue-demo-record-dem_test'
+        self.queue_name = 'nest-queue-demo'
         self.dead_letter_queue_name = 'nest-dead-letter-queue-demo-record'
         self.topic = 'nest-incoming-topic-demo'
         self.topic_arn = 'aws123:nest-incoming-topic-demo'
