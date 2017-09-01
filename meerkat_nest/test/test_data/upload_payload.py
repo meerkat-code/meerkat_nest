@@ -4,7 +4,6 @@ Meerkat Nest Test Data
 Payload for testing the Meerkat Nest Upload function
 """
 upload_payload = {
-    "token": "", 
     "content": "record", 
     "formId": "dem_test",
     "formVersion": "",
