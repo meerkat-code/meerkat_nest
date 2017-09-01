@@ -16,7 +16,14 @@ def format_form_field_key(value):
     """
     formats the field name
     """
-    ret = value.replace('-', '/')
+    if value == '*meta-instance-id*':
+        ret = 'meta/instanceID'
+    elif value == '*meta-submission-date*':
+        ret = 'SubmissionDate'
+    else:
+        ret = value
+
+    ret = ret.replace('-', '/')
 
     return ret
 
