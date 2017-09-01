@@ -198,11 +198,12 @@ def format_field_keys(data_entry):
         data entry structure with formatted field namess
     """
 
-    new_data_entry = copy.deepcopy(data_entry)
-    new_data_entry['data'] = {}
+    rename_fields = config.country_config.get('rename_fields', {}).get(data_entry['formId'], {})
+    data_fields = data_entry['data'].keys()
 
-    for key in data_entry['data'].keys():
-        new_key = format_form_field_key(key)
-        new_data_entry['data'].update({new_key: data_entry['data'][key]})
+    for key in rename_fields:
+        if key in data_fields:
+            data_entry['data'][rename_fields[key]] = data_entry['data'][key]
+            data_entry['data'].pop(key)
 
-    return new_data_entry
+    return data_entry
