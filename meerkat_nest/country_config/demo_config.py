@@ -22,7 +22,8 @@ country_config = {
                       '*meta-submission-date*': 'SubmissionDate',
                       "visit_date": "pt./visit_date",
                       "gender": "pt1./gender",
-                      "age": "pt1./age"
+                      "age": "pt1./age",
+                      "visit": "intro./visit"
                       },
         "demo_alert": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
         "demo_register": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
