@@ -13,7 +13,7 @@ import copy
 
 from meerkat_nest import model
 from meerkat_nest import config
-from meerkat_nest.util import scramble, format_form_field_key, validate_request
+from meerkat_nest.util import scramble, validate_request
 from meerkat_nest import message_service
 
 db_url = os.environ['MEERKAT_NEST_DB_URL']
@@ -198,7 +198,8 @@ def format_field_keys(data_entry):
         data entry structure with formatted field namess
     """
 
-    rename_fields = config.country_config.get('rename_fields', {}).get(data_entry['formId'], {})
+    rename_fields = config.country_config.get('rename_fields',
+                                              {}).get(data_entry['formId'], {})
     data_fields = data_entry['data'].keys()
 
     for key in rename_fields:

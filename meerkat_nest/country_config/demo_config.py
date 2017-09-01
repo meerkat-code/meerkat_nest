@@ -18,7 +18,12 @@ country_config = {
         "dem_evaluation": ["simid", "phonenumber"]
     },
     "rename_fields": {
-        "demo_case": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
+        "demo_case": {'*meta-instance-id*': 'meta/instanceID',
+                      '*meta-submission-date*': 'SubmissionDate',
+                      "visit_date": "pt./visit_date",
+                      "gender": "pt1./gender",
+                      "age": "pt1./age"
+                      },
         "demo_alert": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
         "demo_register": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
         "dem_test": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'}
