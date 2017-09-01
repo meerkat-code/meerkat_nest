@@ -17,6 +17,12 @@ country_config = {
         "jor_evaluation": [],
         "dem_evaluation": ["simid", "phonenumber"]
     },
+    "rename_fields": {
+        "demo_case": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
+        "demo_alert": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
+        "demo_register": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
+        "dem_test": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'}
+    },
     "supported_content":
         {
         "form": {
