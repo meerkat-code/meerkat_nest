@@ -4,13 +4,12 @@ Data resource for upload data
 from flask_restful import Resource
 from flask import request, Response
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 import json
 import os
 import uuid
 import datetime
 import logging
-from pprint import pprint
+import copy
 
 from meerkat_nest import model
 from meerkat_nest import config
@@ -199,11 +198,11 @@ def format_field_keys(data_entry):
         data entry structure with formatted field namess
     """
 
-    new_data_entry = data_entry
+    new_data_entry = copy.deepcopy(data_entry)
     new_data_entry['data'] = {}
 
     for key in data_entry['data'].keys():
         new_key = format_form_field_key(key)
         new_data_entry['data'].update({new_key: data_entry['data'][key]})
 
-    return data_entry 
+    return new_data_entry
