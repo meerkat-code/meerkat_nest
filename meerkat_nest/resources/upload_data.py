@@ -199,7 +199,8 @@ def format_field_keys(data_entry):
         data entry structure with formatted field namess
     """
 
-    new_data_entry = {}
+    new_data_entry = data_entry
+    new_data_entry['data'] = {}
 
     for key in data_entry['data'].keys():
         new_key = format_form_field_key(key)
