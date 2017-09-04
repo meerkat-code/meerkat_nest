@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>demo_alert</h:title>
+    <model>
+      <instance>
+        <demo_alert id="demo_alert">
+          <start/>
+          <end/>
+          <today/>
+          <deviceid/>
+          <pt>
+            <alert_id/>
+            <checklist/>
+          </pt>
+          <alert_labs>
+            <return_lab/>
+          </alert_labs>
+        </demo_alert>
+      </instance>
+      <bind nodeset="/demo_alert/start" type="string"/>
+      <bind nodeset="/demo_alert/end" type="string"/>
+      <bind nodeset="/demo_alert/today" type="string"/>
+      <bind nodeset="/demo_alert/deviceid" type="string"/>
+      <bind nodeset="/demo_alert/pt/alert_id" type="string"/>
+      <bind nodeset="/demo_alert/pt/checklist" type="string"/>
+      <bind nodeset="/demo_alert/alert_labs/return_lab" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/demo_alert/start">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_alert/end">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_alert/today">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_alert/deviceid">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <group appearance="field-list" ref="/demo_alert/pt">
+      <label>A group</label>
+      <input ref="/demo_alert/pt/alert_id">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_alert/pt/checklist">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/demo_alert/alert_labs">
+      <label>A group</label>
+      <input ref="/demo_alert/alert_labs/return_lab">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

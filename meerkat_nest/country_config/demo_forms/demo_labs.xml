@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>demo_labs</h:title>
+    <model>
+      <instance>
+        <demo_labs id="demo_labs">
+          <start/>
+          <end/>
+          <today/>
+          <deviceid/>
+          <labs>
+            <namru/>
+          </labs>
+          <pcr>
+            <flu_a_pcr/>
+            <h1_pcr/>
+            <h3_pcr/>
+            <h1n1_pcr/>
+            <sw_n1_pcr/>
+            <flu_b_pcr/>
+          </pcr>
+        </demo_labs>
+      </instance>
+      <bind nodeset="/demo_labs/start" type="string"/>
+      <bind nodeset="/demo_labs/end" type="string"/>
+      <bind nodeset="/demo_labs/today" type="string"/>
+      <bind nodeset="/demo_labs/deviceid" type="string"/>
+      <bind nodeset="/demo_labs/labs/namru" type="string"/>
+      <bind nodeset="/demo_labs/pcr/flu_a_pcr" type="string"/>
+      <bind nodeset="/demo_labs/pcr/h1_pcr" type="string"/>
+      <bind nodeset="/demo_labs/pcr/h3_pcr" type="string"/>
+      <bind nodeset="/demo_labs/pcr/h1n1_pcr" type="string"/>
+      <bind nodeset="/demo_labs/pcr/sw_n1_pcr" type="string"/>
+      <bind nodeset="/demo_labs/pcr/flu_b_pcr" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/demo_labs/start">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_labs/end">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_labs/today">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_labs/deviceid">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <group appearance="field-list" ref="/demo_labs/labs">
+      <label>A group</label>
+      <input ref="/demo_labs/labs/namru">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/demo_labs/pcr">
+      <label>A group</label>
+      <input ref="/demo_labs/pcr/flu_a_pcr">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_labs/pcr/h1_pcr">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_labs/pcr/h3_pcr">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_labs/pcr/h1n1_pcr">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_labs/pcr/sw_n1_pcr">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_labs/pcr/flu_b_pcr">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

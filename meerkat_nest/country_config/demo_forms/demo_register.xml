@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>demo_register</h:title>
+    <model>
+      <instance>
+        <demo_register id="demo_register">
+          <start/>
+          <end/>
+          <today/>
+          <deviceid/>
+          <intro>
+            <module/>
+          </intro>
+          <consult>
+            <consultations/>
+            <ncd_consultations/>
+            <consultations_refugee/>
+          </consult>
+          <surveillance>
+            <afp/>
+            <measles/>
+          </surveillance>
+        </demo_register>
+      </instance>
+      <bind nodeset="/demo_register/start" type="string"/>
+      <bind nodeset="/demo_register/end" type="string"/>
+      <bind nodeset="/demo_register/today" type="string"/>
+      <bind nodeset="/demo_register/deviceid" type="string"/>
+      <bind nodeset="/demo_register/intro/module" type="string"/>
+      <bind nodeset="/demo_register/consult/consultations" type="int"/>
+      <bind nodeset="/demo_register/consult/ncd_consultations" type="int"/>
+      <bind nodeset="/demo_register/consult/consultations_refugee" type="int"/>
+      <bind nodeset="/demo_register/surveillance/afp" type="int"/>
+      <bind nodeset="/demo_register/surveillance/measles" type="int"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/demo_register/start">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_register/end">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_register/today">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_register/deviceid">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <group appearance="field-list" ref="/demo_register/intro">
+      <label>A group</label>
+      <input ref="/demo_register/intro/module">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/demo_register/consult">
+      <label>A group</label>
+      <input ref="/demo_register/consult/consultations">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_register/consult/ncd_consultations">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_register/consult/consultations_refugee">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/demo_register/surveillance">
+      <label>A group</label>
+      <input ref="/demo_register/surveillance/afp">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_register/surveillance/measles">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+  </h:body>
+</h:html>

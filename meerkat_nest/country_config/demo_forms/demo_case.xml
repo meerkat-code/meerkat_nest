@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>demo_case</h:title>
+    <model>
+      <instance>
+        <demo_case id="demo_case">
+          <start/>
+          <end/>
+          <today/>
+          <deviceid/>
+          <pt1>
+            <age/>
+            <gender/>
+            <status/>
+          </pt1>
+          <child_age/>
+          <pt>
+            <pid/>
+            <visit_date/>
+          </pt>
+          <intro>
+            <visit/>
+          </intro>
+          <nationality/>
+          <intro_module/>
+          <symptoms/>
+          <pregnant/>
+          <pregnancy_complications/>
+          <smoke_ever/>
+          <smoke_now/>
+          <icd_code/>
+          <vaccination_type/>
+          <pip>
+            <namru/>
+          </pip>
+          <patientid/>
+          <sari/>
+          <pip_fu5>
+            <icu/>
+            <ventilated/>
+          </pip_fu5>
+          <pip_fu7>
+            <outcome/>
+          </pip_fu7>
+          <results>
+            <bp_systolic/>
+            <bp_diastolic/>
+            <bmi_weight/>
+            <bmi_height/>
+            <glucose_fasting/>
+            <hba1c/>
+          </results>
+          <vaccination/>
+          <risk_code/>
+          <sympt_code/>
+          <breastfeed/>
+          <exclusive_breastfeed/>
+          <formula/>
+        </demo_case>
+      </instance>
+      <bind nodeset="/demo_case/start" type="string"/>
+      <bind nodeset="/demo_case/end" type="string"/>
+      <bind nodeset="/demo_case/today" type="string"/>
+      <bind nodeset="/demo_case/deviceid" type="string"/>
+      <bind nodeset="/demo_case/pt1/age" type="int"/>
+      <bind nodeset="/demo_case/pt1/gender" type="string"/>
+      <bind nodeset="/demo_case/pt1/status" type="string"/>
+      <bind nodeset="/demo_case/child_age" type="int"/>
+      <bind nodeset="/demo_case/pt/pid" type="string"/>
+      <bind nodeset="/demo_case/pt/visit_date" type="string"/>
+      <bind nodeset="/demo_case/intro/visit" type="string"/>
+      <bind nodeset="/demo_case/nationality" type="string"/>
+      <bind nodeset="/demo_case/intro_module" type="string"/>
+      <bind nodeset="/demo_case/symptoms" type="string"/>
+      <bind nodeset="/demo_case/pregnant" type="string"/>
+      <bind nodeset="/demo_case/pregnancy_complications" type="string"/>
+      <bind nodeset="/demo_case/smoke_ever" type="string"/>
+      <bind nodeset="/demo_case/smoke_now" type="string"/>
+      <bind nodeset="/demo_case/icd_code" type="string"/>
+      <bind nodeset="/demo_case/vaccination_type" type="string"/>
+      <bind nodeset="/demo_case/pip/namru" type="string"/>
+      <bind nodeset="/demo_case/patientid" type="string"/>
+      <bind nodeset="/demo_case/sari" type="string"/>
+      <bind nodeset="/demo_case/pip_fu5/icu" type="string"/>
+      <bind nodeset="/demo_case/pip_fu5/ventilated" type="string"/>
+      <bind nodeset="/demo_case/pip_fu7/outcome" type="string"/>
+      <bind nodeset="/demo_case/results/bp_systolic" type="int"/>
+      <bind nodeset="/demo_case/results/bp_diastolic" type="int"/>
+      <bind nodeset="/demo_case/results/bmi_weight" type="int"/>
+      <bind nodeset="/demo_case/results/bmi_height" type="int"/>
+      <bind nodeset="/demo_case/results/glucose_fasting" type="int"/>
+      <bind nodeset="/demo_case/results/hba1c" type="int"/>
+      <bind nodeset="/demo_case/vaccination" type="string"/>
+      <bind nodeset="/demo_case/risk_code" type="string"/>
+      <bind nodeset="/demo_case/sympt_code" type="string"/>
+      <bind nodeset="/demo_case/breastfeed" type="string"/>
+      <bind nodeset="/demo_case/exclusive_breastfeed" type="string"/>
+      <bind nodeset="/demo_case/formula" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/demo_case/start">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/end">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/today">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/deviceid">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <group appearance="field-list" ref="/demo_case/pt1">
+      <label>A group</label>
+      <input ref="/demo_case/pt1/age">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_case/pt1/gender">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_case/pt1/status">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+    <input ref="/demo_case/child_age">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <group appearance="field-list" ref="/demo_case/pt">
+      <label>A group</label>
+      <input ref="/demo_case/pt/pid">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_case/pt/visit_date">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/demo_case/intro">
+      <label>A group</label>
+      <input ref="/demo_case/intro/visit">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+    <input ref="/demo_case/nationality">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/intro_module">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/symptoms">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/pregnant">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/pregnancy_complications">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/smoke_ever">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/smoke_now">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/icd_code">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/vaccination_type">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <group appearance="field-list" ref="/demo_case/pip">
+      <label>A group</label>
+      <input ref="/demo_case/pip/namru">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+    <input ref="/demo_case/patientid">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/sari">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <group appearance="field-list" ref="/demo_case/pip_fu5">
+      <label>A group</label>
+      <input ref="/demo_case/pip_fu5/icu">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_case/pip_fu5/ventilated">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/demo_case/pip_fu7">
+      <label>A group</label>
+      <input ref="/demo_case/pip_fu7/outcome">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/demo_case/results">
+      <label>A group</label>
+      <input ref="/demo_case/results/bp_systolic">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_case/results/bp_diastolic">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_case/results/bmi_weight">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_case/results/bmi_height">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_case/results/glucose_fasting">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+      <input ref="/demo_case/results/hba1c">
+        <label>Label</label>
+        <hint>hint</hint>
+      </input>
+    </group>
+    <input ref="/demo_case/vaccination">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/risk_code">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/sympt_code">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/breastfeed">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/exclusive_breastfeed">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+    <input ref="/demo_case/formula">
+      <label>Label</label>
+      <hint>hint</hint>
+    </input>
+  </h:body>
+</h:html>
