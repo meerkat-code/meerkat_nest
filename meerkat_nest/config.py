@@ -25,16 +25,16 @@ from meerkat_nest.country_config import demo_config
 country_config = demo_config.country_config
 
 SQS_ENDPOINT = 'http://tunnel:9324'
-LOCAL = True
 
 class Config(object):
     DEBUG = True
     TESTING = False
-
+    LOCAL = True
     
 class Production(Config):
     DEBUG = False
     TESTING = False
+    LOCAL = False
 
 class Development(Config):
     DEBUG = True
