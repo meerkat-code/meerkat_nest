@@ -9,3 +9,5 @@ raven==6.0.0
 Flask==0.10.1
 flask-restful==0.3.4
 Flask-SQLAlchemy==2.1
+xmljson==0.1.9
+lxml==3.8.0
