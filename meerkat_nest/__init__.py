@@ -25,4 +25,4 @@ def nest_root_url():
     return "Meerkat Nest"
 
 api.add_resource(UploadData, "/upload")
-api.add_resource(amendData,"/amend")
+api.add_resource(amendData, "/amend")
