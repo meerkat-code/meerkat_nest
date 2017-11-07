@@ -29,6 +29,10 @@ country_config = {
         "demo_register": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
         "dem_test": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
     },
+    "replace_characters": {
+        "demo_case":
+            [[":", "./"]]
+    },
     "supported_content":
         {
         "form": {
