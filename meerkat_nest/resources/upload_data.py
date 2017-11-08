@@ -200,8 +200,19 @@ def format_field_keys(data_entry):
 
     rename_fields = config.country_config.get('rename_fields',
                                               {}).get(data_entry['formId'], {})
+    character_replacements = config.country_config.get('replace_characters', 
+                                                       {}).get(data_entry['formId'], [])
     data_fields = data_entry['data'].keys()
 
+    # Perform character replacements to all fields
+    for characters in character_replacements:
+        for key in data_fields:
+            if characters[0] in key:
+                data_entry['data'][key.replace(characters[0],characters[1])] = data_entry['data'][key]
+                data_entry['data'].pop(key)
+
+
+    # Perform key replacements
     for key in rename_fields:
         if key in data_fields:
             data_entry['data'][rename_fields[key]] = data_entry['data'][key]
