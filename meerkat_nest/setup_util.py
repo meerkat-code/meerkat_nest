@@ -79,7 +79,7 @@ def send_to_aggregate():
     aggregate_user = "test"
     aggregate_password = "password"
     auth = HTTPDigestAuth(aggregate_user, aggregate_password)
-    aggregate_url = "http://localhost:81"
+    aggregate_url = "http://localhost:80"
     with open("tmp.xml", "w") as f:
         f.write(tostring(result).decode("utf-8"))
 
@@ -95,7 +95,7 @@ def send_to_aggregate():
 
     
 def setup_forms():
-    aggregate_url = "http://localhost:81"
+    aggregate_url = "http://localhost:80"
     aggregate_user = "test"
     aggregate_password = "password"
 
