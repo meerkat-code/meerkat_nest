@@ -15,14 +15,21 @@ COUNTRY_CONFIG: name of country config file
 
 """
 import os
-from meerkat_nest.country_config import demo_config
+import importlib.util
 
 # Application config
-#config_directory = os.environ("COUNTRY_CONFIG_DIR")
+config_directory = os.environ.get("COUNTRY_CONFIG_DIR",
+                   os.path.dirname(os.path.realpath(__file__)) + "/country_config/")
 
 # Country config
-#country_config_file = os.environ("COUNTRY_CONFIG")
-country_config = demo_config.country_config
+country_config_file = os.environ.get("COUNTRY_CONFIG", "demo_config.py")
+spec = importlib.util.spec_from_file_location(
+    "country_config_module",
+    config_directory + country_config_file
+)
+country_config_module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(country_config_module)
+country_config = country_config_module.country_config
 
 SQS_ENDPOINT = 'http://tunnel:9324'
 
