@@ -37,8 +37,8 @@ payload = {
 }
 
 aggregate_data = {
-    "start": "2017-06-22T14:21:53.490Z",
-    "end": "2017-06-22T14:22:20.175Z",
+    "start": "2017-06-22T14:21:53.490",
+    "end": "2017-06-22T14:22:20.175",
     "today": "2017-06-22",
     "deviceid": "1",
     "subscriberid": "123123123123123",
@@ -79,7 +79,7 @@ def send_to_aggregate():
     aggregate_user = "test"
     aggregate_password = "password"
     auth = HTTPDigestAuth(aggregate_user, aggregate_password)
-    aggregate_url = "http://localhost:80"
+    aggregate_url = "https://democountryserver.emro.info"
     with open("tmp.xml", "w") as f:
         f.write(tostring(result).decode("utf-8"))
 
@@ -95,7 +95,7 @@ def send_to_aggregate():
 
     
 def setup_forms():
-    aggregate_url = "http://localhost:80"
+    aggregate_url = "https://democountryserver.emro.info"
     aggregate_user = "test"
     aggregate_password = "password"
 
@@ -112,5 +112,7 @@ def setup_forms():
                           })
           
                         
-setup_forms()
-#send_to_aggregate()
+#setup_forms()
+
+for i in range(1,100):
+    send_to_aggregate()
