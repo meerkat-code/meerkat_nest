@@ -138,6 +138,8 @@ def process(data_entry):
     assert data_entry['content'] in ['form', 'record'], "Content not supported"
     assert data_entry['formId'] in config.country_config['tables'], "Form not supported"
 
+    processed_data_entry = format_form_name(processed_data_entry)
+
     insert_row = model.data_type_tables[processed_data_entry['formId']].__table__.insert().values(
            uuid=processed_data_entry['uuid'],
            data=processed_data_entry['data']
@@ -217,5 +219,22 @@ def format_field_keys(data_entry):
         if key in data_fields:
             data_entry['data'][rename_fields[key]] = data_entry['data'][key]
             data_entry['data'].pop(key)
+
+    return data_entry
+
+
+def format_form_name(data_entry):
+    """
+    Formats the form name of the data entry
+
+    Returns:\n
+        data entry structure with formatted form name
+    """
+
+    rename_form = config.country_config.get('rename_forms',
+                                              {}).get(data_entry['formId'], None)
+
+    if rename_form:
+        data_entry['formId'] = rename_form
 
     return data_entry
