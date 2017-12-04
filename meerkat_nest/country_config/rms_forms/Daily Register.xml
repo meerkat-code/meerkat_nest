@@ -1,0 +1,498 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head><!-- ODK Aggregate upload time: 2017-07-21T11:32:20.533+0000 on https://rms.emro.info -->
+    <h:title>Daily Register</h:title>
+    <model>
+      <itext>
+        <translation lang="english">
+          <text id="/jor_register/surveillance./epi_week:jr:constraintMsg">
+            <value>Enter number between 1 and 52</value>
+          </text>
+          <text id="/jor_register/intro./module/cd:label">
+            <value>Communicable Disease</value>
+          </text>
+          <text id="/jor_register/admissions./adm_50yr:label">
+            <value>15 to 50 years</value>
+          </text>
+          <text id="/jor_register/admissions./adm_over65yr:label">
+            <value>&gt; 65 years</value>
+          </text>
+          <text id="/jor_register/deaths./death_over65yr:label">
+            <value>&gt; 65 years</value>
+          </text>
+          <text id="/jor_register/deaths./death_15yr:label">
+            <value>5 to 15 years</value>
+          </text>
+          <text id="/jor_register/admissions./adm_65yr:label">
+            <value>50 to 65 years</value>
+          </text>
+          <text id="/jor_register/intro./module/pip:label">
+            <value>SARI Surveillance</value>
+          </text>
+          <text id="/jor_register/intro./module:label">
+            <value>.
+
+
+Select the modules you will use:</value>
+          </text>
+          <text id="/jor_register/consult./consultations:label">
+            <value>IERS | Daily consultations
+
+
+Enter total number of consultations (CD) recorded today</value>
+          </text>
+          <text id="/jor_register/ncd_consult./ncd_consultations_refugee:label">
+            <value>From all those NCD cases you did enter to the tablet today, how many of them are refugees?
+Please if there is no refugees cases just enter zero</value>
+          </text>
+          <text id="/jor_register/deaths./death_5yr:label">
+            <value>2 to 5 years</value>
+          </text>
+          <text id="/jor_register/deaths./death_less6mo:label">
+            <value>IERS | Total number of deaths in epidemic week
+
+
+Less than 6 months</value>
+          </text>
+          <text id="/jor_register/surveillance./ebs_pneumonia:label">
+            <value>Total number of Pneumonia cases admitted to the hospital today</value>
+          </text>
+          <text id="/jor_register/surveillance./measles:label">
+            <value>Enter number of new measles cases recorded today</value>
+          </text>
+          <text id="/jor_register/admissions./adm_2yr:label">
+            <value>6 mo to 2 years</value>
+          </text>
+          <text id="/jor_register/approval:label">
+            <value>IERS | REGISTER
+
+
+By checking this box, I certify that I have reviewed all information. With this acknowledgement I send my approval.</value>
+          </text>
+          <text id="/jor_register/consult./consultations_refugee:label">
+            <value>Enter total number of refugee consultations (CD) recorded today</value>
+          </text>
+          <text id="/jor_register/surveillance./diarrhoea/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_register/deaths./death_2yr:label">
+            <value>6 mo to 2 years</value>
+          </text>
+          <text id="/jor_register/intro./visit_date:label">
+            <value>IERS | REGISTER
+
+
+Vist Date:</value>
+          </text>
+          <text id="/jor_register/surveillance./diarrhoea/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_register/admissions./adm_15yr:label">
+            <value>5 to 15 years</value>
+          </text>
+          <text id="/jor_register/surveillance./epi_week:label">
+            <value>Enter the Epi Week</value>
+          </text>
+          <text id="/jor_register/deaths./death_65yr:label">
+            <value>50 to 65 years</value>
+          </text>
+          <text id="/jor_register/surveillance./ebs:label">
+            <value>Number of event(s) today</value>
+          </text>
+          <text id="/jor_register/ncd_consult./ncd_patients:label">
+            <value>How many NCD patients attended your clinic today?</value>
+          </text>
+          <text id="/jor_register/deaths./death_50yr:label">
+            <value>15 to 50 years</value>
+          </text>
+          <text id="/jor_register/intro./module/ebs:label">
+            <value>Event Based Surveillance (EBS)</value>
+          </text>
+          <text id="/jor_register/admissions./adm_less6mo:label">
+            <value>IERS | Total number of admission cases in epidemic week
+
+
+Less than 6 months</value>
+          </text>
+          <text id="/jor_register/intro./visit_date:jr:constraintMsg">
+            <value>Only past dates allowed</value>
+          </text>
+          <text id="/jor_register/admissions./adm_5yr:label">
+            <value>2 to 5 years</value>
+          </text>
+          <text id="/jor_register/intro./module/ncd:label">
+            <value>Non-Communicable Disease</value>
+          </text>
+          <text id="/jor_register/surveillance./afp:label">
+            <value>Active surveillance
+
+
+Enter number of new acute flaccid paralysis (AFP) cases recorded today</value>
+          </text>
+          <text id="/jor_register/surveillance./diarrhoea:label">
+            <value>Were there any cases of diarrhea?</value>
+          </text>
+          <text id="/jor_register/surveillance./ebs_cases:label">
+            <value>Total number of cases in the event(s) today</value>
+          </text>
+          <text id="/jor_register/ncd_consult./ncd_consultations:label">
+            <value>How many NCD cases you did enter today to the tablet?
+Please just enter total number of cases you did enter to the tablet, and if you did not enter any case to the tablet just enter zero</value>
+          </text>
+        </translation>
+        <translation default="true()" lang="default">
+          <text id="/jor_register/surveillance./epi_week:jr:constraintMsg">
+            <value>Enter number between 1 and 52</value>
+          </text>
+          <text id="/jor_register/intro./module/cd:label">
+            <value>الأمراض السارية</value>
+          </text>
+          <text id="/jor_register/admissions./adm_50yr:label">
+            <value>15 سنة - &lt; 50 سنة</value>
+          </text>
+          <text id="/jor_register/admissions./adm_over65yr:label">
+            <value>أكبر من 65 سنة</value>
+          </text>
+          <text id="/jor_register/deaths./death_over65yr:label">
+            <value>أكبر من 65 سنة</value>
+          </text>
+          <text id="/jor_register/deaths./death_15yr:label">
+            <value>5 سنة - &lt; 15 سنة</value>
+          </text>
+          <text id="/jor_register/admissions./adm_65yr:label">
+            <value>50 سنة - &lt; 65 سنة</value>
+          </text>
+          <text id="/jor_register/intro./module/pip:label">
+            <value>الرصد المخبري لـ SARI</value>
+          </text>
+          <text id="/jor_register/intro./module:label">
+            <value>.
+
+
+حدد نماذج الاستخدام:</value>
+          </text>
+          <text id="/jor_register/consult./consultations:label">
+            <value>IERS | المعاينات الطبية اليومية
+
+
+عدد المعاينات (الحالات الساريه) الإجمالي المسجل اليوم</value>
+          </text>
+          <text id="/jor_register/ncd_consult./ncd_consultations_refugee:label">
+            <value>من ضمن جميع حالات الأمراض غير السارية التي قمت بإدخالها على جهاز التابلت اليوم كم عدد اللاجئين منهم؟ 
+في حال عدم وجود اي حالة لاجىء منهم يرجى إدخال الرقم صفر</value>
+          </text>
+          <text id="/jor_register/deaths./death_5yr:label">
+            <value>2 سنة - &lt; 5 سنة</value>
+          </text>
+          <text id="/jor_register/deaths./death_less6mo:label">
+            <value>اجمالى حالات الوفيات فى الاسبوع الوبائى
+
+
+أقل من 6 شهور</value>
+          </text>
+          <text id="/jor_register/surveillance./ebs_pneumonia:label">
+            <value>Total number of Pneumonia cases admitted to the hospital today</value>
+          </text>
+          <text id="/jor_register/surveillance./measles:label">
+            <value>أدخل عدد حالات الحصبة (المشتبهة) المسجلة اليوم</value>
+          </text>
+          <text id="/jor_register/admissions./adm_2yr:label">
+            <value>6 شهور - &lt; 2 سنة</value>
+          </text>
+          <text id="/jor_register/approval:label">
+            <value>IERS | السجل
+
+عن طريق هذا الاختيار، أؤكد بأنني قمت بمراجعة جميع المعلومات عن الحالات الجديدة لهذا اليوم. مع هذا الإقرار أرسل موافقتي على جميع البيانات السابقة</value>
+          </text>
+          <text id="/jor_register/consult./consultations_refugee:label">
+            <value>عدد معاينات اللاجئين (الحالات الساريه) الإجمالي المسجل اليوم</value>
+          </text>
+          <text id="/jor_register/surveillance./diarrhoea/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_register/deaths./death_2yr:label">
+            <value>6 شهور - &lt; 2 سنة</value>
+          </text>
+          <text id="/jor_register/intro./visit_date:label">
+            <value>IERS | السجل
+
+
+تاريخ الزياره:</value>
+          </text>
+          <text id="/jor_register/surveillance./diarrhoea/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_register/admissions./adm_15yr:label">
+            <value>5 سنة - &lt; 15 سنة</value>
+          </text>
+          <text id="/jor_register/surveillance./epi_week:label">
+            <value>Enter the Epi Week</value>
+          </text>
+          <text id="/jor_register/deaths./death_65yr:label">
+            <value>50 سنة - &lt; 65 سنة</value>
+          </text>
+          <text id="/jor_register/surveillance./ebs:label">
+            <value>Number of event(s) today</value>
+          </text>
+          <text id="/jor_register/ncd_consult./ncd_patients:label">
+            <value>كم عدد المرضى الذين راجعوا العياده اليوم؟</value>
+          </text>
+          <text id="/jor_register/deaths./death_50yr:label">
+            <value>15 سنة - &lt; 50 سنة</value>
+          </text>
+          <text id="/jor_register/intro./module/ebs:label">
+            <value>المراقبة المستندة على الحدث (EBS)</value>
+          </text>
+          <text id="/jor_register/admissions./adm_less6mo:label">
+            <value>اجمالى حالات الدخول فى الاسبوع الوبائى
+
+
+أقل من 6 شهور</value>
+          </text>
+          <text id="/jor_register/intro./visit_date:jr:constraintMsg">
+            <value>يسمح فقط للتواريخ السابقة</value>
+          </text>
+          <text id="/jor_register/admissions./adm_5yr:label">
+            <value>2 سنة - &lt; 5 سنة</value>
+          </text>
+          <text id="/jor_register/intro./module/ncd:label">
+            <value>الأمراض غير السارية</value>
+          </text>
+          <text id="/jor_register/surveillance./afp:label">
+            <value>المراقبة النشطة
+
+
+أدخل عدد الحالات الجديدة من الشلل الرخو الحاد المسجلة اليوم</value>
+          </text>
+          <text id="/jor_register/surveillance./diarrhoea:label">
+            <value>هل عدد حالات الإسهال ضمن المعدل؟</value>
+          </text>
+          <text id="/jor_register/surveillance./ebs_cases:label">
+            <value>Total number of cases in the event(s) today</value>
+          </text>
+          <text id="/jor_register/ncd_consult./ncd_consultations:label">
+            <value>كم عدد حالات الامراض غيرالسارية التي قمت بإدخالها على جهاز التابلت اليوم؟ 
+الرجاء ادخال العدد الاجمالي لحالات الأمراض غير السارية التي قمت بادخالها على جهاز التابلت، وفي حال أنه لم يتم إدخال أي حالة أرجو إدخال الرقم صفر</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <jor_register id="jor_register">
+          <start/>
+          <end/>
+          <today/>
+          <deviceid/>
+          <subscriberid/>
+          <simid/>
+          <phonenumber/>
+          <intro.>
+            <visit_date/>
+            <module/>
+          </intro.>
+          <consult.>
+            <consultations/>
+            <consultations_refugee/>
+          </consult.>
+          <ncd_consult.>
+            <ncd_patients/>
+            <ncd_consultations/>
+            <ncd_consultations_refugee/>
+          </ncd_consult.>
+          <surveillance.>
+            <afp/>
+            <measles/>
+            <diarrhoea/>
+            <ebs/>
+            <ebs_cases/>
+            <ebs_pneumonia/>
+            <epi_week/>
+          </surveillance.>
+          <admissions.>
+            <adm_less6mo/>
+            <adm_2yr/>
+            <adm_5yr/>
+            <adm_15yr/>
+            <adm_50yr/>
+            <adm_65yr/>
+            <adm_over65yr/>
+          </admissions.>
+          <deaths.>
+            <death_less6mo/>
+            <death_2yr/>
+            <death_5yr/>
+            <death_15yr/>
+            <death_50yr/>
+            <death_65yr/>
+            <death_over65yr/>
+          </deaths.>
+          <approval/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </jor_register>
+      </instance>
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/jor_register/start" type="dateTime"/>
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/jor_register/end" type="dateTime"/>
+      <bind jr:preload="date" jr:preloadParams="today" nodeset="/jor_register/today" type="date"/>
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/jor_register/deviceid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/jor_register/subscriberid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/jor_register/simid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/jor_register/phonenumber" type="string"/>
+      <bind constraint=". &lt;= today()" jr:constraintMsg="jr:itext('/jor_register/intro./visit_date:jr:constraintMsg')" nodeset="/jor_register/intro./visit_date" type="date"/>
+      <bind nodeset="/jor_register/intro./module" required="true()" type="select1"/>
+      <bind nodeset="/jor_register/consult./consultations" relevant="not(selected( /jor_register/intro./module ,&quot;pip&quot;)) and not(selected( /jor_register/intro./module ,&quot;ncd&quot;)) and not(selected( /jor_register/intro./module ,&quot;ebs&quot;))" type="int"/>
+      <bind nodeset="/jor_register/consult./consultations_refugee" relevant="not(selected( /jor_register/intro./module ,&quot;pip&quot;)) and not(selected( /jor_register/intro./module ,&quot;ncd&quot;)) and not(selected( /jor_register/intro./module ,&quot;ebs&quot;))" type="int"/>
+      <bind nodeset="/jor_register/ncd_consult./ncd_patients" relevant="selected( /jor_register/intro./module ,&quot;ncd&quot;)" type="int"/>
+      <bind nodeset="/jor_register/ncd_consult./ncd_consultations" relevant="selected( /jor_register/intro./module ,&quot;ncd&quot;)" type="int"/>
+      <bind nodeset="/jor_register/ncd_consult./ncd_consultations_refugee" relevant="selected( /jor_register/intro./module ,&quot;ncd&quot;)" type="int"/>
+      <bind nodeset="/jor_register/surveillance./afp" relevant="selected( /jor_register/intro./module ,&quot;cd&quot;)" type="int"/>
+      <bind nodeset="/jor_register/surveillance./measles" relevant="selected( /jor_register/intro./module ,&quot;cd&quot;)" type="int"/>
+      <bind nodeset="/jor_register/surveillance./diarrhoea" relevant="selected( /jor_register/intro./module ,&quot;cd&quot;)" type="select1"/>
+      <bind nodeset="/jor_register/surveillance./ebs" relevant="selected( /jor_register/intro./module ,&quot;ebs&quot;)" required="true()" type="int"/>
+      <bind nodeset="/jor_register/surveillance./ebs_cases" relevant="selected( /jor_register/intro./module ,&quot;ebs&quot;)" required="true()" type="int"/>
+      <bind nodeset="/jor_register/surveillance./ebs_pneumonia" relevant="selected( /jor_register/intro./module ,&quot;ebs&quot;)" required="true()" type="int"/>
+      <bind constraint=". &gt;=0 and . &lt;=52" jr:constraintMsg="jr:itext('/jor_register/surveillance./epi_week:jr:constraintMsg')" nodeset="/jor_register/surveillance./epi_week" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/admissions./adm_less6mo" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/admissions./adm_2yr" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/admissions./adm_5yr" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/admissions./adm_15yr" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/admissions./adm_50yr" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/admissions./adm_65yr" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/admissions./adm_over65yr" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/deaths./death_less6mo" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/deaths./death_2yr" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/deaths./death_5yr" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/deaths./death_15yr" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/deaths./death_50yr" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/deaths./death_65yr" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/deaths./death_over65yr" relevant="selected( /jor_register/intro./module ,&quot;pip&quot;)" type="int"/>
+      <bind nodeset="/jor_register/approval" required="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/jor_register/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body class="theme-grid">
+    <group appearance="field-list" ref="/jor_register/intro.">
+      <input appearance="no-calendar" ref="/jor_register/intro./visit_date">
+        <label ref="jr:itext('/jor_register/intro./visit_date:label')"/>
+      </input>
+      <select1 ref="/jor_register/intro./module">
+        <label ref="jr:itext('/jor_register/intro./module:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_register/intro./module/cd:label')"/>
+          <value>cd</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_register/intro./module/ncd:label')"/>
+          <value>ncd</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_register/intro./module/pip:label')"/>
+          <value>pip</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_register/intro./module/ebs:label')"/>
+          <value>ebs</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/jor_register/consult.">
+      <input appearance="w2" ref="/jor_register/consult./consultations">
+        <label ref="jr:itext('/jor_register/consult./consultations:label')"/>
+      </input>
+      <input appearance="w2" ref="/jor_register/consult./consultations_refugee">
+        <label ref="jr:itext('/jor_register/consult./consultations_refugee:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/jor_register/ncd_consult.">
+      <input ref="/jor_register/ncd_consult./ncd_patients">
+        <label ref="jr:itext('/jor_register/ncd_consult./ncd_patients:label')"/>
+      </input>
+      <input appearance="w2" ref="/jor_register/ncd_consult./ncd_consultations">
+        <label ref="jr:itext('/jor_register/ncd_consult./ncd_consultations:label')"/>
+      </input>
+      <input appearance="w2" ref="/jor_register/ncd_consult./ncd_consultations_refugee">
+        <label ref="jr:itext('/jor_register/ncd_consult./ncd_consultations_refugee:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/jor_register/surveillance.">
+      <input appearance="w2" ref="/jor_register/surveillance./afp">
+        <label ref="jr:itext('/jor_register/surveillance./afp:label')"/>
+      </input>
+      <input appearance="w2" ref="/jor_register/surveillance./measles">
+        <label ref="jr:itext('/jor_register/surveillance./measles:label')"/>
+      </input>
+      <select1 appearance="w2" ref="/jor_register/surveillance./diarrhoea">
+        <label ref="jr:itext('/jor_register/surveillance./diarrhoea:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_register/surveillance./diarrhoea/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_register/surveillance./diarrhoea/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <input appearance="w2" ref="/jor_register/surveillance./ebs">
+        <label ref="jr:itext('/jor_register/surveillance./ebs:label')"/>
+      </input>
+      <input appearance="w2" ref="/jor_register/surveillance./ebs_cases">
+        <label ref="jr:itext('/jor_register/surveillance./ebs_cases:label')"/>
+      </input>
+      <input appearance="w2" ref="/jor_register/surveillance./ebs_pneumonia">
+        <label ref="jr:itext('/jor_register/surveillance./ebs_pneumonia:label')"/>
+      </input>
+      <input appearance="w2" ref="/jor_register/surveillance./epi_week">
+        <label ref="jr:itext('/jor_register/surveillance./epi_week:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/jor_register/admissions.">
+      <input appearance="w1" ref="/jor_register/admissions./adm_less6mo">
+        <label ref="jr:itext('/jor_register/admissions./adm_less6mo:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_register/admissions./adm_2yr">
+        <label ref="jr:itext('/jor_register/admissions./adm_2yr:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_register/admissions./adm_5yr">
+        <label ref="jr:itext('/jor_register/admissions./adm_5yr:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_register/admissions./adm_15yr">
+        <label ref="jr:itext('/jor_register/admissions./adm_15yr:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_register/admissions./adm_50yr">
+        <label ref="jr:itext('/jor_register/admissions./adm_50yr:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_register/admissions./adm_65yr">
+        <label ref="jr:itext('/jor_register/admissions./adm_65yr:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_register/admissions./adm_over65yr">
+        <label ref="jr:itext('/jor_register/admissions./adm_over65yr:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/jor_register/deaths.">
+      <input appearance="w1" ref="/jor_register/deaths./death_less6mo">
+        <label ref="jr:itext('/jor_register/deaths./death_less6mo:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_register/deaths./death_2yr">
+        <label ref="jr:itext('/jor_register/deaths./death_2yr:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_register/deaths./death_5yr">
+        <label ref="jr:itext('/jor_register/deaths./death_5yr:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_register/deaths./death_15yr">
+        <label ref="jr:itext('/jor_register/deaths./death_15yr:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_register/deaths./death_50yr">
+        <label ref="jr:itext('/jor_register/deaths./death_50yr:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_register/deaths./death_65yr">
+        <label ref="jr:itext('/jor_register/deaths./death_65yr:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_register/deaths./death_over65yr">
+        <label ref="jr:itext('/jor_register/deaths./death_over65yr:label')"/>
+      </input>
+    </group>
+    <trigger appearance="w4" ref="/jor_register/approval">
+      <label ref="jr:itext('/jor_register/approval:label')"/>
+    </trigger>
+  </h:body>
+</h:html>

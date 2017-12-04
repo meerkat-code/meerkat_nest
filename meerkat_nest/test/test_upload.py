@@ -77,6 +77,7 @@ class MeerkatNestUploadTest(unittest.TestCase):
     # test processing data
     def test_data_processing(self):
         # TODO: Test scrambling
+        meerkat_nest.resources.upload_data.process(self.data_entry)
 
         # TODO: Test column name conversion
         pass

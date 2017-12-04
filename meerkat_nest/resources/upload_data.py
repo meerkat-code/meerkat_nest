@@ -75,6 +75,16 @@ class UploadData(Resource):
                             status=400,
                             mimetype='application/json')
 
+        # Store processed data entry in Nest
+        try:
+            store_processed_data(processed_data_entry)
+        except Exception as e:
+            msg = "Error in uploading data: " + e.args[0]
+            logging.error(msg)
+            return Response(json.dumps({"message": msg}),
+                            status=502,
+                            mimetype='application/json')
+
         # Send processed data forward to the cloud
         try:
             sent = message_service.send_data(processed_data_entry)
@@ -124,6 +134,22 @@ def upload_to_raw_data(data_entry):
     return uuid_pk
 
 
+def store_processed_data(data_entry):
+
+    insert_row = model.data_type_tables[data_entry['formId']].__table__.insert().values(
+           uuid=data_entry['uuid'],
+           data=data_entry['data']
+        )
+
+    try:
+        connection = engine.connect()
+        connection.execute(insert_row)
+        connection.close()
+        return data_entry
+    except Exception:
+        raise
+
+
 def process(data_entry):
     """
     Processes raw data and stores the processed data entry in in Meerkat Nest database
@@ -131,27 +157,17 @@ def process(data_entry):
     Returns:\n
         processed data_entry if processing was successful, False otherwise
     """
-    processed_data_entry = restructure_aggregate_data(data_entry)
-    processed_data_entry = scramble_fields(processed_data_entry)
-    processed_data_entry = format_field_keys(processed_data_entry)
 
     assert data_entry['content'] in ['form', 'record'], "Content not supported"
     assert data_entry['formId'] in config.country_config['tables'], "Form not supported"
 
+    processed_data_entry = restructure_aggregate_data(data_entry)
+    processed_data_entry = scramble_fields(processed_data_entry)
+    processed_data_entry = format_field_keys(processed_data_entry)
+    country = config.country_config
     processed_data_entry = format_form_name(processed_data_entry)
 
-    insert_row = model.data_type_tables[processed_data_entry['formId']].__table__.insert().values(
-           uuid=processed_data_entry['uuid'],
-           data=processed_data_entry['data']
-        )
-
-    try:
-        connection = engine.connect()
-        connection.execute(insert_row)
-        connection.close()
-        return processed_data_entry
-    except Exception as e:
-        raise
+    return processed_data_entry
 
 
 def restructure_aggregate_data(data_entry):
@@ -180,10 +196,7 @@ def scramble_fields(data_entry):
 
     data_entry_scrambled = data_entry
 
-    try:
-        fields = config.country_config['scramble_fields'][data_entry['formId']]
-    except KeyError as e:
-        return data_entry_scrambled
+    fields = config.country_config.get('scramble_fields', {}).get(data_entry['formId'], {})
 
     for field in fields:
         if field in data_entry_scrambled['data'].keys():
@@ -213,7 +226,6 @@ def format_field_keys(data_entry):
                 data_entry['data'][key.replace(characters[0],characters[1])] = data_entry['data'][key]
                 data_entry['data'].pop(key)
 
-
     # Perform key replacements
     for key in rename_fields:
         if key in data_fields:
@@ -233,6 +245,8 @@ def format_form_name(data_entry):
 
     rename_form = config.country_config.get('rename_forms',
                                               {}).get(data_entry['formId'], None)
+
+    print("rename_form:" + rename_form)
 
     if rename_form:
         data_entry['formId'] = rename_form

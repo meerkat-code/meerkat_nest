@@ -1,0 +1,486 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head><!-- ODK Aggregate upload time: 2017-07-21T11:33:02.450+0000 on https://rms.emro.info -->
+    <h:title>Review Central</h:title>
+    <model>
+      <itext>
+        <translation lang="arabic">
+          <text id="/jor_review/review:label">
+            <value>وزارة الصحة | المتابعة المركزية
+
+يرجى ملء هذا النموذج لكل حالة إنذار تتلقاه عن طريق الرسائل القصيرة أو البريد الإلكتروني.
+
+• الرجاء استخدام رمز (ID) الإنذار الذي تم إرساله في SMS أو البريد الالكتروني</value>
+          </text>
+          <text id="/jor_review/ebs_ihr/trade:label">
+            <value>There is significant risk of international travel or trade restrictions</value>
+          </text>
+          <text id="/jor_review/ebs_risk/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_review/case./approval/case_app:label">
+            <value>تم تأكيد الحالة</value>
+          </text>
+          <text id="/jor_review/ebs_ihr_met/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_review/lab./outcome/disregard:label">
+            <value>النتيجة تنفي الحالة</value>
+          </text>
+          <text id="/jor_review/ebs_risk_level/low:label">
+            <value>Low Risk: Managed according to standard response protocols, routine control programmes and regulation.</value>
+          </text>
+          <text id="/jor_review/acknowledgement.:label">
+            <value>مراجعة التأكيد المركزي</value>
+          </text>
+          <text id="/jor_review/ebs:label">
+            <value>التحقق من الإشارة للحدث</value>
+          </text>
+          <text id="/jor_review/review.:label">
+            <value>التأكيد المركزي</value>
+          </text>
+          <text id="/jor_review/review./signal/yes:label">
+            <value>استقصاء الأحداث الصحية</value>
+          </text>
+          <text id="/jor_review/lab./status/pending:label">
+            <value>بانتظار نتائج المختبر</value>
+          </text>
+          <text id="/jor_review/review./signal/no:label">
+            <value>استقصاء الأمراض السارية</value>
+          </text>
+          <text id="/jor_review/lab./results:label">
+            <value>ما هي نتائج المختبر؟</value>
+          </text>
+          <text id="/jor_review/review./signal:label">
+            <value>نوع الاستقصاء:</value>
+          </text>
+          <text id="/jor_review/ebs_ihr/international:label">
+            <value>There is significant risk of international spread</value>
+          </text>
+          <text id="/jor_review/case./approval/case_noapp:label">
+            <value>لم يتم تأكيد الحالة</value>
+          </text>
+          <text id="/jor_review/acknowledgement./contact:label">
+            <value>أؤكد بأنني اتصلت بضباط الارتباط للتحقق من الحالة</value>
+          </text>
+          <text id="/jor_review/ebs_risk_level/moderate:label">
+            <value>Moderate Risk: Roles and responsibilities for the response must be specified.</value>
+          </text>
+          <text id="/jor_review/lab./outcome:label">
+            <value>نتائج المختبر:</value>
+          </text>
+          <text id="/jor_review/ebs_risk_level:label">
+            <value>According to the results of the risk assessment, what is the level of overall risk for this event?</value>
+          </text>
+          <text id="/jor_review/ebs_risk_level/veryhigh:label">
+            <value>Very High Risk: Immediate response required even if the event is reported outside of normal working hours. Immediate senior management attention needed.</value>
+          </text>
+          <text id="/jor_review/ebs_ihr:label">
+            <value>Assessment of the four criteria of the algorithm in Annex 2 IHR 2005. Please select all options that apply:</value>
+          </text>
+          <text id="/jor_review/ebs_risk_level/high:label">
+            <value>High Risk: Senior management attention needed – there may be a need to establish command and control structures.</value>
+          </text>
+          <text id="/jor_review/lab./status:label">
+            <value>هل تم الحصول على نتائج المختبر؟</value>
+          </text>
+          <text id="/jor_review/ebs/no_confirm:label">
+            <value>The unusual respiratory signal is false, and can be discarded</value>
+          </text>
+          <text id="/jor_review/acknowledgement./review:label">
+            <value>أؤكد بأنني قمت بمراجعة كافة المعلومات المتاحة عن الحالة</value>
+          </text>
+          <text id="/jor_review/case./approval:label">
+            <value>وضع تأكيد الحالة</value>
+          </text>
+          <text id="/jor_review/lab./outcome/confirm:label">
+            <value>النتيجة تؤكد الحالة</value>
+          </text>
+          <text id="/jor_review/ebs_risk:label">
+            <value>Has the risk assessment form been completed?</value>
+          </text>
+          <text id="/jor_review/ebs_ihr_met/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_review/ebs_ihr_met:label">
+            <value>This event meets two or more of the four criteria of the algorithm in Annex 2 under IHR 2005</value>
+          </text>
+          <text id="/jor_review/lab.:label">
+            <value>حالة نتائج المختبر</value>
+          </text>
+          <text id="/jor_review/review./name:label">
+            <value>اسم مسؤول التأكيد المركزي</value>
+          </text>
+          <text id="/jor_review/ebs/confirm:label">
+            <value>The unusual respiratory signal has been authenticated, and is an unusual respiratory event</value>
+          </text>
+          <text id="/jor_review/case.:label">
+            <value>الموافقة المركزية على الحالة</value>
+          </text>
+          <text id="/jor_review/ebs_ihr/unusual:label">
+            <value>The event is unusual or unexpected</value>
+          </text>
+          <text id="/jor_review/case./notes:label">
+            <value>ملاحظات الحالة: أدخل أي ملاحظات عن الحالة و لم تم تأكيدها أو عدمه</value>
+          </text>
+          <text id="/jor_review/ebs_risk/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_review/lab./status/received:label">
+            <value>تم استلام نتائج المختبر</value>
+          </text>
+          <text id="/jor_review/ebs_ihr/serious:label">
+            <value>The public health impact of the event is serious</value>
+          </text>
+          <text id="/jor_review/review./alert_id:label">
+            <value>رقم الاشعار (الإنذار)</value>
+          </text>
+        </translation>
+        <translation default="true()" lang="default">
+          <text id="/jor_review/review:label">
+            <value>MOH | CENTRAL REVIEW
+
+Please complete this form for every alert that you receive by SMS or Email.
+
+• Please use the Alert ID that was sent in the SMS or Email</value>
+          </text>
+          <text id="/jor_review/ebs_ihr/trade:label">
+            <value>There is significant risk of international travel or trade restrictions</value>
+          </text>
+          <text id="/jor_review/ebs_risk/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_review/case./approval/case_app:label">
+            <value>Case approved</value>
+          </text>
+          <text id="/jor_review/ebs_ihr_met/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_review/lab./outcome/disregard:label">
+            <value>Result disregards case</value>
+          </text>
+          <text id="/jor_review/ebs_risk_level/low:label">
+            <value>Low Risk: Managed according to standard response protocols, routine control programmes and regulation.</value>
+          </text>
+          <text id="/jor_review/acknowledgement.:label">
+            <value>Central review acknowledgement</value>
+          </text>
+          <text id="/jor_review/ebs:label">
+            <value>Please select one of the following options</value>
+          </text>
+          <text id="/jor_review/review.:label">
+            <value>Central review approvals</value>
+          </text>
+          <text id="/jor_review/review./signal/yes:label">
+            <value>Event Base investigation</value>
+          </text>
+          <text id="/jor_review/lab./status/pending:label">
+            <value>Lab results are pending</value>
+          </text>
+          <text id="/jor_review/review./signal/no:label">
+            <value>Communicable Disease investigation</value>
+          </text>
+          <text id="/jor_review/lab./results:label">
+            <value>What are the lab results?</value>
+          </text>
+          <text id="/jor_review/review./signal:label">
+            <value>Investigation type:</value>
+          </text>
+          <text id="/jor_review/ebs_ihr/international:label">
+            <value>There is significant risk of international spread</value>
+          </text>
+          <text id="/jor_review/case./approval/case_noapp:label">
+            <value>Case not approved</value>
+          </text>
+          <text id="/jor_review/acknowledgement./contact:label">
+            <value>I acknowledge that I have contacted the appropriate focal points for case investigation.</value>
+          </text>
+          <text id="/jor_review/ebs_risk_level/moderate:label">
+            <value>Moderate Risk: Roles and responsibilities for the response must be specified.</value>
+          </text>
+          <text id="/jor_review/lab./outcome:label">
+            <value>Status of lab result</value>
+          </text>
+          <text id="/jor_review/ebs_risk_level:label">
+            <value>What is the level of overall risk for this unusual respiratory event?</value>
+          </text>
+          <text id="/jor_review/ebs_risk_level/veryhigh:label">
+            <value>Very High Risk: Immediate response required even if the event is reported outside of normal working hours. Immediate senior management attention needed.</value>
+          </text>
+          <text id="/jor_review/ebs_ihr:label">
+            <value>Has a hazard assessment been conducted?</value>
+          </text>
+          <text id="/jor_review/ebs_risk_level/high:label">
+            <value>High Risk: Senior management attention needed – there may be a need to establish command and control structures.</value>
+          </text>
+          <text id="/jor_review/lab./status:label">
+            <value>What is the status of lab results?</value>
+          </text>
+          <text id="/jor_review/ebs/no_confirm:label">
+            <value>The unusual respiratory signal is false, and can be discarded</value>
+          </text>
+          <text id="/jor_review/acknowledgement./review:label">
+            <value>I acknowledge that I have reviewed all of the available information on the case.</value>
+          </text>
+          <text id="/jor_review/case./approval:label">
+            <value>Status of approval of case</value>
+          </text>
+          <text id="/jor_review/lab./outcome/confirm:label">
+            <value>Result confirms case</value>
+          </text>
+          <text id="/jor_review/ebs_risk:label">
+            <value>Has the risk assessment form been completed?</value>
+          </text>
+          <text id="/jor_review/ebs_ihr_met/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_review/ebs_ihr_met:label">
+            <value>This event meets two or more of the four criteria of the algorithm in Annex 2 under IHR 2005</value>
+          </text>
+          <text id="/jor_review/lab.:label">
+            <value>Status of lab results</value>
+          </text>
+          <text id="/jor_review/review./name:label">
+            <value>Investigator name:</value>
+          </text>
+          <text id="/jor_review/ebs/confirm:label">
+            <value>The unusual respiratory signal has been authenticated, and is an unusual respiratory event</value>
+          </text>
+          <text id="/jor_review/case.:label">
+            <value>Central approval of case</value>
+          </text>
+          <text id="/jor_review/ebs_ihr/unusual:label">
+            <value>The event is unusual or unexpected</value>
+          </text>
+          <text id="/jor_review/case./notes:label">
+            <value>Case notes: input notes about the case and why it is approved or not approved</value>
+          </text>
+          <text id="/jor_review/ebs_risk/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_review/lab./status/received:label">
+            <value>Lab results have been received</value>
+          </text>
+          <text id="/jor_review/ebs_ihr/serious:label">
+            <value>The public health impact of the event is serious</value>
+          </text>
+          <text id="/jor_review/review./alert_id:label">
+            <value>Alert ID:</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <jor_review id="jor_review">
+          <start/>
+          <end/>
+          <today/>
+          <deviceid/>
+          <subscriberid/>
+          <simid/>
+          <phonenumber/>
+          <review/>
+          <review.>
+            <name/>
+            <alert_id/>
+            <signal/>
+          </review.>
+          <ebs/>
+          <ebs_risk/>
+          <ebs_risk_level/>
+          <ebs_ihr/>
+          <ebs_ihr_met/>
+          <acknowledgement.>
+            <contact/>
+            <review/>
+          </acknowledgement.>
+          <lab.>
+            <status/>
+            <results/>
+            <outcome/>
+          </lab.>
+          <case.>
+            <approval/>
+            <notes/>
+          </case.>
+          <meta>
+            <instanceID/>
+          </meta>
+        </jor_review>
+      </instance>
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/jor_review/start" type="dateTime"/>
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/jor_review/end" type="dateTime"/>
+      <bind jr:preload="date" jr:preloadParams="today" nodeset="/jor_review/today" type="date"/>
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/jor_review/deviceid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/jor_review/subscriberid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/jor_review/simid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/jor_review/phonenumber" type="string"/>
+      <bind nodeset="/jor_review/review" readonly="true()" type="string"/>
+      <bind nodeset="/jor_review/review./name" required="true()" type="string"/>
+      <bind nodeset="/jor_review/review./alert_id" required="true()" type="string"/>
+      <bind nodeset="/jor_review/review./signal" required="true()" type="select1"/>
+      <bind nodeset="/jor_review/ebs" relevant=" /jor_review/review./signal =&quot;yes&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_review/ebs_risk" relevant="selected( /jor_review/ebs , 'confirm')" required="true()" type="select1"/>
+      <bind nodeset="/jor_review/ebs_risk_level" relevant="selected( /jor_review/ebs_risk , 'risk')" required="true()" type="select1"/>
+      <bind nodeset="/jor_review/ebs_ihr" relevant="selected( /jor_review/ebs , 'confirm')" required="true()" type="select"/>
+      <bind nodeset="/jor_review/ebs_ihr_met" relevant="selected( /jor_review/ebs , 'confirm')" required="true()" type="select1"/>
+      <bind nodeset="/jor_review/acknowledgement./contact" required="true()" type="string"/>
+      <bind nodeset="/jor_review/acknowledgement./review" required="true()" type="string"/>
+      <bind nodeset="/jor_review/lab./status" relevant="not(selected( /jor_review/ebs , 'confirm'))" required="true()" type="select1"/>
+      <bind nodeset="/jor_review/lab./results" relevant="not(selected( /jor_review/ebs , 'confirm'))" required="true()" type="string"/>
+      <bind nodeset="/jor_review/lab./outcome" relevant="not(selected( /jor_review/ebs , 'confirm'))" required="true()" type="select1"/>
+      <bind nodeset="/jor_review/case./approval" relevant="not(selected( /jor_review/ebs , 'confirm'))" required="true()" type="select1"/>
+      <bind nodeset="/jor_review/case./notes" relevant="not(selected( /jor_review/ebs , 'confirm'))" required="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/jor_review/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body class="theme-grid">
+    <input ref="/jor_review/review">
+      <label ref="jr:itext('/jor_review/review:label')"/>
+    </input>
+    <group appearance="field-list" ref="/jor_review/review.">
+      <label ref="jr:itext('/jor_review/review.:label')"/>
+      <input appearance="w2" ref="/jor_review/review./name">
+        <label ref="jr:itext('/jor_review/review./name:label')"/>
+      </input>
+      <input appearance="w2" ref="/jor_review/review./alert_id">
+        <label ref="jr:itext('/jor_review/review./alert_id:label')"/>
+      </input>
+      <select1 appearance="w2" ref="/jor_review/review./signal">
+        <label ref="jr:itext('/jor_review/review./signal:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_review/review./signal/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_review/review./signal/no:label')"/>
+          <value>no</value>
+        </item>
+      </select1>
+    </group>
+    <select1 appearance="w2" ref="/jor_review/ebs">
+      <label ref="jr:itext('/jor_review/ebs:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs/confirm:label')"/>
+        <value>confirm</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs/no_confirm:label')"/>
+        <value>no_confirm</value>
+      </item>
+    </select1>
+    <select1 appearance="w2" ref="/jor_review/ebs_risk">
+      <label ref="jr:itext('/jor_review/ebs_risk:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs_risk/yes:label')"/>
+        <value>yes</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs_risk/no:label')"/>
+        <value>no</value>
+      </item>
+    </select1>
+    <select1 ref="/jor_review/ebs_risk_level">
+      <label ref="jr:itext('/jor_review/ebs_risk_level:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs_risk_level/low:label')"/>
+        <value>low</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs_risk_level/moderate:label')"/>
+        <value>moderate</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs_risk_level/high:label')"/>
+        <value>high</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs_risk_level/veryhigh:label')"/>
+        <value>veryhigh</value>
+      </item>
+    </select1>
+    <select appearance="w2" ref="/jor_review/ebs_ihr">
+      <label ref="jr:itext('/jor_review/ebs_ihr:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs_ihr/serious:label')"/>
+        <value>serious</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs_ihr/unusual:label')"/>
+        <value>unusual</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs_ihr/international:label')"/>
+        <value>international</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs_ihr/trade:label')"/>
+        <value>trade</value>
+      </item>
+    </select>
+    <select1 appearance="w2" ref="/jor_review/ebs_ihr_met">
+      <label ref="jr:itext('/jor_review/ebs_ihr_met:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs_ihr_met/yes:label')"/>
+        <value>yes</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_review/ebs_ihr_met/no:label')"/>
+        <value>no</value>
+      </item>
+    </select1>
+    <group appearance="field-list" ref="/jor_review/acknowledgement.">
+      <label ref="jr:itext('/jor_review/acknowledgement.:label')"/>
+      <trigger appearance="w2" ref="/jor_review/acknowledgement./contact">
+        <label ref="jr:itext('/jor_review/acknowledgement./contact:label')"/>
+      </trigger>
+      <trigger appearance="w2" ref="/jor_review/acknowledgement./review">
+        <label ref="jr:itext('/jor_review/acknowledgement./review:label')"/>
+      </trigger>
+    </group>
+    <group appearance="field-list" ref="/jor_review/lab.">
+      <label ref="jr:itext('/jor_review/lab.:label')"/>
+      <select1 appearance="w2" ref="/jor_review/lab./status">
+        <label ref="jr:itext('/jor_review/lab./status:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_review/lab./status/pending:label')"/>
+          <value>pending</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_review/lab./status/received:label')"/>
+          <value>received</value>
+        </item>
+      </select1>
+      <input appearance="w2" ref="/jor_review/lab./results">
+        <label ref="jr:itext('/jor_review/lab./results:label')"/>
+      </input>
+      <select1 appearance="w2" ref="/jor_review/lab./outcome">
+        <label ref="jr:itext('/jor_review/lab./outcome:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_review/lab./outcome/confirm:label')"/>
+          <value>confirm</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_review/lab./outcome/disregard:label')"/>
+          <value>disregard</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/jor_review/case.">
+      <label ref="jr:itext('/jor_review/case.:label')"/>
+      <select1 appearance="w2" ref="/jor_review/case./approval">
+        <label ref="jr:itext('/jor_review/case./approval:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_review/case./approval/case_app:label')"/>
+          <value>case_app</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_review/case./approval/case_noapp:label')"/>
+          <value>case_noapp</value>
+        </item>
+      </select1>
+      <input appearance="w2" ref="/jor_review/case./notes">
+        <label ref="jr:itext('/jor_review/case./notes:label')"/>
+      </input>
+    </group>
+  </h:body>
+</h:html>

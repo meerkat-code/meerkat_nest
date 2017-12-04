@@ -11,10 +11,6 @@ country_config = {
         "dem_test"
     ],
     "scramble_fields": {
-        "demo_case": [],
-        "demo_alert": [],
-        "demo_register": [],
-        "jor_evaluation": [],
         "dem_evaluation": ["simid", "phonenumber"]
     },
     "rename_fields": {
@@ -28,6 +24,9 @@ country_config = {
         "demo_alert": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
         "demo_register": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
         "dem_test": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
+    },
+    "rename_forms": {
+        "dem_test": "demo_testing"
     },
     "replace_characters": {
         "demo_case":
@@ -51,3 +50,5 @@ country_config = {
         }
     }
  }
+
+

@@ -1,0 +1,2214 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head><!-- ODK Aggregate upload time: 2017-07-21T11:32:49.664+0000 on https://rms.emro.info -->
+    <h:title>Investigation Alert</h:title>
+    <model>
+      <itext>
+        <translation lang="english">
+          <text id="/jor_alert/ebs_2/hx_travel_2:label">
+            <value>History of travel?</value>
+          </text>
+          <text id="/jor_alert/anthrax_type/A22.1:label">
+            <value>Pulmonary (inhalation)</value>
+          </text>
+          <text id="/jor_alert/cd/A20:label">
+            <value>Plague</value>
+          </text>
+          <text id="/jor_alert/ebs_2/status_2/death:label">
+            <value>Death</value>
+          </text>
+          <text id="/jor_alert/cd/A82:label">
+            <value>Rabies</value>
+          </text>
+          <text id="/jor_alert/cd/A23:label">
+            <value>Brucellosis</value>
+          </text>
+          <text id="/jor_alert/ebs_3/hx_travel_3/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_alert/ebs_4/firstname_4:label">
+            <value>First name:</value>
+          </text>
+          <text id="/jor_alert/ebs_1/hx_animal_1:label">
+            <value>History of animal contact within the last two weeks?</value>
+          </text>
+          <text id="/jor_alert/cd/A80.10:label">
+            <value>Acute flaccid paralysis</value>
+          </text>
+          <text id="/jor_alert/cd:label">
+            <value>IERS | COMMUNICABLE DISEASE
+
+Select the presenting complaint:</value>
+          </text>
+          <text id="/jor_alert/ebs_2/hx_travel_2/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_alert/ili_type/J09:label">
+            <value>H1N1</value>
+          </text>
+          <text id="/jor_alert/ebs_4/hx_travel_4:label">
+            <value>History of travel?</value>
+          </text>
+          <text id="/jor_alert/ebs_1/status_1/hospital:label">
+            <value>Hospitalised and receiving treatment</value>
+          </text>
+          <text id="/jor_alert/ebs_1/age_1:label">
+            <value>Age:</value>
+          </text>
+          <text id="/jor_alert/cd/B54:label">
+            <value>Malaria</value>
+          </text>
+          <text id="/jor_alert/ebs_event/mortality:label">
+            <value>Increase in apparent mortality or unexplained deaths</value>
+          </text>
+          <text id="/jor_alert/ebs_4/hx_animal_4/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_alert/ebs_3:label">
+            <value>MOH | EVENT BASED SURVEILLANCE</value>
+          </text>
+          <text id="/jor_alert/ebs_5/hx_animal_5/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_alert/ebs_3/age_3:label">
+            <value>Age:</value>
+          </text>
+          <text id="/jor_alert/ebs_1/gender_1/male:label">
+            <value>Male</value>
+          </text>
+          <text id="/jor_alert/cd/A00:label">
+            <value>Cholera</value>
+          </text>
+          <text id="/jor_alert/meningitis_type/A87:label">
+            <value>Viral meningitis</value>
+          </text>
+          <text id="/jor_alert/hepatitis_type/B17.1:label">
+            <value>Hepatitis C</value>
+          </text>
+          <text id="/jor_alert/ebs_type:label">
+            <value>Select type of EBS investigation</value>
+          </text>
+          <text id="/jor_alert/vhf_type/A98.4:label">
+            <value>Ebola</value>
+          </text>
+          <text id="/jor_alert/checklist/contact_tracing:label">
+            <value>Contact tracing was coducted</value>
+          </text>
+          <text id="/jor_alert/pt./alert_id:hint">
+            <value>The Alert ID must be six characters (using lowercase letters a-f and numbers only)</value>
+          </text>
+          <text id="/jor_alert/checklist/treatment:label">
+            <value>The case was treated</value>
+          </text>
+          <text id="/jor_alert/ebs_event/travel:label">
+            <value>Severe acute respiratory illness in individuals who have traveled to areas where there is circulation of a respiratory virus with potential for serious public health impact</value>
+          </text>
+          <text id="/jor_alert/ebs_2/hx_animal_2/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_alert/ebs_3/status_3:label">
+            <value>Status of case</value>
+          </text>
+          <text id="/jor_alert/checklist/labs:label">
+            <value>Laboratory Specimens were collected</value>
+          </text>
+          <text id="/jor_alert/ebs_4/gender_4:label">
+            <value>Gender:</value>
+          </text>
+          <text id="/jor_alert/ebs_4/diagnosis_4:label">
+            <value>Enter preliminary clinical diagnosis:</value>
+          </text>
+          <text id="/jor_alert/ebs_1/firstname_1:label">
+            <value>First name:</value>
+          </text>
+          <text id="/jor_alert/ebs_4/status_4/discharge:label">
+            <value>Discharge</value>
+          </text>
+          <text id="/jor_alert/pt./alert_id:jr:constraintMsg">
+            <value>Please enter a valid Alert ID</value>
+          </text>
+          <text id="/jor_alert/ebs_event/icu:label">
+            <value>Increased ICU admissions for respiratory illness</value>
+          </text>
+          <text id="/jor_alert/alert:label">
+            <value>MOH | ALERT INVESTIGATION
+
+Please complete this form for every alert that you receive by SMS or Email.
+
+• Please use the Alert ID that was sent in the SMS or Email
+
+• Please ensure the alert form is completed between 48-72 hours after receiving the alert by SMS or Email
+
+• EBS Alert form should be completed within 24 hours after receiving the alert by SMS or email</value>
+          </text>
+          <text id="/jor_alert/ili_type/J10:label">
+            <value>H2N3</value>
+          </text>
+          <text id="/jor_alert/meningitis_type/A39.0:label">
+            <value>Meningicoccal meningitis</value>
+          </text>
+          <text id="/jor_alert/ebs_event/cluster:label">
+            <value>Two or more cases of severe acute respiratory illness in members of the same family, social group, or work setting (within a 2-week interval)</value>
+          </text>
+          <text id="/jor_alert/cd/A37:label">
+            <value>Pertussis</value>
+          </text>
+          <text id="/jor_alert/cd/B86:label">
+            <value>Scabies</value>
+          </text>
+          <text id="/jor_alert/cd/A68:label">
+            <value>Relapsing fever</value>
+          </text>
+          <text id="/jor_alert/ebs_3/hx_animal_3:label">
+            <value>History of animal contact within the last two weeks?</value>
+          </text>
+          <text id="/jor_alert/ebs_3/hx_animal_3/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_alert/pt./phone:label">
+            <value>Patient phone number:</value>
+          </text>
+          <text id="/jor_alert/cd/B06:label">
+            <value>German measles (rubella)</value>
+          </text>
+          <text id="/jor_alert/ebs_event/none:label">
+            <value>The reported signal does not meet any of the above criteria</value>
+          </text>
+          <text id="/jor_alert/alert_labs./invest_res/not_outbreak:label">
+            <value>Non outbreak</value>
+          </text>
+          <text id="/jor_alert/ebs_5/diagnosis_5:label">
+            <value>Enter preliminary clinical diagnosis:</value>
+          </text>
+          <text id="/jor_alert/ebs_3/diagnosis_3:label">
+            <value>Enter preliminary clinical diagnosis:</value>
+          </text>
+          <text id="/jor_alert/ebs_5/gender_5/male:label">
+            <value>Male</value>
+          </text>
+          <text id="/jor_alert/ebs_5/hx_travel_5/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_alert/alert_labs./comments:label">
+            <value>Thank you. Please add any comments</value>
+          </text>
+          <text id="/jor_alert/ebs_1/diagnosis_1:label">
+            <value>Enter preliminary clinical diagnosis:</value>
+          </text>
+          <text id="/jor_alert/ebs_event/age:label">
+            <value>Changes in expected age groups</value>
+          </text>
+          <text id="/jor_alert/ebs_5/gender_5/female:label">
+            <value>Female</value>
+          </text>
+          <text id="/jor_alert/cd/hepatitis:label">
+            <value>Hepatitis</value>
+          </text>
+          <text id="/jor_alert/ebs_5/status_5/icu:label">
+            <value>In ICU/has complications</value>
+          </text>
+          <text id="/jor_alert/alert_labs./return_lab/unsure:label">
+            <value>Unsure</value>
+          </text>
+          <text id="/jor_alert/ebs_5/hx_animal_5/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_alert/cd/A35:label">
+            <value>Tetanus</value>
+          </text>
+          <text id="/jor_alert/cd/tuberculosis:label">
+            <value>Tuberculosis</value>
+          </text>
+          <text id="/jor_alert/cd/A95:label">
+            <value>Yellow fever</value>
+          </text>
+          <text id="/jor_alert/ebs_1/hx_travel_1:label">
+            <value>History of travel?</value>
+          </text>
+          <text id="/jor_alert/ebs_4/gender_4/male:label">
+            <value>Male</value>
+          </text>
+          <text id="/jor_alert/cd/A01:label">
+            <value>Typhoid fever</value>
+          </text>
+          <text id="/jor_alert/ebs_type/followup:label">
+            <value>Follow-up</value>
+          </text>
+          <text id="/jor_alert/ebs_1/hx_travel_1/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_alert/ebs_5:label">
+            <value>MOH | EVENT BASED SURVEILLANCE</value>
+          </text>
+          <text id="/jor_alert/cd/anthrax:label">
+            <value>Anthrax</value>
+          </text>
+          <text id="/jor_alert/cd/A09:label">
+            <value>Diarrhoea</value>
+          </text>
+          <text id="/jor_alert/ebs_5/hx_travel_5/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_alert/ebs_1/hx_travel_1/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_alert/ebs_event/treatment:label">
+            <value>Changes in treatment response</value>
+          </text>
+          <text id="/jor_alert/ebs_1:label">
+            <value>MOH | EVENT BASED SURVEILLANCE</value>
+          </text>
+          <text id="/jor_alert/cd/A30:label">
+            <value>Leprosy</value>
+          </text>
+          <text id="/jor_alert/ebs_4/age_4:label">
+            <value>Age:</value>
+          </text>
+          <text id="/jor_alert/checklist:label">
+            <value>Select outbreak investigation steps that have been completed:</value>
+          </text>
+          <text id="/jor_alert/pt./gps:label">
+            <value>MOH | ALERT INVESTIGATION
+
+Collect GPS position:</value>
+          </text>
+          <text id="/jor_alert/ebs_3/gender_3/female:label">
+            <value>Female</value>
+          </text>
+          <text id="/jor_alert/meningitis_type/G00.0:label">
+            <value>Hib meningitis</value>
+          </text>
+          <text id="/jor_alert/ili_type:label">
+            <value>IERS | COMMUNICABLE DISEASE
+
+Select the presenting complaint:</value>
+          </text>
+          <text id="/jor_alert/ebs_5/status_5/death:label">
+            <value>Death</value>
+          </text>
+          <text id="/jor_alert/ebs_3/hx_animal_3/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_alert/ebs_1/status_1/death:label">
+            <value>Death</value>
+          </text>
+          <text id="/jor_alert/ebs_1/gender_1/female:label">
+            <value>Female</value>
+          </text>
+          <text id="/jor_alert/alert_labs./cases:label">
+            <value>How many cases were reported?</value>
+          </text>
+          <text id="/jor_alert/ebs_5/surname_5:label">
+            <value>Family name:</value>
+          </text>
+          <text id="/jor_alert/ebs_5/hx_travel_5:label">
+            <value>History of travel?</value>
+          </text>
+          <text id="/jor_alert/ebs_5/firstname_5:label">
+            <value>First name:</value>
+          </text>
+          <text id="/jor_alert/cd/A79:label">
+            <value>Rickettsia</value>
+          </text>
+          <text id="/jor_alert/checklist/threshold_alert:label">
+            <value>Investigation of threshold alert</value>
+          </text>
+          <text id="/jor_alert/anthrax_type/A22.2:label">
+            <value>Gastrointestinal</value>
+          </text>
+          <text id="/jor_alert/ebs_1/status_1/icu:label">
+            <value>In ICU/has complications</value>
+          </text>
+          <text id="/jor_alert/ebs_1/status_1:label">
+            <value>Status of case</value>
+          </text>
+          <text id="/jor_alert/ebs_3/gender_3:label">
+            <value>Gender:</value>
+          </text>
+          <text id="/jor_alert/vhf_type:label">
+            <value>IERS | COMMUNICABLE DISEASE
+
+Select the presenting complaint:</value>
+          </text>
+          <text id="/jor_alert/ebs_3/status_3/icu:label">
+            <value>In ICU/has complications</value>
+          </text>
+          <text id="/jor_alert/note_cd:label">
+            <value><output value=" /jor_alert/icd_cd "/></value>
+          </text>
+          <text id="/jor_alert/ebs_5/hx_animal_5:label">
+            <value>History of animal contact within the last two weeks?</value>
+          </text>
+          <text id="/jor_alert/meningitis_type/G00.9:label">
+            <value>Non-meningicoccal meningitis</value>
+          </text>
+          <text id="/jor_alert/hepatitis_type/B15:label">
+            <value>Hepatitis A</value>
+          </text>
+          <text id="/jor_alert/ebs_4:label">
+            <value>MOH | EVENT BASED SURVEILLANCE</value>
+          </text>
+          <text id="/jor_alert/ebs_2/gender_2:label">
+            <value>Gender:</value>
+          </text>
+          <text id="/jor_alert/ebs_3/status_3/discharge:label">
+            <value>Discharge</value>
+          </text>
+          <text id="/jor_alert/ebs_4/hx_animal_4/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_alert/ebs_event/animal:label">
+            <value>Severe acute respiratory illness in humans that is associated with illness in animals (within the last two weeks)</value>
+          </text>
+          <text id="/jor_alert/cd/A33:label">
+            <value>Neonatal Tetanus</value>
+          </text>
+          <text id="/jor_alert/ebs_2/firstname_2:label">
+            <value>First name:</value>
+          </text>
+          <text id="/jor_alert/ebs_1/hx_animal_1/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_alert/ebs_5/status_5/discharge:label">
+            <value>Discharge</value>
+          </text>
+          <text id="/jor_alert/meningitis_type/G00:label">
+            <value>O Bact meningitis</value>
+          </text>
+          <text id="/jor_alert/ebs_5/status_5:label">
+            <value>Status of case</value>
+          </text>
+          <text id="/jor_alert/cd/A36:label">
+            <value>Diphtheria</value>
+          </text>
+          <text id="/jor_alert/cd/T14.1:label">
+            <value>Animal Bite</value>
+          </text>
+          <text id="/jor_alert/cd/A05:label">
+            <value>Food Poisoning</value>
+          </text>
+          <text id="/jor_alert/ebs_3/status_3/hospital:label">
+            <value>Hospitalised and receiving treatment</value>
+          </text>
+          <text id="/jor_alert/tb_type/A18:label">
+            <value>Non-pulmonary TB</value>
+          </text>
+          <text id="/jor_alert/ebs_1/surname_1:label">
+            <value>Family name:</value>
+          </text>
+          <text id="/jor_alert/alert_labs./return_lab:label">
+            <value>MOH | ALERT CHECKLIST
+
+Do the laboratory results confirm the alert?</value>
+          </text>
+          <text id="/jor_alert/ebs_2/gender_2/male:label">
+            <value>Male</value>
+          </text>
+          <text id="/jor_alert/anthrax_type/A22.0:label">
+            <value>Cutaneous</value>
+          </text>
+          <text id="/jor_alert/cd/viralfever:label">
+            <value>Viral haemorrhagic fever</value>
+          </text>
+          <text id="/jor_alert/ebs_4/status_4/death:label">
+            <value>Death</value>
+          </text>
+          <text id="/jor_alert/ebs_2/status_2:label">
+            <value>Status of case</value>
+          </text>
+          <text id="/jor_alert/ebs_3/gender_3/male:label">
+            <value>Male</value>
+          </text>
+          <text id="/jor_alert/cd/B05:label">
+            <value>Measles</value>
+          </text>
+          <text id="/jor_alert/ebs_event/presentation:label">
+            <value>Changes in clinical presentation</value>
+          </text>
+          <text id="/jor_alert/alert_labs./return_lab/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_alert/ebs_2/hx_travel_2/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_alert/ebs_2/age_2:label">
+            <value>Age:</value>
+          </text>
+          <text id="/jor_alert/cd/B34:label">
+            <value>Corona</value>
+          </text>
+          <text id="/jor_alert/hepatitis_type/B16:label">
+            <value>Hepatitis B</value>
+          </text>
+          <text id="/jor_alert/ebs_5/age_5:label">
+            <value>Age:</value>
+          </text>
+          <text id="/jor_alert/cd/B65:label">
+            <value>Bilharzia</value>
+          </text>
+          <text id="/jor_alert/ebs_2/gender_2/female:label">
+            <value>Female</value>
+          </text>
+          <text id="/jor_alert/ebs_type/initial:label">
+            <value>Initial alert investigation</value>
+          </text>
+          <text id="/jor_alert/checklist/invalid_case_def:label">
+            <value>The case does not meet the case definition</value>
+          </text>
+          <text id="/jor_alert/ebs_3/hx_travel_3/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_alert/cd/B24:label">
+            <value>HIV</value>
+          </text>
+          <text id="/jor_alert/cd/B67:label">
+            <value>Echinococcosis</value>
+          </text>
+          <text id="/jor_alert/cd/!01:label">
+            <value>Unusual Respiratory Event</value>
+          </text>
+          <text id="/jor_alert/alert_labs./invest_res/outbreak:label">
+            <value>Outbreak</value>
+          </text>
+          <text id="/jor_alert/ebs_4/surname_4:label">
+            <value>Family name:</value>
+          </text>
+          <text id="/jor_alert/ebs_1/hx_animal_1/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_alert/cd/A80.9:label">
+            <value>Poliomyelitis</value>
+          </text>
+          <text id="/jor_alert/ebs_5/status_5/hospital:label">
+            <value>Hospitalised and receiving treatment</value>
+          </text>
+          <text id="/jor_alert/ebs_3/surname_3:label">
+            <value>Family name:</value>
+          </text>
+          <text id="/jor_alert/ebs_event/hcw:label">
+            <value>Unexplained severe acute respiratory illness that occurs in a healthcare worker who takes care of patients with respiratory illness</value>
+          </text>
+          <text id="/jor_alert/alert_labs./return_lab/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_alert/cd/!0:label">
+            <value>Other</value>
+          </text>
+          <text id="/jor_alert/ebs_2/surname_2:label">
+            <value>Family name:</value>
+          </text>
+          <text id="/jor_alert/ebs_2:label">
+            <value>MOH | EVENT BASED SURVEILLANCE</value>
+          </text>
+          <text id="/jor_alert/tb_type:label">
+            <value>IERS | COMMUNICABLE DISEASE
+
+Select the presenting complaint:</value>
+          </text>
+          <text id="/jor_alert/cd/A54:label">
+            <value>Gonorrhoea</value>
+          </text>
+          <text id="/jor_alert/ebs_2/status_2/hospital:label">
+            <value>Hospitalised and receiving treatment</value>
+          </text>
+          <text id="/jor_alert/ebs_3/status_3/death:label">
+            <value>Death</value>
+          </text>
+          <text id="/jor_alert/pt./alert_id:label">
+            <value>Alert ID:</value>
+          </text>
+          <text id="/jor_alert/pt./investigator_name:label">
+            <value>Investigator name:</value>
+          </text>
+          <text id="/jor_alert/ebs_4/status_4/hospital:label">
+            <value>Hospitalised and receiving treatment</value>
+          </text>
+          <text id="/jor_alert/ebs_2/hx_animal_2:label">
+            <value>History of animal contact within the last two weeks?</value>
+          </text>
+          <text id="/jor_alert/ebs_2/status_2/discharge:label">
+            <value>Discharge</value>
+          </text>
+          <text id="/jor_alert/meningitis_type:label">
+            <value>IERS | COMMUNICABLE DISEASE
+
+Select the presenting complaint:</value>
+          </text>
+          <text id="/jor_alert/ebs_4/hx_animal_4:label">
+            <value>History of animal contact within the last two weeks?</value>
+          </text>
+          <text id="/jor_alert/ebs_4/hx_travel_4/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_alert/hepatitis_type:label">
+            <value>IERS | COMMUNICABLE DISEASE
+
+Select the presenting complaint:</value>
+          </text>
+          <text id="/jor_alert/ebs_4/hx_travel_4/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_alert/alert_labs./invest_res:label">
+            <value>Alert investigate result:</value>
+          </text>
+          <text id="/jor_alert/ebs_1/gender_1:label">
+            <value>Gender:</value>
+          </text>
+          <text id="/jor_alert/vhf_type/A98.0:label">
+            <value>Crimean Congo fever</value>
+          </text>
+          <text id="/jor_alert/ebs_3/firstname_3:label">
+            <value>First name:</value>
+          </text>
+          <text id="/jor_alert/cd/B26:label">
+            <value>Mumps</value>
+          </text>
+          <text id="/jor_alert/tb_type/A16:label">
+            <value>Pulmonary TB</value>
+          </text>
+          <text id="/jor_alert/cd/A03:label">
+            <value>Bloody diarrhoea</value>
+          </text>
+          <text id="/jor_alert/vhf_type/A92.4:label">
+            <value>Rift Valley fever</value>
+          </text>
+          <text id="/jor_alert/ebs_2/diagnosis_2:label">
+            <value>Enter preliminary clinical diagnosis:</value>
+          </text>
+          <text id="/jor_alert/cd/A75:label">
+            <value>Typhus</value>
+          </text>
+          <text id="/jor_alert/cd/A38:label">
+            <value>Scarlet fever</value>
+          </text>
+          <text id="/jor_alert/cd/B01:label">
+            <value>Chicken pox</value>
+          </text>
+          <text id="/jor_alert/cd/meningitis:label">
+            <value>Meningitis</value>
+          </text>
+          <text id="/jor_alert/cd/A53:label">
+            <value>Syphilis</value>
+          </text>
+          <text id="/jor_alert/ebs_5/gender_5:label">
+            <value>Gender:</value>
+          </text>
+          <text id="/jor_alert/ebs_2/hx_animal_2/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_alert/vhf_type/A92.3:label">
+            <value>West Nile fever</value>
+          </text>
+          <text id="/jor_alert/ebs_2/status_2/icu:label">
+            <value>In ICU/has complications</value>
+          </text>
+          <text id="/jor_alert/checklist/referral:label">
+            <value>The case was referred</value>
+          </text>
+          <text id="/jor_alert/cd/influenza:label">
+            <value>Influenza-like lllness</value>
+          </text>
+          <text id="/jor_alert/ebs_1/status_1/discharge:label">
+            <value>Discharge</value>
+          </text>
+          <text id="/jor_alert/ebs_3/hx_travel_3:label">
+            <value>History of travel?</value>
+          </text>
+          <text id="/jor_alert/ebs_4/status_4/icu:label">
+            <value>In ICU/has complications</value>
+          </text>
+          <text id="/jor_alert/ebs_4/status_4:label">
+            <value>Status of case</value>
+          </text>
+          <text id="/jor_alert/ebs_event:label">
+            <value>Please verify case information with focal points and clinicians. Which of the following unusual respiratory signals does the reported signal comply with?</value>
+          </text>
+          <text id="/jor_alert/anthrax_type:label">
+            <value>IERS | COMMUNICABLE DISEASE
+
+Select the presenting complaint:</value>
+          </text>
+          <text id="/jor_alert/ebs_4/gender_4/female:label">
+            <value>Female</value>
+          </text>
+          <text id="/jor_alert/cd/B35.9:label">
+            <value>Ringworm</value>
+          </text>
+          <text id="/jor_alert/cd/B55:label">
+            <value>Leishmaniasis</value>
+          </text>
+          <text id="/jor_alert/vhf_type/A90:label">
+            <value>Dengue fever</value>
+          </text>
+        </translation>
+        <translation default="true()" lang="default">
+          <text id="/jor_alert/ebs_2/hx_travel_2:label">
+            <value>History of travel?</value>
+          </text>
+          <text id="/jor_alert/anthrax_type/A22.1:label">
+            <value>الرئوي (استنشاق)</value>
+          </text>
+          <text id="/jor_alert/cd/A20:label">
+            <value>الطاعون</value>
+          </text>
+          <text id="/jor_alert/ebs_2/status_2/death:label">
+            <value>Death</value>
+          </text>
+          <text id="/jor_alert/cd/A82:label">
+            <value>داء الكلب</value>
+          </text>
+          <text id="/jor_alert/cd/A23:label">
+            <value>الحمى المالطية</value>
+          </text>
+          <text id="/jor_alert/ebs_3/hx_travel_3/no:label">
+            <value>كلا</value>
+          </text>
+          <text id="/jor_alert/ebs_4/firstname_4:label">
+            <value>First name:</value>
+          </text>
+          <text id="/jor_alert/ebs_1/hx_animal_1:label">
+            <value>History of animal contact within the last two weeks?</value>
+          </text>
+          <text id="/jor_alert/cd/A80.10:label">
+            <value>الشلل الرخو الحاد</value>
+          </text>
+          <text id="/jor_alert/cd:label">
+            <value>IERS | الأمراض السارية
+
+الشكوى المرضية:</value>
+          </text>
+          <text id="/jor_alert/ebs_2/hx_travel_2/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_alert/ili_type/J09:label">
+            <value>H1N1</value>
+          </text>
+          <text id="/jor_alert/ebs_4/hx_travel_4:label">
+            <value>History of travel?</value>
+          </text>
+          <text id="/jor_alert/ebs_1/status_1/hospital:label">
+            <value>Hospitalised and receiving treatment</value>
+          </text>
+          <text id="/jor_alert/ebs_1/age_1:label">
+            <value>Age:</value>
+          </text>
+          <text id="/jor_alert/cd/B54:label">
+            <value>ملاريا</value>
+          </text>
+          <text id="/jor_alert/ebs_event/mortality:label">
+            <value>Increase in apparent mortality or unexplained deaths</value>
+          </text>
+          <text id="/jor_alert/ebs_4/hx_animal_4/no:label">
+            <value>كلا</value>
+          </text>
+          <text id="/jor_alert/ebs_3:label">
+            <value>MOH | EVENT BASED SURVEILLANCE</value>
+          </text>
+          <text id="/jor_alert/ebs_5/hx_animal_5/no:label">
+            <value>كلا</value>
+          </text>
+          <text id="/jor_alert/ebs_3/age_3:label">
+            <value>Age:</value>
+          </text>
+          <text id="/jor_alert/ebs_1/gender_1/male:label">
+            <value>ذكر</value>
+          </text>
+          <text id="/jor_alert/cd/A00:label">
+            <value>كوليرا</value>
+          </text>
+          <text id="/jor_alert/meningitis_type/A87:label">
+            <value>التهاب السحايا الفيروسي</value>
+          </text>
+          <text id="/jor_alert/hepatitis_type/B17.1:label">
+            <value>التهاب الكبد ج</value>
+          </text>
+          <text id="/jor_alert/ebs_type:label">
+            <value>Select type of EBS investigation</value>
+          </text>
+          <text id="/jor_alert/vhf_type/A98.4:label">
+            <value>الايبولا</value>
+          </text>
+          <text id="/jor_alert/checklist/contact_tracing:label">
+            <value>تم اقتفاء أثر المخالطين</value>
+          </text>
+          <text id="/jor_alert/pt./alert_id:hint">
+            <value>رمز الإنذار يجب أن يحتوي حرف (باستخدام أحرف صغيره a-f) يليه 5 أرقام</value>
+          </text>
+          <text id="/jor_alert/checklist/treatment:label">
+            <value>تم علاج الحالة</value>
+          </text>
+          <text id="/jor_alert/ebs_event/travel:label">
+            <value>Severe acute respiratory illness in individuals who have traveled to areas where there is circulation of a respiratory virus with potential for serious public health impact</value>
+          </text>
+          <text id="/jor_alert/ebs_2/hx_animal_2/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_alert/ebs_3/status_3:label">
+            <value>Status of case</value>
+          </text>
+          <text id="/jor_alert/checklist/labs:label">
+            <value>تم أخذ العينات المخبرية</value>
+          </text>
+          <text id="/jor_alert/ebs_4/gender_4:label">
+            <value>Gender:</value>
+          </text>
+          <text id="/jor_alert/ebs_4/diagnosis_4:label">
+            <value>Enter preliminary clinical diagnosis:</value>
+          </text>
+          <text id="/jor_alert/ebs_1/firstname_1:label">
+            <value>First name:</value>
+          </text>
+          <text id="/jor_alert/ebs_4/status_4/discharge:label">
+            <value>Discharge</value>
+          </text>
+          <text id="/jor_alert/pt./alert_id:jr:constraintMsg">
+            <value>Please enter a valid Alert ID</value>
+          </text>
+          <text id="/jor_alert/ebs_event/icu:label">
+            <value>Increased ICU admissions for respiratory illness</value>
+          </text>
+          <text id="/jor_alert/alert:label">
+            <value>MOH | ALERT INVESTIGATION
+
+Please complete this form for every alert that you receive by SMS or Email.
+
+• Please use the Alert ID that was sent in the SMS or Email
+
+• Please ensure the alert form is completed between 48-72 hours after receiving the alert by SMS or Email
+
+• EBS Alert form should be completed within 24 hours after receiving the alert by SMS or email</value>
+          </text>
+          <text id="/jor_alert/ili_type/J10:label">
+            <value>H2N3</value>
+          </text>
+          <text id="/jor_alert/meningitis_type/A39.0:label">
+            <value>التهاب السحايا الوبائي</value>
+          </text>
+          <text id="/jor_alert/ebs_event/cluster:label">
+            <value>Two or more cases of severe acute respiratory illness in members of the same family, social group, or work setting (within a 2-week interval)</value>
+          </text>
+          <text id="/jor_alert/cd/A37:label">
+            <value>السعال الديكي</value>
+          </text>
+          <text id="/jor_alert/cd/B86:label">
+            <value>الجرب</value>
+          </text>
+          <text id="/jor_alert/cd/A68:label">
+            <value>الحمى الراجعة</value>
+          </text>
+          <text id="/jor_alert/ebs_3/hx_animal_3:label">
+            <value>History of animal contact within the last two weeks?</value>
+          </text>
+          <text id="/jor_alert/ebs_3/hx_animal_3/no:label">
+            <value>كلا</value>
+          </text>
+          <text id="/jor_alert/pt./phone:label">
+            <value>رقم الهاتف (الأول) للمريض</value>
+          </text>
+          <text id="/jor_alert/cd/B06:label">
+            <value>الحصبة الألمانية</value>
+          </text>
+          <text id="/jor_alert/ebs_event/none:label">
+            <value>The reported signal does not meet any of the above criteria</value>
+          </text>
+          <text id="/jor_alert/alert_labs./invest_res/not_outbreak:label">
+            <value>الإبلاغ لا يثبت تفشي وباء</value>
+          </text>
+          <text id="/jor_alert/ebs_5/diagnosis_5:label">
+            <value>Enter preliminary clinical diagnosis:</value>
+          </text>
+          <text id="/jor_alert/ebs_3/diagnosis_3:label">
+            <value>Enter preliminary clinical diagnosis:</value>
+          </text>
+          <text id="/jor_alert/ebs_5/gender_5/male:label">
+            <value>ذكر</value>
+          </text>
+          <text id="/jor_alert/ebs_5/hx_travel_5/no:label">
+            <value>كلا</value>
+          </text>
+          <text id="/jor_alert/alert_labs./comments:label">
+            <value>شكرا لك. الرجاء إضافة أي ملاحظات</value>
+          </text>
+          <text id="/jor_alert/ebs_1/diagnosis_1:label">
+            <value>Enter preliminary clinical diagnosis:</value>
+          </text>
+          <text id="/jor_alert/ebs_event/age:label">
+            <value>Changes in expected age groups</value>
+          </text>
+          <text id="/jor_alert/ebs_5/gender_5/female:label">
+            <value>أنثى</value>
+          </text>
+          <text id="/jor_alert/cd/hepatitis:label">
+            <value>التهاب الكبد</value>
+          </text>
+          <text id="/jor_alert/ebs_5/status_5/icu:label">
+            <value>In ICU/has complications</value>
+          </text>
+          <text id="/jor_alert/alert_labs./return_lab/unsure:label">
+            <value>غير متأكد</value>
+          </text>
+          <text id="/jor_alert/ebs_5/hx_animal_5/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_alert/cd/A35:label">
+            <value>الكزاز</value>
+          </text>
+          <text id="/jor_alert/cd/tuberculosis:label">
+            <value>السل</value>
+          </text>
+          <text id="/jor_alert/cd/A95:label">
+            <value>الحمى الصفراء</value>
+          </text>
+          <text id="/jor_alert/ebs_1/hx_travel_1:label">
+            <value>History of travel?</value>
+          </text>
+          <text id="/jor_alert/ebs_4/gender_4/male:label">
+            <value>ذكر</value>
+          </text>
+          <text id="/jor_alert/cd/A01:label">
+            <value>التفوئيد</value>
+          </text>
+          <text id="/jor_alert/ebs_type/followup:label">
+            <value>Follow-up</value>
+          </text>
+          <text id="/jor_alert/ebs_1/hx_travel_1/no:label">
+            <value>كلا</value>
+          </text>
+          <text id="/jor_alert/ebs_5:label">
+            <value>MOH | EVENT BASED SURVEILLANCE</value>
+          </text>
+          <text id="/jor_alert/cd/anthrax:label">
+            <value>الجمرة الخبيثة</value>
+          </text>
+          <text id="/jor_alert/cd/A09:label">
+            <value>الإسهال المائي</value>
+          </text>
+          <text id="/jor_alert/ebs_5/hx_travel_5/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_alert/ebs_1/hx_travel_1/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_alert/ebs_event/treatment:label">
+            <value>Changes in treatment response</value>
+          </text>
+          <text id="/jor_alert/ebs_1:label">
+            <value>MOH | EVENT BASED SURVEILLANCE</value>
+          </text>
+          <text id="/jor_alert/cd/A30:label">
+            <value>الجذام</value>
+          </text>
+          <text id="/jor_alert/ebs_4/age_4:label">
+            <value>Age:</value>
+          </text>
+          <text id="/jor_alert/checklist:label">
+            <value>حدد خطوات التحقيق عن التفشي التي تم إكمالها :</value>
+          </text>
+          <text id="/jor_alert/pt./gps:label">
+            <value>وزارة الصحة| إنذار الإشتباه
+
+تحديد الموقع GPS:</value>
+          </text>
+          <text id="/jor_alert/ebs_3/gender_3/female:label">
+            <value>أنثى</value>
+          </text>
+          <text id="/jor_alert/meningitis_type/G00.0:label">
+            <value>المستدمية النزلية</value>
+          </text>
+          <text id="/jor_alert/ili_type:label">
+            <value>IERS | الأمراض السارية
+
+الشكوى المرضية:</value>
+          </text>
+          <text id="/jor_alert/ebs_5/status_5/death:label">
+            <value>Death</value>
+          </text>
+          <text id="/jor_alert/ebs_3/hx_animal_3/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_alert/ebs_1/status_1/death:label">
+            <value>Death</value>
+          </text>
+          <text id="/jor_alert/ebs_1/gender_1/female:label">
+            <value>أنثى</value>
+          </text>
+          <text id="/jor_alert/alert_labs./cases:label">
+            <value>How many cases were reported?</value>
+          </text>
+          <text id="/jor_alert/ebs_5/surname_5:label">
+            <value>Family name:</value>
+          </text>
+          <text id="/jor_alert/ebs_5/hx_travel_5:label">
+            <value>History of travel?</value>
+          </text>
+          <text id="/jor_alert/ebs_5/firstname_5:label">
+            <value>First name:</value>
+          </text>
+          <text id="/jor_alert/cd/A79:label">
+            <value>ركتسيا</value>
+          </text>
+          <text id="/jor_alert/checklist/threshold_alert:label">
+            <value>استقصاء إنذار تخطي العتبة</value>
+          </text>
+          <text id="/jor_alert/anthrax_type/A22.2:label">
+            <value>الجهاز الهضمي</value>
+          </text>
+          <text id="/jor_alert/ebs_1/status_1/icu:label">
+            <value>In ICU/has complications</value>
+          </text>
+          <text id="/jor_alert/ebs_1/status_1:label">
+            <value>Status of case</value>
+          </text>
+          <text id="/jor_alert/ebs_3/gender_3:label">
+            <value>Gender:</value>
+          </text>
+          <text id="/jor_alert/vhf_type:label">
+            <value>IERS | الأمراض السارية
+
+الشكوى المرضية:</value>
+          </text>
+          <text id="/jor_alert/ebs_3/status_3/icu:label">
+            <value>In ICU/has complications</value>
+          </text>
+          <text id="/jor_alert/note_cd:label">
+            <value><output value=" /jor_alert/icd_cd_lang "/></value>
+          </text>
+          <text id="/jor_alert/ebs_5/hx_animal_5:label">
+            <value>History of animal contact within the last two weeks?</value>
+          </text>
+          <text id="/jor_alert/meningitis_type/G00.9:label">
+            <value>التهاب السحايا غير الوبائي</value>
+          </text>
+          <text id="/jor_alert/hepatitis_type/B15:label">
+            <value>التهاب الكبد الوبائي أ</value>
+          </text>
+          <text id="/jor_alert/ebs_4:label">
+            <value>MOH | EVENT BASED SURVEILLANCE</value>
+          </text>
+          <text id="/jor_alert/ebs_2/gender_2:label">
+            <value>Gender:</value>
+          </text>
+          <text id="/jor_alert/ebs_3/status_3/discharge:label">
+            <value>Discharge</value>
+          </text>
+          <text id="/jor_alert/ebs_4/hx_animal_4/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_alert/ebs_event/animal:label">
+            <value>Severe acute respiratory illness in humans that is associated with illness in animals (within the last two weeks)</value>
+          </text>
+          <text id="/jor_alert/cd/A33:label">
+            <value>الكزاز الوليدي</value>
+          </text>
+          <text id="/jor_alert/ebs_2/firstname_2:label">
+            <value>First name:</value>
+          </text>
+          <text id="/jor_alert/ebs_1/hx_animal_1/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_alert/ebs_5/status_5/discharge:label">
+            <value>Discharge</value>
+          </text>
+          <text id="/jor_alert/meningitis_type/G00:label">
+            <value>التهاب السحايا غير البكتيري</value>
+          </text>
+          <text id="/jor_alert/ebs_5/status_5:label">
+            <value>Status of case</value>
+          </text>
+          <text id="/jor_alert/cd/A36:label">
+            <value>الدفتيريا</value>
+          </text>
+          <text id="/jor_alert/cd/T14.1:label">
+            <value>حالات العقر</value>
+          </text>
+          <text id="/jor_alert/cd/A05:label">
+            <value>التسمم الغذائي</value>
+          </text>
+          <text id="/jor_alert/ebs_3/status_3/hospital:label">
+            <value>Hospitalised and receiving treatment</value>
+          </text>
+          <text id="/jor_alert/tb_type/A18:label">
+            <value>التدرن غير الرئوي</value>
+          </text>
+          <text id="/jor_alert/ebs_1/surname_1:label">
+            <value>Family name:</value>
+          </text>
+          <text id="/jor_alert/alert_labs./return_lab:label">
+            <value>وزارة الصحة | قائمة مراجعة الإنذار المشتبه به 
+
+هل الفحوص المخبرية تؤكد وجود التفشي ؟</value>
+          </text>
+          <text id="/jor_alert/ebs_2/gender_2/male:label">
+            <value>ذكر</value>
+          </text>
+          <text id="/jor_alert/anthrax_type/A22.0:label">
+            <value>الجلدي</value>
+          </text>
+          <text id="/jor_alert/cd/viralfever:label">
+            <value>الحميات النزفية الفيروسية</value>
+          </text>
+          <text id="/jor_alert/ebs_4/status_4/death:label">
+            <value>Death</value>
+          </text>
+          <text id="/jor_alert/ebs_2/status_2:label">
+            <value>Status of case</value>
+          </text>
+          <text id="/jor_alert/ebs_3/gender_3/male:label">
+            <value>ذكر</value>
+          </text>
+          <text id="/jor_alert/cd/B05:label">
+            <value>الحصبة</value>
+          </text>
+          <text id="/jor_alert/ebs_event/presentation:label">
+            <value>Changes in clinical presentation</value>
+          </text>
+          <text id="/jor_alert/alert_labs./return_lab/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_alert/ebs_2/hx_travel_2/no:label">
+            <value>كلا</value>
+          </text>
+          <text id="/jor_alert/ebs_2/age_2:label">
+            <value>Age:</value>
+          </text>
+          <text id="/jor_alert/cd/B34:label">
+            <value>كورونا</value>
+          </text>
+          <text id="/jor_alert/hepatitis_type/B16:label">
+            <value>التهاب الكبد الوبائي ب</value>
+          </text>
+          <text id="/jor_alert/ebs_5/age_5:label">
+            <value>Age:</value>
+          </text>
+          <text id="/jor_alert/cd/B65:label">
+            <value>البلهارسيا</value>
+          </text>
+          <text id="/jor_alert/ebs_2/gender_2/female:label">
+            <value>أنثى</value>
+          </text>
+          <text id="/jor_alert/ebs_type/initial:label">
+            <value>Initial alert investigation</value>
+          </text>
+          <text id="/jor_alert/checklist/invalid_case_def:label">
+            <value>الحالة لا تتماشى مع التعريف العلمي</value>
+          </text>
+          <text id="/jor_alert/ebs_3/hx_travel_3/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_alert/cd/B24:label">
+            <value>نقص المناعة المكتسبة</value>
+          </text>
+          <text id="/jor_alert/cd/B67:label">
+            <value>الأكياس المائية</value>
+          </text>
+          <text id="/jor_alert/cd/!01:label">
+            <value>حدث غير عادي في الجهاز التنفسي</value>
+          </text>
+          <text id="/jor_alert/alert_labs./invest_res/outbreak:label">
+            <value>الإبلاغ يثبت تفشي وباء</value>
+          </text>
+          <text id="/jor_alert/ebs_4/surname_4:label">
+            <value>Family name:</value>
+          </text>
+          <text id="/jor_alert/ebs_1/hx_animal_1/no:label">
+            <value>كلا</value>
+          </text>
+          <text id="/jor_alert/cd/A80.9:label">
+            <value>شلل الأطفال</value>
+          </text>
+          <text id="/jor_alert/ebs_5/status_5/hospital:label">
+            <value>Hospitalised and receiving treatment</value>
+          </text>
+          <text id="/jor_alert/ebs_3/surname_3:label">
+            <value>Family name:</value>
+          </text>
+          <text id="/jor_alert/ebs_event/hcw:label">
+            <value>Unexplained severe acute respiratory illness that occurs in a healthcare worker who takes care of patients with respiratory illness</value>
+          </text>
+          <text id="/jor_alert/alert_labs./return_lab/no:label">
+            <value>كلا</value>
+          </text>
+          <text id="/jor_alert/cd/!0:label">
+            <value>أخرى</value>
+          </text>
+          <text id="/jor_alert/ebs_2/surname_2:label">
+            <value>Family name:</value>
+          </text>
+          <text id="/jor_alert/ebs_2:label">
+            <value>MOH | EVENT BASED SURVEILLANCE</value>
+          </text>
+          <text id="/jor_alert/tb_type:label">
+            <value>IERS | الأمراض السارية
+
+الشكوى المرضية:</value>
+          </text>
+          <text id="/jor_alert/cd/A54:label">
+            <value>السيلان</value>
+          </text>
+          <text id="/jor_alert/ebs_2/status_2/hospital:label">
+            <value>Hospitalised and receiving treatment</value>
+          </text>
+          <text id="/jor_alert/ebs_3/status_3/death:label">
+            <value>Death</value>
+          </text>
+          <text id="/jor_alert/pt./alert_id:label">
+            <value>رقم الاشعار (الإنذار)</value>
+          </text>
+          <text id="/jor_alert/pt./investigator_name:label">
+            <value>هوية الباحث</value>
+          </text>
+          <text id="/jor_alert/ebs_4/status_4/hospital:label">
+            <value>Hospitalised and receiving treatment</value>
+          </text>
+          <text id="/jor_alert/ebs_2/hx_animal_2:label">
+            <value>History of animal contact within the last two weeks?</value>
+          </text>
+          <text id="/jor_alert/ebs_2/status_2/discharge:label">
+            <value>Discharge</value>
+          </text>
+          <text id="/jor_alert/meningitis_type:label">
+            <value>IERS | الأمراض السارية
+
+الشكوى المرضية:</value>
+          </text>
+          <text id="/jor_alert/ebs_4/hx_animal_4:label">
+            <value>History of animal contact within the last two weeks?</value>
+          </text>
+          <text id="/jor_alert/ebs_4/hx_travel_4/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_alert/hepatitis_type:label">
+            <value>IERS | الأمراض السارية
+
+الشكوى المرضية:</value>
+          </text>
+          <text id="/jor_alert/ebs_4/hx_travel_4/no:label">
+            <value>كلا</value>
+          </text>
+          <text id="/jor_alert/alert_labs./invest_res:label">
+            <value>نتيجة الإبلاغ:</value>
+          </text>
+          <text id="/jor_alert/ebs_1/gender_1:label">
+            <value>Gender:</value>
+          </text>
+          <text id="/jor_alert/vhf_type/A98.0:label">
+            <value>حمى الكونغو النزفية</value>
+          </text>
+          <text id="/jor_alert/ebs_3/firstname_3:label">
+            <value>First name:</value>
+          </text>
+          <text id="/jor_alert/cd/B26:label">
+            <value>النكاف</value>
+          </text>
+          <text id="/jor_alert/tb_type/A16:label">
+            <value>التدرن الرئوي</value>
+          </text>
+          <text id="/jor_alert/cd/A03:label">
+            <value>الاسهال المدمم</value>
+          </text>
+          <text id="/jor_alert/vhf_type/A92.4:label">
+            <value>حمى الوادي المتصدع</value>
+          </text>
+          <text id="/jor_alert/ebs_2/diagnosis_2:label">
+            <value>Enter preliminary clinical diagnosis:</value>
+          </text>
+          <text id="/jor_alert/cd/A75:label">
+            <value>تيفوس</value>
+          </text>
+          <text id="/jor_alert/cd/A38:label">
+            <value>الحمى القرمزية</value>
+          </text>
+          <text id="/jor_alert/cd/B01:label">
+            <value>جدري الماء</value>
+          </text>
+          <text id="/jor_alert/cd/meningitis:label">
+            <value>التهاب السحايا</value>
+          </text>
+          <text id="/jor_alert/cd/A53:label">
+            <value>الزهري</value>
+          </text>
+          <text id="/jor_alert/ebs_5/gender_5:label">
+            <value>Gender:</value>
+          </text>
+          <text id="/jor_alert/ebs_2/hx_animal_2/no:label">
+            <value>كلا</value>
+          </text>
+          <text id="/jor_alert/vhf_type/A92.3:label">
+            <value>حمى النيل الغربي</value>
+          </text>
+          <text id="/jor_alert/ebs_2/status_2/icu:label">
+            <value>In ICU/has complications</value>
+          </text>
+          <text id="/jor_alert/checklist/referral:label">
+            <value>تم تحويل الحالة</value>
+          </text>
+          <text id="/jor_alert/cd/influenza:label">
+            <value>الأمراض الشبيهة بالانفلونزا</value>
+          </text>
+          <text id="/jor_alert/ebs_1/status_1/discharge:label">
+            <value>Discharge</value>
+          </text>
+          <text id="/jor_alert/ebs_3/hx_travel_3:label">
+            <value>History of travel?</value>
+          </text>
+          <text id="/jor_alert/ebs_4/status_4/icu:label">
+            <value>In ICU/has complications</value>
+          </text>
+          <text id="/jor_alert/ebs_4/status_4:label">
+            <value>Status of case</value>
+          </text>
+          <text id="/jor_alert/ebs_event:label">
+            <value>Please verify case information with focal points and clinicians. Which of the following unusual respiratory signals does the reported signal comply with?</value>
+          </text>
+          <text id="/jor_alert/anthrax_type:label">
+            <value>IERS | الأمراض السارية
+
+الشكوى المرضية:</value>
+          </text>
+          <text id="/jor_alert/ebs_4/gender_4/female:label">
+            <value>أنثى</value>
+          </text>
+          <text id="/jor_alert/cd/B35.9:label">
+            <value>القرع</value>
+          </text>
+          <text id="/jor_alert/cd/B55:label">
+            <value>اللشمانيا</value>
+          </text>
+          <text id="/jor_alert/vhf_type/A90:label">
+            <value>حمى الضنك</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <jor_alert id="jor_alert">
+          <start/>
+          <end/>
+          <today/>
+          <deviceid/>
+          <subscriberid/>
+          <simid/>
+          <phonenumber/>
+          <alert/>
+          <pt.>
+            <gps/>
+            <investigator_name/>
+            <alert_id/>
+            <phone/>
+          </pt.>
+          <cd/>
+          <vhf_type/>
+          <tb_type/>
+          <hepatitis_type/>
+          <meningitis_type/>
+          <anthrax_type/>
+          <ili_type/>
+          <cd4_code/>
+          <cd3_code/>
+          <cd2_code/>
+          <cd1_code/>
+          <cd5_code/>
+          <cd_code/>
+          <icd_cd/>
+          <icd_cd_lang/>
+          <note_cd/>
+          <checklist/>
+          <ebs_type/>
+          <ebs_event/>
+          <alert_labs.>
+            <cases/>
+            <invest_res/>
+            <return_lab/>
+            <comments/>
+            <alert_outcome_discarded/>
+            <alert_outcome_confirmed/>
+            <alert_discarded_or_confirmed/>
+            <alert_outcome/>
+          </alert_labs.>
+          <ebs_1>
+            <firstname_1/>
+            <surname_1/>
+            <gender_1/>
+            <age_1/>
+            <diagnosis_1/>
+            <hx_travel_1/>
+            <hx_animal_1/>
+            <status_1/>
+          </ebs_1>
+          <ebs_2>
+            <firstname_2/>
+            <surname_2/>
+            <gender_2/>
+            <age_2/>
+            <diagnosis_2/>
+            <hx_travel_2/>
+            <hx_animal_2/>
+            <status_2/>
+          </ebs_2>
+          <ebs_3>
+            <firstname_3/>
+            <surname_3/>
+            <gender_3/>
+            <age_3/>
+            <diagnosis_3/>
+            <hx_travel_3/>
+            <hx_animal_3/>
+            <status_3/>
+          </ebs_3>
+          <ebs_4>
+            <firstname_4/>
+            <surname_4/>
+            <gender_4/>
+            <age_4/>
+            <diagnosis_4/>
+            <hx_travel_4/>
+            <hx_animal_4/>
+            <status_4/>
+          </ebs_4>
+          <ebs_5>
+            <firstname_5/>
+            <surname_5/>
+            <gender_5/>
+            <age_5/>
+            <diagnosis_5/>
+            <hx_travel_5/>
+            <hx_animal_5/>
+            <status_5/>
+          </ebs_5>
+          <icd_code/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </jor_alert>
+      </instance>
+      <instance id="jor_alert" src="jr://file-csv/jor_alert.csv"/>
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/jor_alert/start" type="dateTime"/>
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/jor_alert/end" type="dateTime"/>
+      <bind jr:preload="date" jr:preloadParams="today" nodeset="/jor_alert/today" type="date"/>
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/jor_alert/deviceid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/jor_alert/subscriberid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/jor_alert/simid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/jor_alert/phonenumber" type="string"/>
+      <bind nodeset="/jor_alert/alert" readonly="true()" type="string"/>
+      <bind nodeset="/jor_alert/pt./gps" type="geopoint"/>
+      <bind nodeset="/jor_alert/pt./investigator_name" required="true()" type="string"/>
+      <bind constraint="regex(., '[a-f0-9]{6}')" jr:constraintMsg="jr:itext('/jor_alert/pt./alert_id:jr:constraintMsg')" nodeset="/jor_alert/pt./alert_id" required="true()" type="string"/>
+      <bind nodeset="/jor_alert/pt./phone" type="int"/>
+      <bind nodeset="/jor_alert/cd" required="true()" type="select1"/>
+      <bind nodeset="/jor_alert/vhf_type" relevant=" /jor_alert/cd  = &quot;viralfever&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_alert/tb_type" relevant=" /jor_alert/cd  = &quot;tuberculosis&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_alert/hepatitis_type" relevant=" /jor_alert/cd  = &quot;hepatitis&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_alert/meningitis_type" relevant=" /jor_alert/cd  = &quot;meningitis&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_alert/anthrax_type" relevant=" /jor_alert/cd  = &quot;anthrax&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_alert/ili_type" relevant=" /jor_alert/cd  = &quot;influenza&quot;" required="true()" type="select1"/>
+      <bind calculate="concat( /jor_alert/vhf_type , /jor_alert/tb_type )" nodeset="/jor_alert/cd4_code" type="string"/>
+      <bind calculate="concat( /jor_alert/cd4_code , /jor_alert/hepatitis_type )" nodeset="/jor_alert/cd3_code" type="string"/>
+      <bind calculate="concat( /jor_alert/cd3_code , /jor_alert/meningitis_type )" nodeset="/jor_alert/cd2_code" type="string"/>
+      <bind calculate="concat( /jor_alert/cd2_code , /jor_alert/anthrax_type )" nodeset="/jor_alert/cd1_code" type="string"/>
+      <bind calculate="concat( /jor_alert/cd1_code , /jor_alert/ili_type )" nodeset="/jor_alert/cd5_code" type="string"/>
+      <bind calculate="if(string-length( /jor_alert/cd )&gt;6,  /jor_alert/cd5_code  ,  /jor_alert/cd )" nodeset="/jor_alert/cd_code" type="string"/>
+      <bind calculate="pulldata('jor_alert', 'icd_cd', 'id_key',  /jor_alert/cd_code )" nodeset="/jor_alert/icd_cd" type="string"/>
+      <bind calculate="pulldata('jor_alert', 'icd_cd::arabic', 'id_key',  /jor_alert/cd_code )" nodeset="/jor_alert/icd_cd_lang" type="string"/>
+      <bind nodeset="/jor_alert/note_cd" readonly="true()" relevant="string-length( /jor_alert/icd_cd )&gt;1" type="string"/>
+      <bind nodeset="/jor_alert/checklist" relevant="substr( /jor_alert/icd_code ,0,2)!='!0'" required="true()" type="select"/>
+      <bind nodeset="/jor_alert/ebs_type" relevant="substr( /jor_alert/icd_code ,0,2)='!0'" required="true()" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_event" relevant=" /jor_alert/ebs_type ='initial'" required="true()" type="select1"/>
+      <bind nodeset="/jor_alert/alert_labs./cases" relevant="substr( /jor_alert/icd_code ,0,2)='!0'" required="true()" type="int"/>
+      <bind nodeset="/jor_alert/alert_labs./invest_res" relevant="selected( /jor_alert/checklist , 'case_investigated')" required="true()" type="select1"/>
+      <bind nodeset="/jor_alert/alert_labs./return_lab" relevant="selected( /jor_alert/checklist , 'labs')" required="true()" type="select1"/>
+      <bind nodeset="/jor_alert/alert_labs./comments" relevant="substr( /jor_alert/icd_code ,0,2)!='!0'" type="string"/>
+      <bind calculate="if(selected( /jor_alert/checklist ,&quot;not_science&quot;) or  /jor_alert/alert_labs./invest_res  = &quot;not_outbreak&quot; or selected( /jor_alert/alert_labs./return_lab ,&quot;no&quot;), &quot;discarded&quot;,&quot;no&quot;)" nodeset="/jor_alert/alert_labs./alert_outcome_discarded" type="string"/>
+      <bind calculate="if(selected( /jor_alert/alert_labs./return_lab ,&quot;yes&quot;), &quot;confirmed&quot;,&quot;no&quot;)" nodeset="/jor_alert/alert_labs./alert_outcome_confirmed" type="string"/>
+      <bind calculate="if( /jor_alert/alert_labs./alert_outcome_confirmed =&quot;confirmed&quot;, &quot;confirmed&quot;, /jor_alert/alert_labs./alert_outcome_discarded )" nodeset="/jor_alert/alert_labs./alert_discarded_or_confirmed" type="string"/>
+      <bind calculate="if( /jor_alert/alert_labs./alert_discarded_or_confirmed !=&quot;discarded&quot; and  /jor_alert/alert_labs./alert_discarded_or_confirmed !=&quot;confirmed&quot;, &quot;ongoing&quot;, /jor_alert/alert_labs./alert_discarded_or_confirmed )" nodeset="/jor_alert/alert_labs./alert_outcome" type="string"/>
+      <bind nodeset="/jor_alert/ebs_1/firstname_1" relevant=" /jor_alert/alert_labs./cases &gt;0" type="string"/>
+      <bind nodeset="/jor_alert/ebs_1/surname_1" relevant=" /jor_alert/alert_labs./cases &gt;0" type="string"/>
+      <bind nodeset="/jor_alert/ebs_1/gender_1" relevant=" /jor_alert/alert_labs./cases &gt;0" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_1/age_1" relevant=" /jor_alert/alert_labs./cases &gt;0" type="int"/>
+      <bind nodeset="/jor_alert/ebs_1/diagnosis_1" relevant=" /jor_alert/alert_labs./cases &gt;0 and  /jor_alert/ebs_type ='initial'" type="string"/>
+      <bind nodeset="/jor_alert/ebs_1/hx_travel_1" relevant=" /jor_alert/alert_labs./cases &gt;0 and  /jor_alert/ebs_type ='initial'" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_1/hx_animal_1" relevant=" /jor_alert/alert_labs./cases &gt;0 and  /jor_alert/ebs_type ='initial'" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_1/status_1" relevant=" /jor_alert/alert_labs./cases &gt;0" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_2/firstname_2" relevant=" /jor_alert/alert_labs./cases &gt;1" type="string"/>
+      <bind nodeset="/jor_alert/ebs_2/surname_2" relevant=" /jor_alert/alert_labs./cases &gt;1" type="string"/>
+      <bind nodeset="/jor_alert/ebs_2/gender_2" relevant=" /jor_alert/alert_labs./cases &gt;1" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_2/age_2" relevant=" /jor_alert/alert_labs./cases &gt;1" type="int"/>
+      <bind nodeset="/jor_alert/ebs_2/diagnosis_2" relevant=" /jor_alert/alert_labs./cases &gt;1 and  /jor_alert/ebs_type ='initial'" type="string"/>
+      <bind nodeset="/jor_alert/ebs_2/hx_travel_2" relevant=" /jor_alert/alert_labs./cases &gt;1 and  /jor_alert/ebs_type ='initial'" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_2/hx_animal_2" relevant=" /jor_alert/alert_labs./cases &gt;1 and  /jor_alert/ebs_type ='initial'" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_2/status_2" relevant=" /jor_alert/alert_labs./cases &gt;1" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_3/firstname_3" relevant=" /jor_alert/alert_labs./cases &gt;2" type="string"/>
+      <bind nodeset="/jor_alert/ebs_3/surname_3" relevant=" /jor_alert/alert_labs./cases &gt;2" type="string"/>
+      <bind nodeset="/jor_alert/ebs_3/gender_3" relevant=" /jor_alert/alert_labs./cases &gt;2" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_3/age_3" relevant=" /jor_alert/alert_labs./cases &gt;2" type="int"/>
+      <bind nodeset="/jor_alert/ebs_3/diagnosis_3" relevant=" /jor_alert/alert_labs./cases &gt;2 and  /jor_alert/ebs_type ='initial'" type="string"/>
+      <bind nodeset="/jor_alert/ebs_3/hx_travel_3" relevant=" /jor_alert/alert_labs./cases &gt;2 and  /jor_alert/ebs_type ='initial'" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_3/hx_animal_3" relevant=" /jor_alert/alert_labs./cases &gt;2 and  /jor_alert/ebs_type ='initial'" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_3/status_3" relevant=" /jor_alert/alert_labs./cases &gt;2" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_4/firstname_4" relevant=" /jor_alert/alert_labs./cases &gt;3" type="string"/>
+      <bind nodeset="/jor_alert/ebs_4/surname_4" relevant=" /jor_alert/alert_labs./cases &gt;3" type="string"/>
+      <bind nodeset="/jor_alert/ebs_4/gender_4" relevant=" /jor_alert/alert_labs./cases &gt;3" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_4/age_4" relevant=" /jor_alert/alert_labs./cases &gt;3" type="int"/>
+      <bind nodeset="/jor_alert/ebs_4/diagnosis_4" relevant=" /jor_alert/alert_labs./cases &gt;3 and  /jor_alert/ebs_type ='initial'" type="string"/>
+      <bind nodeset="/jor_alert/ebs_4/hx_travel_4" relevant=" /jor_alert/alert_labs./cases &gt;3 and  /jor_alert/ebs_type ='initial'" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_4/hx_animal_4" relevant=" /jor_alert/alert_labs./cases &gt;3 and  /jor_alert/ebs_type ='initial'" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_4/status_4" relevant=" /jor_alert/alert_labs./cases &gt;3" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_5/firstname_5" relevant=" /jor_alert/alert_labs./cases &gt;4" type="string"/>
+      <bind nodeset="/jor_alert/ebs_5/surname_5" relevant=" /jor_alert/alert_labs./cases &gt;4" type="string"/>
+      <bind nodeset="/jor_alert/ebs_5/gender_5" relevant=" /jor_alert/alert_labs./cases &gt;4" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_5/age_5" relevant=" /jor_alert/alert_labs./cases &gt;4" type="int"/>
+      <bind nodeset="/jor_alert/ebs_5/diagnosis_5" relevant=" /jor_alert/alert_labs./cases &gt;4 and  /jor_alert/ebs_type ='initial'" type="string"/>
+      <bind nodeset="/jor_alert/ebs_5/hx_travel_5" relevant=" /jor_alert/alert_labs./cases &gt;4 and  /jor_alert/ebs_type ='initial'" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_5/hx_animal_5" relevant=" /jor_alert/alert_labs./cases &gt;4 and  /jor_alert/ebs_type ='initial'" type="select1"/>
+      <bind nodeset="/jor_alert/ebs_5/status_5" relevant=" /jor_alert/alert_labs./cases &gt;4" type="select1"/>
+      <bind calculate=" /jor_alert/cd_code " nodeset="/jor_alert/icd_code" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/jor_alert/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body class="theme-grid">
+    <input appearance="w4" ref="/jor_alert/alert">
+      <label ref="jr:itext('/jor_alert/alert:label')"/>
+    </input>
+    <group appearance="field-list" ref="/jor_alert/pt.">
+      <label>التحقق من معلومات المريض</label>
+      <input ref="/jor_alert/pt./gps">
+        <label ref="jr:itext('/jor_alert/pt./gps:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/pt./investigator_name">
+        <label ref="jr:itext('/jor_alert/pt./investigator_name:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/pt./alert_id">
+        <label ref="jr:itext('/jor_alert/pt./alert_id:label')"/>
+        <hint ref="jr:itext('/jor_alert/pt./alert_id:hint')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/pt./phone">
+        <label ref="jr:itext('/jor_alert/pt./phone:label')"/>
+      </input>
+    </group>
+    <select1 appearance="w1" ref="/jor_alert/cd">
+      <label ref="jr:itext('/jor_alert/cd:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A80.10:label')"/>
+        <value>A80.10</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A80.9:label')"/>
+        <value>A80.9</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/B05:label')"/>
+        <value>B05</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/B06:label')"/>
+        <value>B06</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A00:label')"/>
+        <value>A00</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/hepatitis:label')"/>
+        <value>hepatitis</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/meningitis:label')"/>
+        <value>meningitis</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A03:label')"/>
+        <value>A03</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/B54:label')"/>
+        <value>B54</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/tuberculosis:label')"/>
+        <value>tuberculosis</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/B24:label')"/>
+        <value>B24</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A53:label')"/>
+        <value>A53</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A54:label')"/>
+        <value>A54</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/B55:label')"/>
+        <value>B55</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A36:label')"/>
+        <value>A36</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A35:label')"/>
+        <value>A35</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A33:label')"/>
+        <value>A33</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A37:label')"/>
+        <value>A37</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/anthrax:label')"/>
+        <value>anthrax</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A82:label')"/>
+        <value>A82</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/T14.1:label')"/>
+        <value>T14.1</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A05:label')"/>
+        <value>A05</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A20:label')"/>
+        <value>A20</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A95:label')"/>
+        <value>A95</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/B26:label')"/>
+        <value>B26</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A01:label')"/>
+        <value>A01</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A68:label')"/>
+        <value>A68</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A23:label')"/>
+        <value>A23</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/B65:label')"/>
+        <value>B65</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A30:label')"/>
+        <value>A30</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/B86:label')"/>
+        <value>B86</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/B01:label')"/>
+        <value>B01</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A38:label')"/>
+        <value>A38</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/B35.9:label')"/>
+        <value>B35.9</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A75:label')"/>
+        <value>A75</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A09:label')"/>
+        <value>A09</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/viralfever:label')"/>
+        <value>viralfever</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/influenza:label')"/>
+        <value>influenza</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/A79:label')"/>
+        <value>A79</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/B34:label')"/>
+        <value>B34</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/B67:label')"/>
+        <value>B67</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/!01:label')"/>
+        <value>!01</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/cd/!0:label')"/>
+        <value>!0</value>
+      </item>
+    </select1>
+    <select1 appearance="w1" ref="/jor_alert/vhf_type">
+      <label ref="jr:itext('/jor_alert/vhf_type:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_alert/vhf_type/A90:label')"/>
+        <value>A90</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/vhf_type/A92.3:label')"/>
+        <value>A92.3</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/vhf_type/A98.0:label')"/>
+        <value>A98.0</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/vhf_type/A92.4:label')"/>
+        <value>A92.4</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/vhf_type/A98.4:label')"/>
+        <value>A98.4</value>
+      </item>
+    </select1>
+    <select1 appearance="w1" ref="/jor_alert/tb_type">
+      <label ref="jr:itext('/jor_alert/tb_type:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_alert/tb_type/A16:label')"/>
+        <value>A16</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/tb_type/A18:label')"/>
+        <value>A18</value>
+      </item>
+    </select1>
+    <select1 appearance="w1" ref="/jor_alert/hepatitis_type">
+      <label ref="jr:itext('/jor_alert/hepatitis_type:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_alert/hepatitis_type/B15:label')"/>
+        <value>B15</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/hepatitis_type/B16:label')"/>
+        <value>B16</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/hepatitis_type/B17.1:label')"/>
+        <value>B17.1</value>
+      </item>
+    </select1>
+    <select1 appearance="w1" ref="/jor_alert/meningitis_type">
+      <label ref="jr:itext('/jor_alert/meningitis_type:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_alert/meningitis_type/A39.0:label')"/>
+        <value>A39.0</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/meningitis_type/G00.9:label')"/>
+        <value>G00.9</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/meningitis_type/G00.0:label')"/>
+        <value>G00.0</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/meningitis_type/A87:label')"/>
+        <value>A87</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/meningitis_type/G00:label')"/>
+        <value>G00</value>
+      </item>
+    </select1>
+    <select1 appearance="w1" ref="/jor_alert/anthrax_type">
+      <label ref="jr:itext('/jor_alert/anthrax_type:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_alert/anthrax_type/A22.0:label')"/>
+        <value>A22.0</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/anthrax_type/A22.2:label')"/>
+        <value>A22.2</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/anthrax_type/A22.1:label')"/>
+        <value>A22.1</value>
+      </item>
+    </select1>
+    <select1 appearance="w1" ref="/jor_alert/ili_type">
+      <label ref="jr:itext('/jor_alert/ili_type:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_alert/ili_type/J09:label')"/>
+        <value>J09</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/ili_type/J10:label')"/>
+        <value>J10</value>
+      </item>
+    </select1>
+    <input ref="/jor_alert/note_cd">
+      <label ref="jr:itext('/jor_alert/note_cd:label')"/>
+    </input>
+    <select appearance="w4" ref="/jor_alert/checklist">
+      <label ref="jr:itext('/jor_alert/checklist:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_alert/checklist/referral:label')"/>
+        <value>referral</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/checklist/treatment:label')"/>
+        <value>treatment</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/checklist/labs:label')"/>
+        <value>labs</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/checklist/contact_tracing:label')"/>
+        <value>contact_tracing</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/checklist/invalid_case_def:label')"/>
+        <value>invalid_case_def</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/checklist/threshold_alert:label')"/>
+        <value>threshold_alert</value>
+      </item>
+    </select>
+    <select1 appearance="w4" ref="/jor_alert/ebs_type">
+      <label ref="jr:itext('/jor_alert/ebs_type:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_alert/ebs_type/initial:label')"/>
+        <value>initial</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/ebs_type/followup:label')"/>
+        <value>followup</value>
+      </item>
+    </select1>
+    <select1 appearance="w4" ref="/jor_alert/ebs_event">
+      <label ref="jr:itext('/jor_alert/ebs_event:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_alert/ebs_event/hcw:label')"/>
+        <value>hcw</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/ebs_event/travel:label')"/>
+        <value>travel</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/ebs_event/animal:label')"/>
+        <value>animal</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/ebs_event/mortality:label')"/>
+        <value>mortality</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/ebs_event/icu:label')"/>
+        <value>icu</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/ebs_event/age:label')"/>
+        <value>age</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/ebs_event/presentation:label')"/>
+        <value>presentation</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/ebs_event/treatment:label')"/>
+        <value>treatment</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/ebs_event/cluster:label')"/>
+        <value>cluster</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_alert/ebs_event/none:label')"/>
+        <value>none</value>
+      </item>
+    </select1>
+    <group appearance="field-list" ref="/jor_alert/alert_labs.">
+      <input appearance="w4" ref="/jor_alert/alert_labs./cases">
+        <label ref="jr:itext('/jor_alert/alert_labs./cases:label')"/>
+      </input>
+      <select1 appearance="w4" ref="/jor_alert/alert_labs./invest_res">
+        <label ref="jr:itext('/jor_alert/alert_labs./invest_res:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/alert_labs./invest_res/outbreak:label')"/>
+          <value>outbreak</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/alert_labs./invest_res/not_outbreak:label')"/>
+          <value>not_outbreak</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_alert/alert_labs./return_lab">
+        <label ref="jr:itext('/jor_alert/alert_labs./return_lab:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/alert_labs./return_lab/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/alert_labs./return_lab/yes:label')"/>
+          <value>yes</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/alert_labs./return_lab/unsure:label')"/>
+          <value>unsure</value>
+        </item>
+      </select1>
+      <input appearance="w4" ref="/jor_alert/alert_labs./comments">
+        <label ref="jr:itext('/jor_alert/alert_labs./comments:label')"/>
+      </input>
+    </group>
+    <group appearance="field-list" ref="/jor_alert/ebs_1">
+      <label ref="jr:itext('/jor_alert/ebs_1:label')"/>
+      <input appearance="w1" ref="/jor_alert/ebs_1/firstname_1">
+        <label ref="jr:itext('/jor_alert/ebs_1/firstname_1:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/ebs_1/surname_1">
+        <label ref="jr:itext('/jor_alert/ebs_1/surname_1:label')"/>
+      </input>
+      <select1 appearance="w1" ref="/jor_alert/ebs_1/gender_1">
+        <label ref="jr:itext('/jor_alert/ebs_1/gender_1:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_1/gender_1/male:label')"/>
+          <value>male</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_1/gender_1/female:label')"/>
+          <value>female</value>
+        </item>
+      </select1>
+      <input appearance="w1" ref="/jor_alert/ebs_1/age_1">
+        <label ref="jr:itext('/jor_alert/ebs_1/age_1:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/ebs_1/diagnosis_1">
+        <label ref="jr:itext('/jor_alert/ebs_1/diagnosis_1:label')"/>
+      </input>
+      <select1 appearance="w1" ref="/jor_alert/ebs_1/hx_travel_1">
+        <label ref="jr:itext('/jor_alert/ebs_1/hx_travel_1:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_1/hx_travel_1/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_1/hx_travel_1/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w1" ref="/jor_alert/ebs_1/hx_animal_1">
+        <label ref="jr:itext('/jor_alert/ebs_1/hx_animal_1:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_1/hx_animal_1/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_1/hx_animal_1/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w1" ref="/jor_alert/ebs_1/status_1">
+        <label ref="jr:itext('/jor_alert/ebs_1/status_1:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_1/status_1/discharge:label')"/>
+          <value>discharge</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_1/status_1/hospital:label')"/>
+          <value>hospital</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_1/status_1/icu:label')"/>
+          <value>icu</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_1/status_1/death:label')"/>
+          <value>death</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/jor_alert/ebs_2">
+      <label ref="jr:itext('/jor_alert/ebs_2:label')"/>
+      <input appearance="w1" ref="/jor_alert/ebs_2/firstname_2">
+        <label ref="jr:itext('/jor_alert/ebs_2/firstname_2:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/ebs_2/surname_2">
+        <label ref="jr:itext('/jor_alert/ebs_2/surname_2:label')"/>
+      </input>
+      <select1 appearance="w1" ref="/jor_alert/ebs_2/gender_2">
+        <label ref="jr:itext('/jor_alert/ebs_2/gender_2:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_2/gender_2/male:label')"/>
+          <value>male</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_2/gender_2/female:label')"/>
+          <value>female</value>
+        </item>
+      </select1>
+      <input appearance="w1" ref="/jor_alert/ebs_2/age_2">
+        <label ref="jr:itext('/jor_alert/ebs_2/age_2:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/ebs_2/diagnosis_2">
+        <label ref="jr:itext('/jor_alert/ebs_2/diagnosis_2:label')"/>
+      </input>
+      <select1 appearance="w1" ref="/jor_alert/ebs_2/hx_travel_2">
+        <label ref="jr:itext('/jor_alert/ebs_2/hx_travel_2:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_2/hx_travel_2/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_2/hx_travel_2/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w1" ref="/jor_alert/ebs_2/hx_animal_2">
+        <label ref="jr:itext('/jor_alert/ebs_2/hx_animal_2:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_2/hx_animal_2/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_2/hx_animal_2/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w1" ref="/jor_alert/ebs_2/status_2">
+        <label ref="jr:itext('/jor_alert/ebs_2/status_2:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_2/status_2/discharge:label')"/>
+          <value>discharge</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_2/status_2/hospital:label')"/>
+          <value>hospital</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_2/status_2/icu:label')"/>
+          <value>icu</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_2/status_2/death:label')"/>
+          <value>death</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/jor_alert/ebs_3">
+      <label ref="jr:itext('/jor_alert/ebs_3:label')"/>
+      <input appearance="w1" ref="/jor_alert/ebs_3/firstname_3">
+        <label ref="jr:itext('/jor_alert/ebs_3/firstname_3:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/ebs_3/surname_3">
+        <label ref="jr:itext('/jor_alert/ebs_3/surname_3:label')"/>
+      </input>
+      <select1 appearance="w1" ref="/jor_alert/ebs_3/gender_3">
+        <label ref="jr:itext('/jor_alert/ebs_3/gender_3:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_3/gender_3/male:label')"/>
+          <value>male</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_3/gender_3/female:label')"/>
+          <value>female</value>
+        </item>
+      </select1>
+      <input appearance="w1" ref="/jor_alert/ebs_3/age_3">
+        <label ref="jr:itext('/jor_alert/ebs_3/age_3:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/ebs_3/diagnosis_3">
+        <label ref="jr:itext('/jor_alert/ebs_3/diagnosis_3:label')"/>
+      </input>
+      <select1 appearance="w1" ref="/jor_alert/ebs_3/hx_travel_3">
+        <label ref="jr:itext('/jor_alert/ebs_3/hx_travel_3:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_3/hx_travel_3/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_3/hx_travel_3/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w1" ref="/jor_alert/ebs_3/hx_animal_3">
+        <label ref="jr:itext('/jor_alert/ebs_3/hx_animal_3:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_3/hx_animal_3/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_3/hx_animal_3/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w1" ref="/jor_alert/ebs_3/status_3">
+        <label ref="jr:itext('/jor_alert/ebs_3/status_3:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_3/status_3/discharge:label')"/>
+          <value>discharge</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_3/status_3/hospital:label')"/>
+          <value>hospital</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_3/status_3/icu:label')"/>
+          <value>icu</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_3/status_3/death:label')"/>
+          <value>death</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/jor_alert/ebs_4">
+      <label ref="jr:itext('/jor_alert/ebs_4:label')"/>
+      <input appearance="w1" ref="/jor_alert/ebs_4/firstname_4">
+        <label ref="jr:itext('/jor_alert/ebs_4/firstname_4:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/ebs_4/surname_4">
+        <label ref="jr:itext('/jor_alert/ebs_4/surname_4:label')"/>
+      </input>
+      <select1 appearance="w1" ref="/jor_alert/ebs_4/gender_4">
+        <label ref="jr:itext('/jor_alert/ebs_4/gender_4:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_4/gender_4/male:label')"/>
+          <value>male</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_4/gender_4/female:label')"/>
+          <value>female</value>
+        </item>
+      </select1>
+      <input appearance="w1" ref="/jor_alert/ebs_4/age_4">
+        <label ref="jr:itext('/jor_alert/ebs_4/age_4:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/ebs_4/diagnosis_4">
+        <label ref="jr:itext('/jor_alert/ebs_4/diagnosis_4:label')"/>
+      </input>
+      <select1 appearance="w1" ref="/jor_alert/ebs_4/hx_travel_4">
+        <label ref="jr:itext('/jor_alert/ebs_4/hx_travel_4:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_4/hx_travel_4/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_4/hx_travel_4/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w1" ref="/jor_alert/ebs_4/hx_animal_4">
+        <label ref="jr:itext('/jor_alert/ebs_4/hx_animal_4:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_4/hx_animal_4/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_4/hx_animal_4/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w1" ref="/jor_alert/ebs_4/status_4">
+        <label ref="jr:itext('/jor_alert/ebs_4/status_4:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_4/status_4/discharge:label')"/>
+          <value>discharge</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_4/status_4/hospital:label')"/>
+          <value>hospital</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_4/status_4/icu:label')"/>
+          <value>icu</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_4/status_4/death:label')"/>
+          <value>death</value>
+        </item>
+      </select1>
+    </group>
+    <group appearance="field-list" ref="/jor_alert/ebs_5">
+      <label ref="jr:itext('/jor_alert/ebs_5:label')"/>
+      <input appearance="w1" ref="/jor_alert/ebs_5/firstname_5">
+        <label ref="jr:itext('/jor_alert/ebs_5/firstname_5:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/ebs_5/surname_5">
+        <label ref="jr:itext('/jor_alert/ebs_5/surname_5:label')"/>
+      </input>
+      <select1 appearance="w1" ref="/jor_alert/ebs_5/gender_5">
+        <label ref="jr:itext('/jor_alert/ebs_5/gender_5:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_5/gender_5/male:label')"/>
+          <value>male</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_5/gender_5/female:label')"/>
+          <value>female</value>
+        </item>
+      </select1>
+      <input appearance="w1" ref="/jor_alert/ebs_5/age_5">
+        <label ref="jr:itext('/jor_alert/ebs_5/age_5:label')"/>
+      </input>
+      <input appearance="w1" ref="/jor_alert/ebs_5/diagnosis_5">
+        <label ref="jr:itext('/jor_alert/ebs_5/diagnosis_5:label')"/>
+      </input>
+      <select1 appearance="w1" ref="/jor_alert/ebs_5/hx_travel_5">
+        <label ref="jr:itext('/jor_alert/ebs_5/hx_travel_5:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_5/hx_travel_5/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_5/hx_travel_5/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w1" ref="/jor_alert/ebs_5/hx_animal_5">
+        <label ref="jr:itext('/jor_alert/ebs_5/hx_animal_5:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_5/hx_animal_5/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_5/hx_animal_5/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w1" ref="/jor_alert/ebs_5/status_5">
+        <label ref="jr:itext('/jor_alert/ebs_5/status_5:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_5/status_5/discharge:label')"/>
+          <value>discharge</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_5/status_5/hospital:label')"/>
+          <value>hospital</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_5/status_5/icu:label')"/>
+          <value>icu</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_alert/ebs_5/status_5/death:label')"/>
+          <value>death</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+</h:html>

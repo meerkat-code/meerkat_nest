@@ -14,11 +14,18 @@ Base = declarative_base()
 data_type_tables = {}
 
 for table in config.country_config["tables"]:
-    data_type_tables[table] = type(table, (Base, ),
-                              {"__tablename__": table,
-                               "id": Column(Integer, primary_key=True),
-                               "uuid": Column(String, index=True),
-                               "data": Column(JSONB)})
+    if table in config.country_config["rename_forms"]:
+        data_type_tables[table] = type(table, (Base, ),
+                                  {"__tablename__": config.country_config["rename_forms"][table],
+                                   "id": Column(Integer, primary_key=True),
+                                   "uuid": Column(String, index=True),
+                                   "data": Column(JSONB)})
+    else:
+        data_type_tables[table] = type(table, (Base,),
+                                       {"__tablename__": table,
+                                        "id": Column(Integer, primary_key=True),
+                                        "uuid": Column(String, index=True),
+                                        "data": Column(JSONB)})
 
 
 class RawDataOdkCollect(Base):

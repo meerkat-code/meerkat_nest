@@ -1,0 +1,1192 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head><!-- ODK Aggregate upload time: 2017-07-21T11:32:32.429+0000 on https://rms.emro.info -->
+    <h:title>Evaluation Form</h:title>
+    <model>
+      <itext>
+        <translation default="true()" lang="default">
+          <text id="/jor_evaluation/pre:label">
+            <value>هل تعتقد أن نظام الرصد الإلكتروني يساهم بتحسين عملك؟</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_ncd/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/pre_time/less_2:label">
+            <value>أقل من دقيقتين</value>
+          </text>
+          <text id="/jor_evaluation/pre_no:hint">
+            <value>يمكن اختيار أكثر من خيار واحد</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/cd:label">
+            <value>عن طريق تقديم تعريف الحالة المعياري لكل مرض</value>
+          </text>
+          <text id="/jor_evaluation/evaluation:label">
+            <value>نموذج التقييم
+
+نشكرك على أخذ الوقت لإكمال نموذج التقييم. نود منك تعبئة هذا النموذج خلال التدريب الأولي (قبل) وبعد شهر واحد من استخدام نظام (بعد) حتى نتمكن من مقارنة أفكارك/رأيك حول أداء النظام
+
+
+يمكنك أيضاً إكمال هذا النموذج في أي وقت أثناء استخدام النظام لإعلامنا بأفكارك أو رأيك بالنظام</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_clinical:label">
+            <value>هل تعتقد أن النظام ساعد عملك عن طريق توفير التوجيه السريري بإعطاء التفاصيل عن العلامات والأعراض، وعوامل الخطر واستشارة/فحوصات المختبر؟</value>
+          </text>
+          <text id="/jor_evaluation/pre_no:label">
+            <value>لماذا تعتقد أنها لن تقوم بتحسين عملك؟</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/clinical:label">
+            <value>عن طريق توفير التوجيه السريري (مثال: العلامات والأعراض وعوامل الخطر)</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_alerts/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_identify/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_cd/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_clinical/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/post_no/time:label">
+            <value>النظام يزيد من الوقت المستغرق للتبليغ عن الأمراض</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_identify/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/identify:label">
+            <value>يوفر الوقت في تحديد الأمراض التي ينبغي الإبلاغ عنها</value>
+          </text>
+          <text id="/jor_evaluation/pre_time/5_10:label">
+            <value>خمس إلى عشر دقائق</value>
+          </text>
+          <text id="/jor_evaluation/pre_no/complicated:label">
+            <value>النظام معقد للاستخدام</value>
+          </text>
+          <text id="/jor_evaluation/post_time/less_2:label">
+            <value>أقل من دقيقتين</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_report/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/cd:label">
+            <value>عن طريق تقديم تعريف الحالة المعياري لكل مرض</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_cd:label">
+            <value>هل تعتقد أن النظام ساعد عملك عن طريق تقديم تعريف معياري لكل حالة مرضية؟</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_online/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/pre_time/more_10:label">
+            <value>أكثر من عشر دقائق</value>
+          </text>
+          <text id="/jor_evaluation/post_no/complicated:label">
+            <value>النظام معقد للاستخدام</value>
+          </text>
+          <text id="/jor_evaluation/comments:label">
+            <value>شكراً لك على وقتك. اسمح لنا أن نعرف تعليقك/رأيك كيف يمكن تحسين النظام.</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/online:label">
+            <value>عن طريق توفير جميع المعلومات على الانترنت في غضون ساعة واحدة</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_report/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_ncd/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_online/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_online/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/identify:label">
+            <value>يوفر الوقت في تحديد الأمراض التي ينبغي الإبلاغ عنها</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_report:label">
+            <value>هل تعتقد أن النظام وفر عليك الوقت في الإبلاغ عن الأمراض التي ينبغي الإبلاغ عنها؟</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_clinical:label">
+            <value>هل تعتقد أن النظام يساعد عملك عن طريق توفير التوجيه السريري بإعطاء التفاصيل عن العلامات والأعراض، وعوامل الخطر واستشارة/فحوصات المختبر؟</value>
+          </text>
+          <text id="/jor_evaluation/pre1.:label">
+            <value>تقييم مسبق</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/report:label">
+            <value>يوفر الوقت في الإبلاغ عن الأمراض التي ينبغي الإبلاغ عنها</value>
+          </text>
+          <text id="/jor_evaluation/post_no:label">
+            <value>لماذا لا تظن أنه قام بتحسين عملك؟</value>
+          </text>
+          <text id="/jor_evaluation/post_ncd_yes/time:label">
+            <value>زيادة الوقت المستغرق للتبليغ عن الأمراض المعدية</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_cd/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/post_ncd_other:label">
+            <value>أخرى (اذكرها)</value>
+          </text>
+          <text id="/jor_evaluation/post:label">
+            <value>هل تعتقد أن نظام الرصد الإلكتروني قد حسن عملك؟</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_report/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_report/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/pre_no_other:label">
+            <value>أخرى (اذكرها)</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_alerts:label">
+            <value>هل تعتقد أن النظام يساعد عملك من خلال توفير تنبيهات الرسائل القصيرة والبريد الالكتروني؟</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_cd/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/position/other:label">
+            <value>أخرى</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/online:label">
+            <value>عن طريق توفير جميع المعلومات على الانترنت في غضون ساعة واحدة</value>
+          </text>
+          <text id="/jor_evaluation/pre_time:label">
+            <value>كم من الوقت تعتقد ستستغرق للإبلاغ عن كل حالة مرضية؟</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes_other:label">
+            <value>أخرى (اذكرها)</value>
+          </text>
+          <text id="/jor_evaluation/position/doctor:label">
+            <value>دكتور</value>
+          </text>
+          <text id="/jor_evaluation/position_other:label">
+            <value>ما هي وظيفتك؟</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_ncd:label">
+            <value>هل تعتقد أن الإبلاغ عن الأمراض غير السارية والصحة النفسية سوف يؤثر سلباً على الإبلاغ عن الأمراض المعدية؟</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_identify:label">
+            <value>هل تعتقد أن النظام سوف يوفر عليك الوقت في التعرف على الأمراض التي ينبغي الإبلاغ عنها؟</value>
+          </text>
+          <text id="/jor_evaluation/post_ncd_yes/other:label">
+            <value>أخرى</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_ncd/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/post_ncd_yes:label">
+            <value>هل تعتقد أن الإبلاغ عن الأمراض غير السارية والصحة النفسية أثر سلباً على الإبلاغ عن الأمراض المعدية؟</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_identify/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/post/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/post_time:label">
+            <value>كم من الوقت تستغرق للإبلاغ عن كل حالة مرضية؟</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_online:label">
+            <value>هل تعتقد أن النظام سوف يساعد عملك من خلال توفير المعلومات على الانترنت في غضون ساعة واحدة؟</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_online:label">
+            <value>هل تعتقد أن النظام ساعد عملك من خلال توفير المعلومات على الانترنت في غضون ساعة واحدة؟</value>
+          </text>
+          <text id="/jor_evaluation/post/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_identify:label">
+            <value>هل تعتقد أن النظام وفر عليك الوقت في التعرف على الأمراض التي ينبغي الإبلاغ عنها؟</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_cd:label">
+            <value>هل تعتقد أن النظام يساعد عملك عن طريق تقديم تعريف معياري لكل حالة مرضية؟</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_report:label">
+            <value>هل تعتقد أن النظام يوفر عليك الوقت في الإبلاغ عن الأمراض التي ينبغي الإبلاغ عنها؟</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/alerts:label">
+            <value>من خلال توفير تنبيهات الرسائل القصيرة والبريد الالكتروني</value>
+          </text>
+          <text id="/jor_evaluation/post_yes:label">
+            <value>ما هي الطرق برأيك التي قد حسنت عملك؟</value>
+          </text>
+          <text id="/jor_evaluation/when/post:label">
+            <value>بعد شهر واحد من استخدام النظام (بعد)</value>
+          </text>
+          <text id="/jor_evaluation/post1.:label">
+            <value>تقييم لاحق</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes:label">
+            <value>ما هي الطرق التي تعتقد أنها تساهم بتحسين عملك؟</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_ncd:label">
+            <value>هل تعتقد أن الإبلاغ عن الأمراض غير السارية والصحة النفسية أثر سلباً على الإبلاغ عن الأمراض المعدية؟</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_cd/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_alerts/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_alerts:label">
+            <value>هل تعتقد أن النظام ساعد عملك من خلال توفير تنبيهات الرسائل القصيرة والبريد الالكتروني؟</value>
+          </text>
+          <text id="/jor_evaluation/pre_ncd_yes/other:label">
+            <value>أخرى</value>
+          </text>
+          <text id="/jor_evaluation/pre_ncd_yes:label">
+            <value>ما هي الطريقة برأيك التي سوف تؤثر فيها الأمراض غير المعدية والصحة النفسية سلباً على الإبلاغ عن الأمراض المعدية؟</value>
+          </text>
+          <text id="/jor_evaluation/position:label">
+            <value>ما هي وظيفتك؟</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_clinical/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/pre_ncd_yes/time:label">
+            <value>زيادة الوقت المستغرق للتبليغ عن الأمراض المعدية</value>
+          </text>
+          <text id="/jor_evaluation/post_no_other:label">
+            <value>أخرى (اذكرها)</value>
+          </text>
+          <text id="/jor_evaluation/post_time/2_5:label">
+            <value>دقيقتين إلى خمس دقائق</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_alerts/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/post_time/more_10:label">
+            <value>أكثر من عشر دقائق</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_online/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/clinical:label">
+            <value>عن طريق توفير التوجيه السريري (مثال: العلامات والأعراض وعوامل الخطر)</value>
+          </text>
+          <text id="/jor_evaluation/pre/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes:hint">
+            <value>يمكن اختيار أكثر من خيار واحد</value>
+          </text>
+          <text id="/jor_evaluation/post_yes:hint">
+            <value>يمكن اختيار أكثر من خيار واحد</value>
+          </text>
+          <text id="/jor_evaluation/position/nurse:label">
+            <value>ممرض</value>
+          </text>
+          <text id="/jor_evaluation/post_no/other:label">
+            <value>أخرى</value>
+          </text>
+          <text id="/jor_evaluation/pre_no/other:label">
+            <value>أخرى</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/report:label">
+            <value>يوفر الوقت في الإبلاغ عن الأمراض التي ينبغي الإبلاغ عنها</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_clinical/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/post_no:hint">
+            <value>يمكن اختيار أكثر من خيار واحد</value>
+          </text>
+          <text id="/jor_evaluation/pre_ncd_other:label">
+            <value>أخرى (اذكرها)</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_identify/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/other:label">
+            <value>أخرى</value>
+          </text>
+          <text id="/jor_evaluation/pre_time/2_5:label">
+            <value>دقيقتين إلى خمس دقائق</value>
+          </text>
+          <text id="/jor_evaluation/when:label">
+            <value>لماذا / متى تقوم بملء نموذج التقييم؟</value>
+          </text>
+          <text id="/jor_evaluation/position/data:label">
+            <value>مدخل بيانات</value>
+          </text>
+          <text id="/jor_evaluation/post_yes_other:label">
+            <value>أخرى (اذكرها)</value>
+          </text>
+          <text id="/jor_evaluation/pre/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/when/pre:label">
+            <value>خلال التدريب (قبل)</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_ncd/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/other:label">
+            <value>أخرى</value>
+          </text>
+          <text id="/jor_evaluation/when/other:label">
+            <value>لاقتراحات أخرى</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_clinical/no:label">
+            <value>لا</value>
+          </text>
+          <text id="/jor_evaluation/pre_no/time:label">
+            <value>النظام يزيد من الوقت المستغرق للتبليغ عن الأمراض</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_alerts/yes:label">
+            <value>نعم</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/alerts:label">
+            <value>من خلال توفير تنبيهات الرسائل القصيرة والبريد الالكتروني</value>
+          </text>
+          <text id="/jor_evaluation/post_time/5_10:label">
+            <value>خمس إلى عشر دقائق</value>
+          </text>
+        </translation>
+        <translation lang="english">
+          <text id="/jor_evaluation/pre:label">
+            <value>Do you think the electronic surveillance system will improve your work?</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_ncd/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/pre_time/less_2:label">
+            <value>Less than 2 minutes</value>
+          </text>
+          <text id="/jor_evaluation/pre_no:hint">
+            <value>More than one choice can be selected.</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/cd:label">
+            <value>By providing a standard case definition for each disease</value>
+          </text>
+          <text id="/jor_evaluation/evaluation:label">
+            <value>Evaluation Form
+
+Thank you for taking the time to complete this evaluation form. We would like you to complete this form during initial training (before) and after one month of using the system (after) so we can compare your thoughts about the performance of the system.
+
+You can also complete this form at any time during implementation to let us know your thoughts or comments about the system.</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_clinical:label">
+            <value>Does the system help your work by providing clinical guidance on signs and symptoms, risk factors and laboratory guidance?</value>
+          </text>
+          <text id="/jor_evaluation/pre_no:label">
+            <value>Why don’t you think your work will be improved?</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/clinical:label">
+            <value>By providing clinical guidance e.g. (signs and symptom, risk factors)</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_alerts/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_identify/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_cd/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_clinical/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/post_no/time:label">
+            <value>The system increases the time taken to report diseases</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_identify/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/identify:label">
+            <value>It saves time in identifying notifiable diseases</value>
+          </text>
+          <text id="/jor_evaluation/pre_time/5_10:label">
+            <value>5-10 minutes</value>
+          </text>
+          <text id="/jor_evaluation/pre_no/complicated:label">
+            <value>The system is complicated to use</value>
+          </text>
+          <text id="/jor_evaluation/post_time/less_2:label">
+            <value>Less than 2 minutes</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_report/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/cd:label">
+            <value>By providing a standard case definition for each disease</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_cd:label">
+            <value>Does the system help your work by providing a standard case definition for each disease?</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_online/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/pre_time/more_10:label">
+            <value>More than 10 minutes</value>
+          </text>
+          <text id="/jor_evaluation/post_no/complicated:label">
+            <value>The system is complicated to use</value>
+          </text>
+          <text id="/jor_evaluation/comments:label">
+            <value>Thank you for your time. Please let us know your comments on how else could the system be improved.</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/online:label">
+            <value>By providing all information online within one hour</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_report/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_ncd/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_online/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_online/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/identify:label">
+            <value>It saves time in identifying notifiable diseases</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_report:label">
+            <value>Does the system save you time in reporting notifiable diseases?</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_clinical:label">
+            <value>Do you think the system will help your work by providing clinical guidance on signs and symptoms, risk factors and laboratory guidance?</value>
+          </text>
+          <text id="/jor_evaluation/pre1.:label">
+            <value>Pre-Evaluation Form</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/report:label">
+            <value>It saves time in reporting notifiable diseases</value>
+          </text>
+          <text id="/jor_evaluation/post_no:label">
+            <value>Why don’t you think your work has been improved?</value>
+          </text>
+          <text id="/jor_evaluation/post_ncd_yes/time:label">
+            <value>Increase the time taken to report Communicable Disease</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_cd/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/post_ncd_other:label">
+            <value>Other (please state)</value>
+          </text>
+          <text id="/jor_evaluation/post:label">
+            <value>Do you think the electronic surveillance system has improved your work?</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_report/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_report/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/pre_no_other:label">
+            <value>Other (please state)</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_alerts:label">
+            <value>Do you think the system will help your work by providing SMS and Email alerts?</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_cd/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/position/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/online:label">
+            <value>By providing all information online within one hour</value>
+          </text>
+          <text id="/jor_evaluation/pre_time:label">
+            <value>How much time do you think it will take to report each disease?</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes_other:label">
+            <value>Other (please state)</value>
+          </text>
+          <text id="/jor_evaluation/position/doctor:label">
+            <value>Doctor</value>
+          </text>
+          <text id="/jor_evaluation/position_other:label">
+            <value>What is your job title?</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_ncd:label">
+            <value>Do you think including Non-Communicable Disease and Mental Health will negatively affect the reporting of Communicable Disease?</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_identify:label">
+            <value>Do you think the system will save you time in identifying notifiable diseases?</value>
+          </text>
+          <text id="/jor_evaluation/post_ncd_yes/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_ncd/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/post_ncd_yes:label">
+            <value>In what way has including Non-Communicable Disease and Mental Health negatively affected the reporting of Communicable Disease?</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_identify/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/post/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/post_time:label">
+            <value>How much time does it take to report each disease?</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_online:label">
+            <value>Do you think the system will help your work by providing information online within one hour?</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_online:label">
+            <value>Does the system help your work by providing information online within one hour?</value>
+          </text>
+          <text id="/jor_evaluation/post/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_identify:label">
+            <value>Does the system save you time in identifying notifiable diseases?</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_cd:label">
+            <value>Do you think the system will help your work by providing a standard case definition for each disease?</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_report:label">
+            <value>Do you think the system will save you time in reporting notifiable diseases?</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/alerts:label">
+            <value>By providing SMS and Email alerts</value>
+          </text>
+          <text id="/jor_evaluation/post_yes:label">
+            <value>In what ways do you think your work has been improved?</value>
+          </text>
+          <text id="/jor_evaluation/when/post:label">
+            <value>After one month of using the system (After)</value>
+          </text>
+          <text id="/jor_evaluation/post1.:label">
+            <value>Post-Evaluation Form</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes:label">
+            <value>In what ways do you think your work will be improved?</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_ncd:label">
+            <value>Has including Non-Communicable Disease and Mental Health negatively affected the reporting of Communicable Disease?</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_cd/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_alerts/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_alerts:label">
+            <value>Does the system help your work by providing SMS and Email alerts?</value>
+          </text>
+          <text id="/jor_evaluation/pre_ncd_yes/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/jor_evaluation/pre_ncd_yes:label">
+            <value>In what way do you think including Non-Communicable Disease and Mental Health will negatively affect the reporting of Communicable Disease?</value>
+          </text>
+          <text id="/jor_evaluation/position:label">
+            <value>What is your job title?</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_clinical/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/pre_ncd_yes/time:label">
+            <value>Increase the time taken to report Communicable Disease</value>
+          </text>
+          <text id="/jor_evaluation/post_no_other:label">
+            <value>Other (please state)</value>
+          </text>
+          <text id="/jor_evaluation/post_time/2_5:label">
+            <value>2-5 minutes</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_alerts/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/post_time/more_10:label">
+            <value>More than 10 minutes</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_online/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/clinical:label">
+            <value>By providing clinical guidance e.g. (signs and symptom, risk factors)</value>
+          </text>
+          <text id="/jor_evaluation/pre/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes:hint">
+            <value>More than one choice can be selected.</value>
+          </text>
+          <text id="/jor_evaluation/post_yes:hint">
+            <value>More than one choice can be selected.</value>
+          </text>
+          <text id="/jor_evaluation/position/nurse:label">
+            <value>Nurse</value>
+          </text>
+          <text id="/jor_evaluation/post_no/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/jor_evaluation/pre_no/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/report:label">
+            <value>It saves time in reporting notifiable diseases</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_clinical/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/post_no:hint">
+            <value>More than one choice can be selected.</value>
+          </text>
+          <text id="/jor_evaluation/pre_ncd_other:label">
+            <value>Other (please state)</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_identify/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/pre_yes/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/jor_evaluation/pre_time/2_5:label">
+            <value>2-5 minutes</value>
+          </text>
+          <text id="/jor_evaluation/when:label">
+            <value>How are you filling this evaluation form?</value>
+          </text>
+          <text id="/jor_evaluation/position/data:label">
+            <value>Data Clerk</value>
+          </text>
+          <text id="/jor_evaluation/post_yes_other:label">
+            <value>Other (please state)</value>
+          </text>
+          <text id="/jor_evaluation/pre/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/when/pre:label">
+            <value>During training (Before)</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_ncd/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/other:label">
+            <value>Other</value>
+          </text>
+          <text id="/jor_evaluation/when/other:label">
+            <value>To provide other comments</value>
+          </text>
+          <text id="/jor_evaluation/post1./post_clinical/no:label">
+            <value>No</value>
+          </text>
+          <text id="/jor_evaluation/pre_no/time:label">
+            <value>The system increases the time taken to report diseases</value>
+          </text>
+          <text id="/jor_evaluation/pre1./pre_alerts/yes:label">
+            <value>Yes</value>
+          </text>
+          <text id="/jor_evaluation/post_yes/alerts:label">
+            <value>By providing SMS and Email alerts</value>
+          </text>
+          <text id="/jor_evaluation/post_time/5_10:label">
+            <value>5-10 minutes</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <jor_evaluation id="jor_evaluation">
+          <start/>
+          <end/>
+          <today/>
+          <deviceid/>
+          <subscriberid/>
+          <simid/>
+          <phonenumber/>
+          <evaluation/>
+          <when/>
+          <position/>
+          <position_other/>
+          <pre/>
+          <pre_yes/>
+          <pre_no/>
+          <pre_yes_other/>
+          <pre_no_other/>
+          <pre1.>
+            <pre_cd/>
+            <pre_clinical/>
+            <pre_alerts/>
+            <pre_online/>
+            <pre_identify/>
+            <pre_report/>
+            <pre_ncd/>
+          </pre1.>
+          <pre_ncd_yes/>
+          <pre_ncd_other/>
+          <pre_time/>
+          <post/>
+          <post_yes/>
+          <post_no/>
+          <post_yes_other/>
+          <post_no_other/>
+          <post1.>
+            <post_cd/>
+            <post_clinical/>
+            <post_alerts/>
+            <post_online/>
+            <post_identify/>
+            <post_report/>
+            <post_ncd/>
+          </post1.>
+          <post_ncd_yes/>
+          <post_ncd_other/>
+          <post_time/>
+          <comments/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </jor_evaluation>
+      </instance>
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/jor_evaluation/start" type="dateTime"/>
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/jor_evaluation/end" type="dateTime"/>
+      <bind jr:preload="date" jr:preloadParams="today" nodeset="/jor_evaluation/today" type="date"/>
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/jor_evaluation/deviceid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/jor_evaluation/subscriberid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/jor_evaluation/simid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/jor_evaluation/phonenumber" type="string"/>
+      <bind nodeset="/jor_evaluation/evaluation" readonly="true()" type="string"/>
+      <bind nodeset="/jor_evaluation/when" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/position" type="select1"/>
+      <bind nodeset="/jor_evaluation/position_other" relevant=" /jor_evaluation/position  = &quot;other&quot;" type="string"/>
+      <bind nodeset="/jor_evaluation/pre" relevant=" /jor_evaluation/when  = &quot;pre&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/pre_yes" relevant=" /jor_evaluation/pre  = &quot;yes&quot;" required="true()" type="select"/>
+      <bind nodeset="/jor_evaluation/pre_no" relevant=" /jor_evaluation/pre  = &quot;no&quot;" required="true()" type="select"/>
+      <bind nodeset="/jor_evaluation/pre_yes_other" relevant=" /jor_evaluation/pre_yes  = &quot;other&quot;" required="true()" type="string"/>
+      <bind nodeset="/jor_evaluation/pre_no_other" relevant=" /jor_evaluation/pre_no  = &quot;other&quot;" required="true()" type="string"/>
+      <bind nodeset="/jor_evaluation/pre1./pre_cd" relevant=" /jor_evaluation/when  = &quot;pre&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/pre1./pre_clinical" relevant=" /jor_evaluation/when  = &quot;pre&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/pre1./pre_alerts" relevant=" /jor_evaluation/when  = &quot;pre&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/pre1./pre_online" relevant=" /jor_evaluation/when  = &quot;pre&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/pre1./pre_identify" relevant=" /jor_evaluation/when  = &quot;pre&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/pre1./pre_report" relevant=" /jor_evaluation/when  = &quot;pre&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/pre1./pre_ncd" relevant=" /jor_evaluation/when  = &quot;pre&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/pre_ncd_yes" relevant=" /jor_evaluation/pre1./pre_ncd  = &quot;yes&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/pre_ncd_other" relevant=" /jor_evaluation/pre_ncd_yes  = &quot;other&quot;" required="true()" type="string"/>
+      <bind nodeset="/jor_evaluation/pre_time" relevant=" /jor_evaluation/when  = &quot;pre&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/post" relevant=" /jor_evaluation/when  = &quot;post&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/post_yes" relevant=" /jor_evaluation/post  = &quot;yes&quot;" required="true()" type="select"/>
+      <bind nodeset="/jor_evaluation/post_no" relevant=" /jor_evaluation/post  = &quot;no&quot;" required="true()" type="select"/>
+      <bind nodeset="/jor_evaluation/post_yes_other" relevant=" /jor_evaluation/post_yes  = &quot;other&quot;" required="true()" type="string"/>
+      <bind nodeset="/jor_evaluation/post_no_other" relevant=" /jor_evaluation/post_no  = &quot;other&quot;" required="true()" type="string"/>
+      <bind nodeset="/jor_evaluation/post1./post_cd" relevant=" /jor_evaluation/when  = &quot;post&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/post1./post_clinical" relevant=" /jor_evaluation/when  = &quot;post&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/post1./post_alerts" relevant=" /jor_evaluation/when  = &quot;post&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/post1./post_online" relevant=" /jor_evaluation/when  = &quot;post&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/post1./post_identify" relevant=" /jor_evaluation/when  = &quot;post&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/post1./post_report" relevant=" /jor_evaluation/when  = &quot;post&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/post1./post_ncd" relevant=" /jor_evaluation/when  = &quot;post&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/post_ncd_yes" relevant=" /jor_evaluation/post1./post_ncd  = &quot;yes&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/post_ncd_other" relevant=" /jor_evaluation/post_ncd_yes  = &quot;other&quot;" required="true()" type="string"/>
+      <bind nodeset="/jor_evaluation/post_time" relevant=" /jor_evaluation/when  = &quot;post&quot;" required="true()" type="select1"/>
+      <bind nodeset="/jor_evaluation/comments" required="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/jor_evaluation/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body class="theme-grid">
+    <input appearance="w4" ref="/jor_evaluation/evaluation">
+      <label ref="jr:itext('/jor_evaluation/evaluation:label')"/>
+    </input>
+    <select1 appearance="w4" ref="/jor_evaluation/when">
+      <label ref="jr:itext('/jor_evaluation/when:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/when/pre:label')"/>
+        <value>pre</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/when/post:label')"/>
+        <value>post</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/when/other:label')"/>
+        <value>other</value>
+      </item>
+    </select1>
+    <select1 appearance="w4" ref="/jor_evaluation/position">
+      <label ref="jr:itext('/jor_evaluation/position:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/position/doctor:label')"/>
+        <value>doctor</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/position/nurse:label')"/>
+        <value>nurse</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/position/data:label')"/>
+        <value>data</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/position/other:label')"/>
+        <value>other</value>
+      </item>
+    </select1>
+    <input appearance="w4" ref="/jor_evaluation/position_other">
+      <label ref="jr:itext('/jor_evaluation/position_other:label')"/>
+    </input>
+    <select1 appearance="w4" ref="/jor_evaluation/pre">
+      <label ref="jr:itext('/jor_evaluation/pre:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre/no:label')"/>
+        <value>no</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre/yes:label')"/>
+        <value>yes</value>
+      </item>
+    </select1>
+    <select appearance="w2" ref="/jor_evaluation/pre_yes">
+      <label ref="jr:itext('/jor_evaluation/pre_yes:label')"/>
+      <hint ref="jr:itext('/jor_evaluation/pre_yes:hint')"/>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_yes/cd:label')"/>
+        <value>cd</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_yes/clinical:label')"/>
+        <value>clinical</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_yes/alerts:label')"/>
+        <value>alerts</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_yes/online:label')"/>
+        <value>online</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_yes/identify:label')"/>
+        <value>identify</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_yes/report:label')"/>
+        <value>report</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_yes/other:label')"/>
+        <value>other</value>
+      </item>
+    </select>
+    <select appearance="w2" ref="/jor_evaluation/pre_no">
+      <label ref="jr:itext('/jor_evaluation/pre_no:label')"/>
+      <hint ref="jr:itext('/jor_evaluation/pre_no:hint')"/>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_no/complicated:label')"/>
+        <value>complicated</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_no/time:label')"/>
+        <value>time</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_no/other:label')"/>
+        <value>other</value>
+      </item>
+    </select>
+    <input appearance="w2" ref="/jor_evaluation/pre_yes_other">
+      <label ref="jr:itext('/jor_evaluation/pre_yes_other:label')"/>
+    </input>
+    <input appearance="w2" ref="/jor_evaluation/pre_no_other">
+      <label ref="jr:itext('/jor_evaluation/pre_no_other:label')"/>
+    </input>
+    <group appearance="field-list" ref="/jor_evaluation/pre1.">
+      <label ref="jr:itext('/jor_evaluation/pre1.:label')"/>
+      <select1 appearance="w4" ref="/jor_evaluation/pre1./pre_cd">
+        <label ref="jr:itext('/jor_evaluation/pre1./pre_cd:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_cd/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_cd/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_evaluation/pre1./pre_clinical">
+        <label ref="jr:itext('/jor_evaluation/pre1./pre_clinical:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_clinical/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_clinical/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_evaluation/pre1./pre_alerts">
+        <label ref="jr:itext('/jor_evaluation/pre1./pre_alerts:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_alerts/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_alerts/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_evaluation/pre1./pre_online">
+        <label ref="jr:itext('/jor_evaluation/pre1./pre_online:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_online/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_online/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_evaluation/pre1./pre_identify">
+        <label ref="jr:itext('/jor_evaluation/pre1./pre_identify:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_identify/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_identify/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_evaluation/pre1./pre_report">
+        <label ref="jr:itext('/jor_evaluation/pre1./pre_report:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_report/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_report/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_evaluation/pre1./pre_ncd">
+        <label ref="jr:itext('/jor_evaluation/pre1./pre_ncd:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_ncd/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/pre1./pre_ncd/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+    </group>
+    <select1 appearance="w4" ref="/jor_evaluation/pre_ncd_yes">
+      <label ref="jr:itext('/jor_evaluation/pre_ncd_yes:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_ncd_yes/time:label')"/>
+        <value>time</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_ncd_yes/other:label')"/>
+        <value>other</value>
+      </item>
+    </select1>
+    <input appearance="w4" ref="/jor_evaluation/pre_ncd_other">
+      <label ref="jr:itext('/jor_evaluation/pre_ncd_other:label')"/>
+    </input>
+    <select1 appearance="w4" ref="/jor_evaluation/pre_time">
+      <label ref="jr:itext('/jor_evaluation/pre_time:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_time/less_2:label')"/>
+        <value>less_2</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_time/2_5:label')"/>
+        <value>2_5</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_time/5_10:label')"/>
+        <value>5_10</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/pre_time/more_10:label')"/>
+        <value>more_10</value>
+      </item>
+    </select1>
+    <select1 appearance="w4" ref="/jor_evaluation/post">
+      <label ref="jr:itext('/jor_evaluation/post:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post/no:label')"/>
+        <value>no</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post/yes:label')"/>
+        <value>yes</value>
+      </item>
+    </select1>
+    <select appearance="w4" ref="/jor_evaluation/post_yes">
+      <label ref="jr:itext('/jor_evaluation/post_yes:label')"/>
+      <hint ref="jr:itext('/jor_evaluation/post_yes:hint')"/>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_yes/cd:label')"/>
+        <value>cd</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_yes/clinical:label')"/>
+        <value>clinical</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_yes/alerts:label')"/>
+        <value>alerts</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_yes/online:label')"/>
+        <value>online</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_yes/identify:label')"/>
+        <value>identify</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_yes/report:label')"/>
+        <value>report</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_yes/other:label')"/>
+        <value>other</value>
+      </item>
+    </select>
+    <select appearance="w4" ref="/jor_evaluation/post_no">
+      <label ref="jr:itext('/jor_evaluation/post_no:label')"/>
+      <hint ref="jr:itext('/jor_evaluation/post_no:hint')"/>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_no/complicated:label')"/>
+        <value>complicated</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_no/time:label')"/>
+        <value>time</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_no/other:label')"/>
+        <value>other</value>
+      </item>
+    </select>
+    <input appearance="w4" ref="/jor_evaluation/post_yes_other">
+      <label ref="jr:itext('/jor_evaluation/post_yes_other:label')"/>
+    </input>
+    <input appearance="w4" ref="/jor_evaluation/post_no_other">
+      <label ref="jr:itext('/jor_evaluation/post_no_other:label')"/>
+    </input>
+    <group appearance="field-list" ref="/jor_evaluation/post1.">
+      <label ref="jr:itext('/jor_evaluation/post1.:label')"/>
+      <select1 appearance="w4" ref="/jor_evaluation/post1./post_cd">
+        <label ref="jr:itext('/jor_evaluation/post1./post_cd:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_cd/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_cd/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_evaluation/post1./post_clinical">
+        <label ref="jr:itext('/jor_evaluation/post1./post_clinical:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_clinical/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_clinical/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_evaluation/post1./post_alerts">
+        <label ref="jr:itext('/jor_evaluation/post1./post_alerts:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_alerts/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_alerts/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_evaluation/post1./post_online">
+        <label ref="jr:itext('/jor_evaluation/post1./post_online:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_online/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_online/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_evaluation/post1./post_identify">
+        <label ref="jr:itext('/jor_evaluation/post1./post_identify:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_identify/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_identify/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_evaluation/post1./post_report">
+        <label ref="jr:itext('/jor_evaluation/post1./post_report:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_report/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_report/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+      <select1 appearance="w4" ref="/jor_evaluation/post1./post_ncd">
+        <label ref="jr:itext('/jor_evaluation/post1./post_ncd:label')"/>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_ncd/no:label')"/>
+          <value>no</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/jor_evaluation/post1./post_ncd/yes:label')"/>
+          <value>yes</value>
+        </item>
+      </select1>
+    </group>
+    <select1 appearance="w4" ref="/jor_evaluation/post_ncd_yes">
+      <label ref="jr:itext('/jor_evaluation/post_ncd_yes:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_ncd_yes/time:label')"/>
+        <value>time</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_ncd_yes/other:label')"/>
+        <value>other</value>
+      </item>
+    </select1>
+    <input appearance="w4" ref="/jor_evaluation/post_ncd_other">
+      <label ref="jr:itext('/jor_evaluation/post_ncd_other:label')"/>
+    </input>
+    <select1 appearance="w4" ref="/jor_evaluation/post_time">
+      <label ref="jr:itext('/jor_evaluation/post_time:label')"/>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_time/less_2:label')"/>
+        <value>less_2</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_time/2_5:label')"/>
+        <value>2_5</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_time/5_10:label')"/>
+        <value>5_10</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/jor_evaluation/post_time/more_10:label')"/>
+        <value>more_10</value>
+      </item>
+    </select1>
+    <input appearance="w4" ref="/jor_evaluation/comments">
+      <label ref="jr:itext('/jor_evaluation/comments:label')"/>
+    </input>
+  </h:body>
+</h:html>

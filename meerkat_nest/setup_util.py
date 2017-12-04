@@ -95,24 +95,24 @@ def send_to_aggregate():
 
     
 def setup_forms():
-    aggregate_url = "https://democountryserver.emro.info"
-    aggregate_user = "test"
-    aggregate_password = "password"
+    aggregate_url = "https://rms.emro.info"
+    aggregate_user = "ops"
+    aggregate_password = "<J~Y\^ju~a0AI%6"
 
     auth = HTTPDigestAuth(aggregate_user, aggregate_password)
     ret = requests.get(aggregate_url + "/formList", auth=auth)
     
-    for f in os.listdir("country_config/demo_forms"):
+    for f in os.listdir("country_config/rms_forms"):
         print(f)
         form_id = f.split(".xml")[0]
         if not "formId={}".format(form_id) in ret.text:
             requests.post(aggregate_url + "/formUpload", auth=auth,
                           files={
-                              "form_def_file": open("country_config/demo_forms/" + f)
+                              "form_def_file": open("country_config/rms_forms/" + f)
                           })
           
                         
-#setup_forms()
+setup_forms()
 
-for i in range(1,100):
-    send_to_aggregate()
+#for i in range(1,100):
+#    send_to_aggregate()
