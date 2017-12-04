@@ -88,31 +88,30 @@ def send_to_aggregate():
                           "xml_submission_file":  ("tmp.xml", open("tmp.xml"), "text/xml")
                       })
     print(r)
-
-
-
-
-
     
 def setup_forms():
-    aggregate_url = "https://rms.emro.info"
-    aggregate_user = "ops"
-    aggregate_password = "<J~Y\^ju~a0AI%6"
+    try:
+        file = open("setup_secret.cfg", "r")
+        aggregate_url = file.readline()
+        aggregate_user = file.readline()
+        aggregate_password = file.readline()
 
-    auth = HTTPDigestAuth(aggregate_user, aggregate_password)
-    ret = requests.get(aggregate_url + "/formList", auth=auth)
-    
-    for f in os.listdir("country_config/rms_forms"):
-        print(f)
-        form_id = f.split(".xml")[0]
-        if not "formId={}".format(form_id) in ret.text:
-            requests.post(aggregate_url + "/formUpload", auth=auth,
-                          files={
-                              "form_def_file": open("country_config/rms_forms/" + f)
-                          })
-          
-                        
+        auth = HTTPDigestAuth(aggregate_user, aggregate_password)
+        ret = requests.get(aggregate_url + "/formList", auth=auth)
+
+        for f in os.listdir("forms"):
+            print(f)
+            form_id = f.split(".xml")[0]
+            if not "formId={}".format(form_id) in ret.text:
+                requests.post(aggregate_url + "/formUpload", auth=auth,
+                              files={
+                                  "form_def_file": open("forms/" + f)
+                              })
+    except FileNotFoundError as e:
+        print("No configurations found")
+
 setup_forms()
+
 
 #for i in range(1,100):
 #    send_to_aggregate()
