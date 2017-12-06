@@ -64,6 +64,7 @@ def groupify(data):
 
     return new
 
+
 def send_to_nest():
     payload['data'][0]["meta/instanceID"] = str(uuid.uuid4())
     post_response = requests.post('http://localhost:5000/upload',
@@ -88,7 +89,8 @@ def send_to_aggregate():
                           "xml_submission_file":  ("tmp.xml", open("tmp.xml"), "text/xml")
                       })
     print(r)
-    
+
+
 def setup_forms():
     try:
         file = open("setup_secret.cfg", "r")
@@ -109,6 +111,7 @@ def setup_forms():
                               })
     except FileNotFoundError as e:
         print("No configurations found")
+
 
 setup_forms()
 
