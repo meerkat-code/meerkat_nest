@@ -246,8 +246,6 @@ def format_form_name(data_entry):
     rename_form = config.country_config.get('rename_forms',
                                               {}).get(data_entry['formId'], None)
 
-    print("rename_form:" + rename_form)
-
     if rename_form:
         data_entry['formId'] = rename_form
 
