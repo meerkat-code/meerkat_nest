@@ -15,7 +15,7 @@ data_type_tables = {}
 
 for table in config.country_config["tables"]:
     if table in config.country_config["rename_forms"]:
-        data_type_tables[table] = type(table, (Base, ),
+        data_type_tables[config.country_config["rename_forms"][table]] = type(table, (Base, ),
                                   {"__tablename__": config.country_config["rename_forms"][table],
                                    "id": Column(Integer, primary_key=True),
                                    "uuid": Column(String, index=True),
