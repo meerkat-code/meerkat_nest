@@ -59,7 +59,7 @@ class UploadData(Resource):
                             mimetype='application/json')
         except Exception as e:
             msg = "Error in uploading data: " + e.args[0]
-            logging.error(msg)
+            logging.error(msg, exc_info=True)
             return Response(json.dumps({"message": msg}),
                             status=502,
                             mimetype='application/json')
@@ -80,7 +80,7 @@ class UploadData(Resource):
             store_processed_data(processed_data_entry)
         except Exception as e:
             msg = "Error in uploading data: " + e.args[0]
-            logging.error(msg)
+            logging.error(msg, exc_info=True)
             return Response(json.dumps({"message": msg}),
                             status=502,
                             mimetype='application/json')

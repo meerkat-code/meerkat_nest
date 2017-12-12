@@ -52,7 +52,7 @@ class amendData(Resource):
                         status=400,
                         mimetype='application/json')
         except Exception as e:
-            logging.error("Error in uploading data: " + e.args[0])
+            logging.error("Error in uploading data: " + e.args[0], exc_info=True)
             return Response(json.dumps({"message": "Error in uploading data: " + e.args[0]}),
                         status=502,
                         mimetype='application/json')
