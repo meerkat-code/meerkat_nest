@@ -40,11 +40,12 @@ if salt_file:
     try:
         f = open(salt_file, 'r')
         salt = f.read()
+        salt = salt.encode('utf-8')
     except FileNotFoundError as e:
         logging.error(e)
 else:
     logging.warning("No salt file defined, using a random string")
-    salt = hash(str(random.random()))
+    salt = hash(str(random.random()).encode('utf-8'))
 
 SQS_ENDPOINT = 'http://tunnel:9324'
 
