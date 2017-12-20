@@ -16,6 +16,9 @@ COUNTRY_CONFIG: name of country config file
 """
 import os
 import importlib.util
+import logging
+import random
+from meerkat_nest.util import hash
 
 # Application config
 config_directory = os.environ.get("COUNTRY_CONFIG_DIR",
@@ -30,6 +33,18 @@ spec = importlib.util.spec_from_file_location(
 country_config_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(country_config_module)
 country_config = country_config_module.country_config
+
+salt_file = os.environ.get("SALT", None)
+
+if salt_file:
+    try:
+        f = open(salt_file, 'r')
+        salt = f.read()
+    except FileNotFoundError as e:
+        logging.error(e)
+else:
+    logging.warning("No salt file defined, using a random string")
+    salt = hash(str(random.random()))
 
 SQS_ENDPOINT = 'http://tunnel:9324'
 
