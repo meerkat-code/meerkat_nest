@@ -13,7 +13,7 @@ import copy
 
 from meerkat_nest import model
 from meerkat_nest import config
-from meerkat_nest.util import scramble, validate_request, encrypt
+from meerkat_nest.util import scramble, validate_request, hash
 from meerkat_nest import message_service
 
 db_url = os.environ['MEERKAT_NEST_DB_URL']
