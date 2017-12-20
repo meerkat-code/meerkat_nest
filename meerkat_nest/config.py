@@ -19,6 +19,7 @@ import importlib.util
 import logging
 import random
 from meerkat_nest.util import hash
+import hashlib
 
 # Application config
 config_directory = os.environ.get("COUNTRY_CONFIG_DIR",
@@ -35,6 +36,7 @@ spec.loader.exec_module(country_config_module)
 country_config = country_config_module.country_config
 
 salt_file = os.environ.get("SALT", None)
+salt = None
 
 if salt_file:
     try:
@@ -43,9 +45,11 @@ if salt_file:
         salt = salt.encode('utf-8')
     except FileNotFoundError as e:
         logging.error(e)
-else:
+
+if not salt:
     logging.warning("No salt file defined, using a random string")
-    salt = hash(str(random.random()).encode('utf-8'))
+    salt = hashlib.sha256(str(random.random()).encode('utf-8')).hexdigest()
+
 
 SQS_ENDPOINT = 'http://tunnel:9324'
 
