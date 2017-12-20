@@ -17,7 +17,7 @@ def scramble(value):
 
 
 def hash(value):
-    encrypted_value = hashlib.sha256(value.encode('utf-8')).hexdigest()
+    encrypted_value = hashlib.sha256(value.encode('utf-8') + config.salt).hexdigest()
 
     return encrypted_value
 
