@@ -2,14 +2,24 @@
 Meerkat Nest utility functions
 """
 from meerkat_nest import config
+import hashlib
 
 
 def scramble(value):
     """
     scrambles the input string value
+
+    Returns:\n
+        Returns an empty string
     """
     ret = ''
     return ret
+
+
+def hash(value):
+    encrypted_value = hashlib.sha256(value.encode('utf-8')).hexdigest()
+
+    return encrypted_value
 
 
 def validate_request(data_entry):

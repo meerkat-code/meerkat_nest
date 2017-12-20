@@ -13,7 +13,7 @@ import copy
 
 from meerkat_nest import model
 from meerkat_nest import config
-from meerkat_nest.util import scramble, validate_request
+from meerkat_nest.util import scramble, validate_request, encrypt
 from meerkat_nest import message_service
 
 db_url = os.environ['MEERKAT_NEST_DB_URL']
@@ -163,6 +163,7 @@ def process(data_entry):
 
     processed_data_entry = restructure_aggregate_data(data_entry)
     processed_data_entry = scramble_fields(processed_data_entry)
+    processed_data_entry = hash_fields(processed_data_entry)
     processed_data_entry = format_field_keys(processed_data_entry)
     country = config.country_config
     processed_data_entry = format_form_name(processed_data_entry)
@@ -203,6 +204,25 @@ def scramble_fields(data_entry):
             data_entry_scrambled['data'][field] = scramble(data_entry_scrambled['data'][field])
 
     return data_entry_scrambled
+
+
+def hash_fields(data_entry):
+    """
+    Hashes fields in data entry based on configurations
+
+    Returns:\n
+        data entry structure with encrypted fields
+    """
+
+    data_entry_hashed = data_entry
+
+    fields = config.country_config.get('hash_fields', {}).get(data_entry['formId'], {})
+
+    for field in fields:
+        if field in data_entry_hashed['data'].keys():
+            data_entry_hashed['data'][field] = encrypt(data_entry_hashed['data'][field])
+
+    return data_entry_hashed
 
 
 def format_field_keys(data_entry):
