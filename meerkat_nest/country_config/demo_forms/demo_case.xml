@@ -117,37 +117,37 @@
       <hint>hint</hint>
     </input>
     <group appearance="field-list" ref="/demo_case/pt1">
-      <label>A group</label>
+      <label>Patient info</label>
       <input ref="/demo_case/pt1/age">
-        <label>Label</label>
+        <label>Age</label>
         <hint>hint</hint>
       </input>
       <input ref="/demo_case/pt1/gender">
-        <label>Label</label>
+        <label>Gender</label>
         <hint>hint</hint>
       </input>
       <input ref="/demo_case/pt1/status">
-        <label>Label</label>
+        <label>Status</label>
         <hint>hint</hint>
       </input>
     </group>
     <input ref="/demo_case/child_age">
-      <label>Label</label>
+      <label>Child_age</label>
       <hint>hint</hint>
     </input>
     <group appearance="field-list" ref="/demo_case/pt">
-      <label>A group</label>
+      <label>More Patient Info</label>
       <input ref="/demo_case/pt/pid">
-        <label>Label</label>
+        <label>PID</label>
         <hint>hint</hint>
       </input>
       <input ref="/demo_case/pt/visit_date">
-        <label>Label</label>
+        <label>Visit Date</label>
         <hint>hint</hint>
       </input>
     </group>
     <group appearance="field-list" ref="/demo_case/intro">
-      <label>A group</label>
+      <label>Intro</label>
       <input ref="/demo_case/intro/visit">
         <label>Label</label>
         <hint>hint</hint>

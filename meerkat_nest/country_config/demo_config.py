@@ -13,6 +13,9 @@ country_config = {
     "scramble_fields": {
         "dem_evaluation": ["simid", "phonenumber"]
     },
+    "hash_fields": {
+        "demo_case": ["gender", "pid", "pt1./gender"]
+    },
     "rename_fields": {
         "demo_case": {'*meta-instance-id*': 'meta/instanceID',
                       '*meta-submission-date*': 'SubmissionDate',
