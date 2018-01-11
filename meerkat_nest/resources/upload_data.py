@@ -220,7 +220,7 @@ def hash_fields(data_entry):
 
     for field in fields:
         if field in data_entry_hashed['data'].keys():
-            data_entry_hashed['data'][field] = encrypt(data_entry_hashed['data'][field])
+            data_entry_hashed['data'][field] = hash(data_entry_hashed['data'][field])
 
     return data_entry_hashed
 
