@@ -14,11 +14,11 @@ country_config = {
         "dem_evaluation": ["simid", "phonenumber"]
     },
     "hash_fields": {
-        "demo_case": ["gender", "pid", "pt1./gender"]
+        "demo_case": ["pt1:gender"]
     },
     "patient_id": {
         "demo_case": {
-            "field_name": 'patientid',
+            "field_name": 'pt:pid',
             "validation": "^\[1234567890]{10,10}$",
             "translate": True,
             "exclude": [1234567890, 1111111111]
