@@ -18,7 +18,7 @@ country_config = {
     },
     "patient_id": {
         "field_name": 'patientid',
-        "lenght": 10,
+        "validation": "^\d{10,10}$",
         "translate": True
     },
     "rename_fields": {

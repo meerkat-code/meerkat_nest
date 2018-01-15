@@ -1,6 +1,7 @@
 """
 Data resource for upload data
 """
+import re
 from flask_restful import Resource
 from flask import request, Response
 from sqlalchemy import create_engine
@@ -69,8 +70,8 @@ class UploadData(Resource):
         try:
             processed_data_entry = process(data_entry)
         except AssertionError as e:
-            msg = "Data type '" + data_entry['formId'] + "' is not supported for input type '"\
-                + data_entry['content'] + "'"
+            msg = "Data type '" + data_entry['formId'] + "' is not supported for input type '" \
+                  + data_entry['content'] + "'"
             logging.error(msg)
             return Response(json.dumps({"message": msg}),
                             status=400,
@@ -116,14 +117,14 @@ def upload_to_raw_data(data_entry):
 
     if data_entry['content'] == 'record':
         insert_row = model.RawDataOdkCollect.__table__.insert().values(
-                uuid=uuid_pk,
-                received_on=datetime.datetime.now(),
-                active_from=datetime.datetime.now(),
-                authentication_token=data_entry['token'],
-                content=data_entry['content'],
-                formId=data_entry['formId'],
-                formVersion=data_entry['formVersion'],
-                data=data_entry['data']
+            uuid=uuid_pk,
+            received_on=datetime.datetime.now(),
+            active_from=datetime.datetime.now(),
+            authentication_token=data_entry['token'],
+            content=data_entry['content'],
+            formId=data_entry['formId'],
+            formVersion=data_entry['formVersion'],
+            data=data_entry['data']
         )
 
     assert insert_row is not None, "Content handling not implemented"
@@ -136,11 +137,10 @@ def upload_to_raw_data(data_entry):
 
 
 def store_processed_data(data_entry):
-
     insert_row = model.data_type_tables[data_entry['formId']].__table__.insert().values(
-           uuid=data_entry['uuid'],
-           data=data_entry['data']
-        )
+        uuid=data_entry['uuid'],
+        data=data_entry['data']
+    )
 
     try:
         connection = engine.connect()
@@ -187,21 +187,26 @@ def restructure_aggregate_data(data_entry):
 
     return data_entry
 
+
 def process_patient_id(data_entry):
     patient_id_config = config.country_config.get('patient_id')
     if not patient_id_config:
         return data_entry
 
     field_name_ = patient_id_config['field_name']
-    patient_id = data_entry[field_name_]
-    field_length = patient_id_config['length']
-    if field_length and len(patient_id) != field_length:
-        # TODO: Hangle incorrect length
-        return data_entry
-    if patient_id_config['translate']:
-        translated_patiend_id = translate_patient_id.translate(patient_id)
-        data_entry[field_name_] = translated_patiend_id
+    new_patient_id = data_entry[field_name_]
 
+    if patient_id_config['translate']:
+        new_patient_id = translate_patient_id.translate(new_patient_id)
+
+    validate_regexp_ = patient_id_config['validate']
+    if validate_regexp_:
+        validation = re.compile(validate_regexp_)
+        if not validation.match(new_patient_id):
+            data_entry[field_name_] = None
+            return data_entry
+
+    data_entry[field_name_] = new_patient_id
     return data_entry
 
 

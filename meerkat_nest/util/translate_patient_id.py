@@ -14,11 +14,12 @@ latin_to_arabic_digits_map = {
 }
 arabic_to_latin_digits_map = {v: k for k, v in latin_to_arabic_digits_map.items()}
 
-arabic_pattern = re.compile("^[٠١٢٣٤٥٦٧٨٩]{10,10}$")
-latin_pattern = re.compile("^[0123456789]{10,10}$")
+arabic_pattern = re.compile("^[٠١٢٣٤٥٦٧٨٩]+$")
 
 def translate(arabic_patient_id):
     result = ''
+    if not arabic_pattern.match(arabic_patient_id):
+        raise ValueError(f"Can't translate patient id: {arabic_patient_id}.")
     for char in arabic_patient_id:
         result += arabic_to_latin_digits_map[char]
     return result
