@@ -15,6 +15,7 @@ from meerkat_nest import model
 from meerkat_nest import config
 from meerkat_nest.util import scramble, validate_request, hash
 from meerkat_nest import message_service
+from meerkat_nest.util import translate_patient_id
 
 db_url = os.environ['MEERKAT_NEST_DB_URL']
 engine = create_engine(db_url)
@@ -162,10 +163,10 @@ def process(data_entry):
     assert data_entry['formId'] in config.country_config['tables'], "Form not supported"
 
     processed_data_entry = restructure_aggregate_data(data_entry)
+    processed_data_entry = process_patient_id(processed_data_entry)
     processed_data_entry = scramble_fields(processed_data_entry)
     processed_data_entry = hash_fields(processed_data_entry)
     processed_data_entry = format_field_keys(processed_data_entry)
-    country = config.country_config
     processed_data_entry = format_form_name(processed_data_entry)
 
     return processed_data_entry
@@ -183,6 +184,23 @@ def restructure_aggregate_data(data_entry):
     data_entry['data'] = restructured_data
 
     data_entry['uuid'] = data_entry['data']['*meta-instance-id*']
+
+    return data_entry
+
+def process_patient_id(data_entry):
+    patient_id_config = config.country_config.get('patient_id')
+    if not patient_id_config:
+        return data_entry
+
+    field_name_ = patient_id_config['field_name']
+    patient_id = data_entry[field_name_]
+    field_length = patient_id_config['length']
+    if field_length and len(patient_id) != field_length:
+        # TODO: Hangle incorrect length
+        return data_entry
+    if patient_id_config['translate']:
+        translated_patiend_id = translate_patient_id.translate(patient_id)
+        data_entry[field_name_] = translated_patiend_id
 
     return data_entry
 

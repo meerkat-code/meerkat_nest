@@ -16,6 +16,11 @@ country_config = {
     "hash_fields": {
         "demo_case": ["gender", "pid", "pt1./gender"]
     },
+    "patient_id": {
+        "field_name": 'patientid',
+        "lenght": 10,
+        "translate": True
+    },
     "rename_fields": {
         "demo_case": {'*meta-instance-id*': 'meta/instanceID',
                       '*meta-submission-date*': 'SubmissionDate',
@@ -24,9 +29,12 @@ country_config = {
                       "age": "pt1./age",
                       "visit": "intro./visit"
                       },
-        "demo_alert": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
-        "demo_register": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
-        "dem_test": {'*meta-instance-id*': 'meta/instanceID', '*meta-submission-date*': 'SubmissionDate'},
+        "demo_alert": {'*meta-instance-id*': 'meta/instanceID',
+                       '*meta-submission-date*': 'SubmissionDate'},
+        "demo_register": {'*meta-instance-id*': 'meta/instanceID',
+                          '*meta-submission-date*': 'SubmissionDate'},
+        "dem_test": {'*meta-instance-id*': 'meta/instanceID',
+                     '*meta-submission-date*': 'SubmissionDate'},
     },
     "rename_forms": {
         "dem_test": "demo_testing"
@@ -37,21 +45,19 @@ country_config = {
     },
     "supported_content":
         {
-        "form": {
-            "token": "",
-            "content": "",
-            "formId": "",
-            "formVersion": "",
-            "data": ""
-        },
-        "record": {
-            "token": "",
-            "content": "",
-            "formId": "",
-            "formVersion": "",
-            "data": ""
+            "form": {
+                "token": "",
+                "content": "",
+                "formId": "",
+                "formVersion": "",
+                "data": ""
+            },
+            "record": {
+                "token": "",
+                "content": "",
+                "formId": "",
+                "formVersion": "",
+                "data": ""
+            }
         }
-    }
- }
-
-
+}
