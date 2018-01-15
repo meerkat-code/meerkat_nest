@@ -1,6 +1,7 @@
 """
 Data resource for upload data
 """
+import re
 from flask_restful import Resource
 from flask import request, Response
 from sqlalchemy import create_engine
@@ -15,6 +16,7 @@ from meerkat_nest import model
 from meerkat_nest import config
 from meerkat_nest.util import scramble, validate_request, hash
 from meerkat_nest import message_service
+from meerkat_nest.util import translate_patient_id
 
 db_url = os.environ['MEERKAT_NEST_DB_URL']
 engine = create_engine(db_url)
@@ -68,8 +70,8 @@ class UploadData(Resource):
         try:
             processed_data_entry = process(data_entry)
         except AssertionError as e:
-            msg = "Data type '" + data_entry['formId'] + "' is not supported for input type '"\
-                + data_entry['content'] + "'"
+            msg = "Data type '" + data_entry['formId'] + "' is not supported for input type '" \
+                  + data_entry['content'] + "'"
             logging.error(msg)
             return Response(json.dumps({"message": msg}),
                             status=400,
@@ -115,14 +117,14 @@ def upload_to_raw_data(data_entry):
 
     if data_entry['content'] == 'record':
         insert_row = model.RawDataOdkCollect.__table__.insert().values(
-                uuid=uuid_pk,
-                received_on=datetime.datetime.now(),
-                active_from=datetime.datetime.now(),
-                authentication_token=data_entry['token'],
-                content=data_entry['content'],
-                formId=data_entry['formId'],
-                formVersion=data_entry['formVersion'],
-                data=data_entry['data']
+            uuid=uuid_pk,
+            received_on=datetime.datetime.now(),
+            active_from=datetime.datetime.now(),
+            authentication_token=data_entry['token'],
+            content=data_entry['content'],
+            formId=data_entry['formId'],
+            formVersion=data_entry['formVersion'],
+            data=data_entry['data']
         )
 
     assert insert_row is not None, "Content handling not implemented"
@@ -135,11 +137,10 @@ def upload_to_raw_data(data_entry):
 
 
 def store_processed_data(data_entry):
-
     insert_row = model.data_type_tables[data_entry['formId']].__table__.insert().values(
-           uuid=data_entry['uuid'],
-           data=data_entry['data']
-        )
+        uuid=data_entry['uuid'],
+        data=data_entry['data']
+    )
 
     try:
         connection = engine.connect()
@@ -162,10 +163,10 @@ def process(data_entry):
     assert data_entry['formId'] in config.country_config['tables'], "Form not supported"
 
     processed_data_entry = restructure_aggregate_data(data_entry)
+    processed_data_entry = process_patient_id(processed_data_entry)
     processed_data_entry = scramble_fields(processed_data_entry)
     processed_data_entry = hash_fields(processed_data_entry)
     processed_data_entry = format_field_keys(processed_data_entry)
-    country = config.country_config
     processed_data_entry = format_form_name(processed_data_entry)
 
     return processed_data_entry
@@ -184,6 +185,32 @@ def restructure_aggregate_data(data_entry):
 
     data_entry['uuid'] = data_entry['data']['*meta-instance-id*']
 
+    return data_entry
+
+
+def process_patient_id(data_entry):
+    patient_id_configs_ = config.country_config.get('patient_id')
+    patient_id_config = patient_id_configs_.get(data_entry['formId'])
+    if not patient_id_config:
+        return data_entry
+
+    field_name_ = patient_id_config['field_name']
+    new_patient_id = data_entry.get(field_name_)
+    if not new_patient_id:
+        return data_entry
+
+    if patient_id_config['translate']:
+        new_patient_id = translate_patient_id.translate(new_patient_id)
+
+    validation_regexp_str = patient_id_config['validate']
+    excluded_ids = patient_id_config['exclude']
+    if validation_regexp_str or new_patient_id in excluded_ids:
+        validation = re.compile(validation_regexp_str)
+        if not validation.match(new_patient_id):
+            data_entry[field_name_] = None
+            return data_entry
+
+    data_entry[field_name_] = new_patient_id
     return data_entry
 
 
