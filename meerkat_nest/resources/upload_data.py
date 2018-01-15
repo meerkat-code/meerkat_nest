@@ -195,7 +195,9 @@ def process_patient_id(data_entry):
         return data_entry
 
     field_name_ = patient_id_config['field_name']
-    new_patient_id = data_entry[field_name_]
+    new_patient_id = data_entry.get(field_name_)
+    if not new_patient_id:
+        return data_entry
 
     if patient_id_config['translate']:
         new_patient_id = translate_patient_id.translate(new_patient_id)
