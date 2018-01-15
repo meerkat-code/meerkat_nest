@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>RMS TEST</h:title>
+    <model>
+      <itext>
+        <translation lang="english">
+          <text id="/rms_test/message:label">
+            <value>Message</value>
+          </text>
+        </translation>
+        <translation default="true()" lang="default">
+          <text id="/rms_test/message:label">
+            <value>Message</value>
+          </text>
+        </translation>
+      </itext>
+      <instance>
+        <rms_test id="rms_test">
+          <start/>
+          <end/>
+          <today/>
+          <deviceid/>
+          <subscriberid/>
+          <simid/>
+          <phonenumber/>
+          <message/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </rms_test>
+      </instance>
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/rms_test/start" type="dateTime"/>
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/rms_test/end" type="dateTime"/>
+      <bind jr:preload="date" jr:preloadParams="today" nodeset="/rms_test/today" type="date"/>
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/rms_test/deviceid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="subscriberid" nodeset="/rms_test/subscriberid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="simserial" nodeset="/rms_test/simid" type="string"/>
+      <bind jr:preload="property" jr:preloadParams="phonenumber" nodeset="/rms_test/phonenumber" type="string"/>
+      <bind nodeset="/rms_test/message" required="true()" type="string"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/rms_test/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body class="theme-grid">
+    <input appearance="w1" ref="/rms_test/message">
+      <label ref="jr:itext('/rms_test/message:label')"/>
+    </input>
+  </h:body>
+</h:html>
