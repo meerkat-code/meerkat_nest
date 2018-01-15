@@ -28,17 +28,3 @@ def translate(arabic_patient_id):
     return result
 
 
-#### Tests
-import unittest
-
-
-class TranslatePatientIdTest(unittest.TestCase):
-
-    def test_translate_method_exists(self):
-        translate('')
-
-    def test_translate_arabic_patient_id(self):
-        arabic_input = '٣٢١'
-        expected = '321'
-        actual = translate(arabic_input)
-        self.assertEqual(expected, actual)
