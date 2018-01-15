@@ -18,7 +18,7 @@ country_config = {
     },
     "patient_id": {
         "field_name": 'patientid',
-        "validation": "^\d{10,10}$",
+        "validation": "^\[1234567890]{10,10}$",
         "translate": True,
         "exclude": [1234567890, 1111111111]
     },
