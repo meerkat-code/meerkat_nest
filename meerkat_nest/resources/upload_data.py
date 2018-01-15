@@ -189,7 +189,8 @@ def restructure_aggregate_data(data_entry):
 
 
 def process_patient_id(data_entry):
-    patient_id_config = config.country_config.get('patient_id')
+    patient_id_configs_ = config.country_config.get('patient_id')
+    patient_id_config = patient_id_configs_.get(data_entry['form_id'])
     if not patient_id_config:
         return data_entry
 

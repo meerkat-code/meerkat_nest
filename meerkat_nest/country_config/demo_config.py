@@ -17,10 +17,12 @@ country_config = {
         "demo_case": ["gender", "pid", "pt1./gender"]
     },
     "patient_id": {
-        "field_name": 'patientid',
-        "validation": "^\[1234567890]{10,10}$",
-        "translate": True,
-        "exclude": [1234567890, 1111111111]
+        "demo_case": {
+            "field_name": 'patientid',
+            "validation": "^\[1234567890]{10,10}$",
+            "translate": True,
+            "exclude": [1234567890, 1111111111]
+        }
     },
     "rename_fields": {
         "demo_case": {'*meta-instance-id*': 'meta/instanceID',
