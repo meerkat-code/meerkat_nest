@@ -22,7 +22,7 @@ def translate(arabic_patient_id):
         return arabic_patient_id
     result = ''
     if not arabic_pattern.match(arabic_patient_id):
-        raise ValueError(f"Can't translate patient id: {arabic_patient_id}.")
+        raise ValueError("Can't translate patient id: {}.".format(arabic_patient_id))
     for char in arabic_patient_id:
         result += arabic_to_latin_digits_map[char]
     return result
