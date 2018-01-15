@@ -199,9 +199,10 @@ def process_patient_id(data_entry):
     if patient_id_config['translate']:
         new_patient_id = translate_patient_id.translate(new_patient_id)
 
-    validate_regexp_ = patient_id_config['validate']
-    if validate_regexp_:
-        validation = re.compile(validate_regexp_)
+    validation_regexp_str = patient_id_config['validate']
+    excluded_ids = patient_id_config['exclude']
+    if validation_regexp_str or new_patient_id in excluded_ids:
+        validation = re.compile(validation_regexp_str)
         if not validation.match(new_patient_id):
             data_entry[field_name_] = None
             return data_entry

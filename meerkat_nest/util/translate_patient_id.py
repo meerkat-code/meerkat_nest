@@ -16,7 +16,10 @@ arabic_to_latin_digits_map = {v: k for k, v in latin_to_arabic_digits_map.items(
 
 arabic_pattern = re.compile("^[٠١٢٣٤٥٦٧٨٩]+$")
 
+
 def translate(arabic_patient_id):
+    if not arabic_patient_id:
+        return arabic_patient_id
     result = ''
     if not arabic_pattern.match(arabic_patient_id):
         raise ValueError(f"Can't translate patient id: {arabic_patient_id}.")
@@ -24,9 +27,11 @@ def translate(arabic_patient_id):
         result += arabic_to_latin_digits_map[char]
     return result
 
-#### Tests
 
+#### Tests
 import unittest
+
+
 class TranslatePatientIdTest(unittest.TestCase):
 
     def test_translate_method_exists(self):

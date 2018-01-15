@@ -19,7 +19,8 @@ country_config = {
     "patient_id": {
         "field_name": 'patientid',
         "validation": "^\d{10,10}$",
-        "translate": True
+        "translate": True,
+        "exclude": [1234567890, 1111111111]
     },
     "rename_fields": {
         "demo_case": {'*meta-instance-id*': 'meta/instanceID',
