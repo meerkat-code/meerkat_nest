@@ -8,7 +8,8 @@ country_config = {
         "demo_alert",
         "demo_register",
         "jor_evaluation",
-        "dem_test"
+        "dem_test",
+        "rms_test"
     ],
     "scramble_fields": {
         "dem_evaluation": ["simid", "phonenumber"]
