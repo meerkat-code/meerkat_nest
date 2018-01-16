@@ -20,7 +20,7 @@ country_config = {
     "patient_id": {
         "demo_case": {
             "field_name": 'pt:pid',
-            "validation": "^\[1234567890]{10,10}$",
+            "validation": "^[1234567890]{10,10}$",
             "translate": True,
             "exclude": [1234567890, 1111111111]
         }
