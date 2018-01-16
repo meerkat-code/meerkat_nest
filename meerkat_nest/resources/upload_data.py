@@ -206,7 +206,7 @@ def process_patient_id(data_entry):
             logging.warning("Unable to translate patient id: {}".format(new_patient_id))
             return data_entry
 
-    validation_regexp_str = patient_id_config['validate']
+    validation_regexp_str = patient_id_config['validation']
     excluded_ids = patient_id_config['exclude']
     if validation_regexp_str or new_patient_id in excluded_ids:
         validation = re.compile(validation_regexp_str)
