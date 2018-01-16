@@ -200,7 +200,11 @@ def process_patient_id(data_entry):
         return data_entry
 
     if patient_id_config['translate']:
-        new_patient_id = translate_patient_id.translate(new_patient_id)
+        try:
+            new_patient_id = translate_patient_id.translate(new_patient_id)
+        except ValueError:
+            logging.warning("Unable to translate patient id: {}".format(new_patient_id))
+            return data_entry
 
     validation_regexp_str = patient_id_config['validate']
     excluded_ids = patient_id_config['exclude']
