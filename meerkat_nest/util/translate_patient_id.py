@@ -21,12 +21,9 @@ def translate(arabic_patient_id):
     if not arabic_patient_id:
         return arabic_patient_id
     result = ''
-    if arabic_pattern.match(arabic_patient_id):
-        for char in arabic_patient_id:
-            try:
-                result += arabic_to_latin_digits_map[char]
-            except KeyError:
-                raise ValueError("Can't translate patient id: {}.".format(arabic_patient_id))
+    for char in arabic_patient_id:
+        # if char is not arabic we'd like to return original char
+        result += arabic_to_latin_digits_map.get(char, char)
     return result
 
 
