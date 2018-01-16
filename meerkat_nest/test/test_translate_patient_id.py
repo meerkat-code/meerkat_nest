@@ -14,7 +14,8 @@ class TranslatePatientIdTest(unittest.TestCase):
         actual = translate(arabic_input)
         self.assertEqual(expected, actual)
 
-    def test_should_raise_when_mixed_langueges(self):
-        arabic_error_input = '٣٢١321'
-        with self.assertRaises(ValueError):
-            translate(arabic_error_input)
+    def test_translate_mixed_langueges(self):
+        arabic_input = '٣٢١321'
+        expected = '321321'
+        actual = translate(arabic_input)
+        self.assertEqual(expected, actual)
