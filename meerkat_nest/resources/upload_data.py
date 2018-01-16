@@ -195,7 +195,7 @@ def process_patient_id(data_entry):
         return data_entry
 
     field_name_ = patient_id_config['field_name']
-    new_patient_id = data_entry.get(field_name_)
+    new_patient_id = data_entry['data'].get(field_name_)
     if not new_patient_id:
         return data_entry
 
@@ -211,10 +211,10 @@ def process_patient_id(data_entry):
     if validation_regexp_str or new_patient_id in excluded_ids:
         validation = re.compile(validation_regexp_str)
         if not validation.match(new_patient_id):
-            data_entry[field_name_] = None
+            data_entry['data'][field_name_] = None
             return data_entry
 
-    data_entry[field_name_] = new_patient_id
+    data_entry['data'][field_name_] = new_patient_id
     return data_entry
 
 
