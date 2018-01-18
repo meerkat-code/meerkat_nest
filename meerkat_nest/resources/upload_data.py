@@ -40,7 +40,7 @@ class UploadData(Resource):
         data_entry = request.get_json()
         logging.debug(str(data_entry))
 
-        print("Validating request: " + str(datetime.datetime.now()))
+        logging.error("Validating request: " + str(datetime.datetime.now()))
         # Validate the request
         try:
             validate_request(data_entry)
@@ -51,7 +51,7 @@ class UploadData(Resource):
                             status=400,
                             mimetype='application/json')
 
-        print("Uploading raw data: " + str(datetime.datetime.now()))
+        logging.error("Uploading raw data: " + str(datetime.datetime.now()))
         # Upload the data entry in to raw data storage
         try:
             uuid_pk = upload_to_raw_data(data_entry)
@@ -69,7 +69,7 @@ class UploadData(Resource):
                             status=502,
                             mimetype='application/json')
 
-        print("Processing data: " + str(datetime.datetime.now()))
+        logging.error("Processing data: " + str(datetime.datetime.now()))
         # Process the data entry
         try:
             processed_data_entry = process(data_entry)
@@ -81,7 +81,7 @@ class UploadData(Resource):
                             status=400,
                             mimetype='application/json')
 
-        print("Storing processed data: " + str(datetime.datetime.now()))
+        logging.error("Storing processed data: " + str(datetime.datetime.now()))
         # Store processed data entry in Nest
         try:
             store_processed_data(processed_data_entry)
@@ -92,7 +92,7 @@ class UploadData(Resource):
                             status=502,
                             mimetype='application/json')
 
-        print("Sending to cloud: " + str(datetime.datetime.now()))
+        logging.error("Sending to cloud: " + str(datetime.datetime.now()))
         # Send processed data forward to the cloud
         try:
             sent = message_service.send_data(processed_data_entry)
@@ -105,7 +105,7 @@ class UploadData(Resource):
 
         logging.debug("processed upload request")
 
-        print("Done: " + str(datetime.datetime.now()))
+        logging.error("Done: " + str(datetime.datetime.now()))
         return Response(json.dumps(processed_data_entry),
                         status=200,
                         mimetype='application/json')
