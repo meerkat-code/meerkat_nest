@@ -4,6 +4,7 @@ Data resource for interacting with Amazon Simple Queue Service
 import boto3
 import json
 import logging
+import redis
 
 from meerkat_nest import config
 
@@ -15,6 +16,8 @@ else:
     sqs_client = boto3.client('sqs', region_name=region_name)
 sts_client = boto3.client('sts', region_name=region_name)
 sns_client = boto3.client('sns', region_name=region_name)
+redis_ = redis.StrictRedis(host='redis', port=6379, db=0)
+REDIS_QUEUE_NAME = 'nest-queue-' + config.country_config['country_name'].lower()
 
 
 def get_account_id():
@@ -34,11 +37,11 @@ def get_queue_name(data_entry):
     """
     Creates a queue name based on organization, entry content
     and entry subcontent
-    
+
     Returns:\n
         automatically generated SQS queue name\n
     """
-    return 'nest-queue-' + config.country_config['country_name'].lower() #+ '-'\
+    return 'nest-queue-' + config.country_config['country_name'].lower()  # + '-'\
 #           + data_entry['content'] + '-' + data_entry['formId']
 
 
@@ -49,7 +52,7 @@ def get_dead_letter_queue_name(data_entry):
     Returns:\n
         automatically generated SQS queue name\n
     """
-    return 'nest-dead-letter-queue-' + config.country_config['country_name'].lower()# + '-' + data_entry['content']
+    return 'nest-dead-letter-queue-' + config.country_config['country_name'].lower()  # + '-' + data_entry['content']
 
 
 def create_sns_topic():
@@ -99,7 +102,7 @@ def create_queue(data_entry):
 
 def send_data(data_entry):
     """
-    Sends data to an Amazon Simple Message Service queue
+    Sends data to a Redis queue which is later send to SQS in batches
     
     Returns:\n
         uuid for the PK of the raw data row\n
@@ -107,7 +110,7 @@ def send_data(data_entry):
 
     created = create_queue(data_entry)
     try:
-        assert created, "Queue could not be created" 
+        assert created, "Queue could not be created"
     except AssertionError as e:
         message = e.args[0]
         message += " Message queue creation failed."
@@ -119,6 +122,8 @@ def send_data(data_entry):
         MessageBody=json.dumps(data_entry)
     )
     logging.debug("SQS send message response " + str(response))
+
+    redis_.rpush(REDIS_QUEUE_NAME, json.dumps(data_entry))
 
     notify_sns(get_queue_name(data_entry), get_dead_letter_queue_name(data_entry))
 
@@ -151,7 +156,7 @@ def receive_data(queue_name, n=1):
 
     for i in range(0, n):
         return_set.append(sqs_client.receive_message(
-            QueueUrl=get_queue_url(queue_name),
+                QueueUrl=get_queue_url(queue_name),
             )
         )
     return return_set
