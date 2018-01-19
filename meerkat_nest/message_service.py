@@ -107,7 +107,7 @@ def send_data(data_entry):
     Returns:\n
         uuid for the PK of the raw data row\n
     """
-    redis_.rpush(REDIS_QUEUE_NAME, json.dumps(data_entry))
+    redis_.lpush(REDIS_QUEUE_NAME, json.dumps(data_entry))
 
 
 def send_deactivation_message(data_entry):
