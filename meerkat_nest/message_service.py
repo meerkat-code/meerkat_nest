@@ -24,10 +24,10 @@ def get_account_id():
     Returns:\n
         account ID for the configured AWS user\n
     """
-    if hasattr(config, "LOCAL") and config.LOCAL:
-        return ""
-    account_id = sts_client.get_caller_identity()["Account"]
-    return account_id
+    #if hasattr(config, "LOCAL") and config.LOCAL:
+    #    return ""
+    #account_id = sts_client.get_caller_identity()["Account"]
+    return '458315597956' #account_id
 
 
 def get_queue_name(data_entry):
@@ -105,14 +105,14 @@ def send_data(data_entry):
         uuid for the PK of the raw data row\n
     """
 
-    created = create_queue(data_entry)
-    try:
-        assert created, "Queue could not be created" 
-    except AssertionError as e:
-        message = e.args[0]
-        message += " Message queue creation failed."
-        e.args = (message,)
-        raise
+    # created = create_queue(data_entry)
+    # try:
+   #      assert created, "Queue could not be created"
+    # except AssertionError as e:
+    #    message = e.args[0]
+    #    message += " Message queue creation failed."
+    #    e.args = (message,)
+    #    raise
 
     response = sqs_client.send_message(
         QueueUrl=get_queue_url(get_queue_name(data_entry)),
