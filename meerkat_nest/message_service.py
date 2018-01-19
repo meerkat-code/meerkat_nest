@@ -120,7 +120,7 @@ def send_data(data_entry):
     )
     logging.debug("SQS send message response " + str(response))
 
-    # notify_sns(get_queue_name(data_entry), get_dead_letter_queue_name(data_entry))
+    notify_sns(get_queue_name(data_entry), get_dead_letter_queue_name(data_entry))
 
 
 def send_deactivation_message(data_entry):
