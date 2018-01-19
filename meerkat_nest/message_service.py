@@ -107,22 +107,6 @@ def send_data(data_entry):
     Returns:\n
         uuid for the PK of the raw data row\n
     """
-
-    created = create_queue(data_entry)
-    try:
-        assert created, "Queue could not be created"
-    except AssertionError as e:
-        message = e.args[0]
-        message += " Message queue creation failed."
-        e.args = (message,)
-        raise
-
-    response = sqs_client.send_message(
-        QueueUrl=get_queue_url(get_queue_name(data_entry)),
-        MessageBody=json.dumps(data_entry)
-    )
-    logging.debug("SQS send message response " + str(response))
-
     redis_.rpush(REDIS_QUEUE_NAME, json.dumps(data_entry))
 
     notify_sns(get_queue_name(data_entry), get_dead_letter_queue_name(data_entry))
