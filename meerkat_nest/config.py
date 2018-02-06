@@ -34,6 +34,9 @@ country_config_module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(country_config_module)
 country_config = country_config_module.country_config
 
+
+SEND_DATA_TO_SQS = os.environ.get("SEND_DATA_TO_SQS", True)
+
 # Read salt from a file
 
 salt_file = os.environ.get("SALT", "salt")

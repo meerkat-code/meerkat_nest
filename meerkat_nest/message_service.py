@@ -82,7 +82,7 @@ def get_queue_url(queue_name):
     )
     return response['QueueUrl']
 
-
+ 
 def create_queue(data_entry):
     """
     Creates a queue based on the given data entry
@@ -107,7 +107,8 @@ def send_data(data_entry):
     Returns:\n
         uuid for the PK of the raw data row\n
     """
-    redis_.lpush(REDIS_QUEUE_NAME, json.dumps(data_entry))
+    if config.SEND_DATA_TO_SQS:
+        redis_.lpush(REDIS_QUEUE_NAME, json.dumps(data_entry))
 
 
 def send_deactivation_message(data_entry):
