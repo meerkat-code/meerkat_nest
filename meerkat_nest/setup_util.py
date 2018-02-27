@@ -101,13 +101,14 @@ def setup_forms():
         auth = HTTPDigestAuth(aggregate_user, aggregate_password)
         ret = requests.get(aggregate_url + "/formList", auth=auth)
 
-        for f in os.listdir("forms"):
+        form_dir = os.environ.get("FORM_DIRECTORY", "forms")
+        for f in os.listdir(form_dir):
             print(f)
             form_id = f.split(".xml")[0]
             if not "formId={}".format(form_id) in ret.text:
                 requests.post(aggregate_url + "/formUpload", auth=auth,
                               files={
-                                  "form_def_file": open("forms/" + f)
+                                  "form_def_file": open(form_dir + "/" + f)
                               })
     except FileNotFoundError as e:
         print("No configurations found")

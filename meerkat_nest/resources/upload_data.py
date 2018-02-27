@@ -268,7 +268,7 @@ def format_field_keys(data_entry):
                                               {}).get(data_entry['formId'], {})
     character_replacements = config.country_config.get('replace_characters', 
                                                        {}).get(data_entry['formId'], [])
-    data_fields = data_entry['data'].keys()
+    data_fields = list(data_entry['data'].keys())
 
     # Perform character replacements to all fields
     for characters in character_replacements:
