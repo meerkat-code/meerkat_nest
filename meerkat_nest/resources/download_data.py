@@ -18,9 +18,10 @@ engine = create_engine(db_url)
 #TODO: replace with actual country configs
 
 class downloadData(Resource):
+
     def get(self):
         """
-        Initiates the download of the whole data set from Meerkat Nest
+        Not implemented. Initiates the download of the whole data set from Meerkat Nest
         
         Returns:\n
             HTTP return code\n

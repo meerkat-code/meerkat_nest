@@ -22,17 +22,14 @@ engine = create_engine(db_url)
 
 
 class DeactivateData(Resource):
-    """
-    Receives JSON data and stores it in Meerkat Nest database
-    
-    Returns:\n
-        HTTP return code\n
-    """
-
-    def get(self):
-        return "deactivate data GET"
 
     def post(self):
+        """
+        Not implemented. Receives JSON data and stores it in Meerkat Nest database
+
+        Returns:\n
+            HTTP return code\n
+        """
 
         logging.debug("received deactivation request")
         logging.debug(str(request.headers))

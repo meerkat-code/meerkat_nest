@@ -20,18 +20,16 @@ db_url = os.environ['MEERKAT_NEST_DB_URL']
 engine = create_engine(db_url)
 
 class amendData(Resource):
-    """
-    Receives JSON data and amends an existing entry in Meerkat DB
-    
-    Returns:\n
-        HTTP return code\n
-    """
+
     #decorators = [authenticate]
 
-    def get(self):
-        return "amend data GET"
-
     def post(self):
+        """
+        Not implemented. Receives JSON data and amends an existing entry in Meerkat DB
+
+        Returns:\n
+            HTTP return code\n
+        """
         logging.info("received amend request")
         logging.info(str(request.headers))
         data_entry = request.get_json()

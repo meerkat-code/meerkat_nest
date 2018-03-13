@@ -23,17 +23,24 @@ engine = create_engine(db_url)
 
 
 class UploadData(Resource):
-    """
-    Receives JSON data and stores it in Meerkat Nest database
-    
-    Returns:\n
-        HTTP return code\n
-    """
 
     def get(self):
-        return "upload data GET"
+        """
+        Static interface prompting the client to use <b>POST</b> instead.
+
+        Returns:\n
+            HTTP return code\n
+        """
+
+        return "use POST to upload data"
 
     def post(self):
+        """
+        Receives JSON data and stores it in Meerkat Nest database
+
+        Returns:\n
+            HTTP return code\n
+        """
 
         logging.debug("received upload request")
         logging.debug(str(request.headers))
