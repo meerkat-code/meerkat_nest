@@ -7,16 +7,22 @@ import hashlib
 
 def scramble(value):
     """
-    scrambles the input string value
+    Scrambles the input string value
 
     Returns:\n
-        Returns an empty string
+        Empty string
     """
     ret = ''
     return ret
 
 
 def hash(value):
+    """
+    Hashes the input string value using SHA256 and a persistent salt
+
+    Returns:\n
+        Returns a hex digest of the hashed string
+    """
     if value:
         encrypted_value = hashlib.sha256(value.encode('utf-8') + config.salt).hexdigest()
     else:
@@ -30,7 +36,7 @@ def validate_request(data_entry):
     Validates the data entry as supported input
     
     Returns:\n
-        True if processing was successful, False otherwise
+        If processing was successful, <i>True</i>, otherwise <i>False</i>
     """
     valid_data_structure = config.country_config['supported_content']
 
