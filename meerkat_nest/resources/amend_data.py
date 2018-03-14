@@ -25,7 +25,7 @@ class amendData(Resource):
 
     def post(self):
         """
-        Not implemented. Receives JSON data and amends an existing entry in Meerkat DB
+        In alpha stage of implementation. Receives JSON data and amends an existing entry in Meerkat DB
 
         Returns:\n
             HTTP return code\n

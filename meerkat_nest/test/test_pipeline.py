@@ -1,9 +1,3 @@
-"""
-Meerkat Nest Upload Test
-
-Unit tests Meerkat Nest data pipeline including calls to AWS
-"""
-
 import meerkat_nest
 import meerkat_nest.message_service
 from meerkat_nest import app
@@ -17,6 +11,11 @@ import json
 
 
 class MeerkatNestPipelineTest(unittest.TestCase):
+    """
+    Comprehensive Test Case class for testing the whole Nest pipeline up to message queue.
+
+    Note that a test payload will be delivered into the downstream message queue.
+    """
 
     @classmethod
     def setup_class(cls):
@@ -46,6 +45,10 @@ class MeerkatNestPipelineTest(unittest.TestCase):
         pass
 
     def test_upload(self):
+        """
+        Post a payload read from test_data/upload_payload.py to the app's Upload interface and check it gets processed
+        correctly
+        """
         payload = upload_payload
         uuid = upload_payload['data'][0]['instanceID']
         post_response = self.app.post('/upload',

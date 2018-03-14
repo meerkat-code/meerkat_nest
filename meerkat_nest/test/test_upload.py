@@ -1,9 +1,3 @@
-"""
-Meerkat Nest Upload Test
-
-Unit tests Meerkat Nest Upload functionality
-"""
-
 import meerkat_nest
 import copy
 import meerkat_nest.util
@@ -17,14 +11,15 @@ import json
 
 
 class MeerkatNestUploadTest(unittest.TestCase):
+    """
+    Test Case class that tests uploading data into Nest
+    """
 
     @classmethod
     def setup_class(cls):
-        """Setup for testing"""
-
         app.config.from_object('config.Testing')
 
-        # Only show warning level+ logs from boto3, botocore and nose.
+        # Only show warning level + logs from boto3, botocore and nose.
         # Too verbose otherwise.
         logging.getLogger('boto3').setLevel(logging.WARNING)
         logging.getLogger('botocore').setLevel(logging.WARNING)
@@ -50,6 +45,9 @@ class MeerkatNestUploadTest(unittest.TestCase):
 
     # test validating data
     def test_data_validation(self):
+        """
+        Test the validation of incoming data.
+        """
 
         # Check that a valid entry goes through
         meerkat_nest.util.validate_request(self.data_entry)
@@ -76,6 +74,9 @@ class MeerkatNestUploadTest(unittest.TestCase):
 
     # test processing data
     def test_data_processing(self):
+        """
+        Test data processing.
+        """
         # TODO: Test scrambling
         meerkat_nest.resources.upload_data.process(self.data_entry)
 
@@ -91,6 +92,9 @@ class MeerkatNestUploadTest(unittest.TestCase):
     @mock.patch('meerkat_nest.message_service.sqs_client.send_message')
     def test_data_sending(self, mock_send_message, mock_create_queue, mock_get_queue_url, mock_get_caller_identity,\
                           mock_create_topic, mock_publish):
+        """
+        Test that queue push and notification functions are called correctly
+        """
         mock_get_caller_identity.return_value = {'Account': 'test_account'}
         mock_get_queue_url.return_value = {'QueueUrl': 'http://queue-url.test'}
 
@@ -118,6 +122,9 @@ class MeerkatNestUploadTest(unittest.TestCase):
     @mock.patch('meerkat_nest.message_service.sns_client.publish')
     @mock.patch('meerkat_nest.message_service.sns_client.create_topic')
     def test_notifying(self, mock_create_topic, mock_publish):
+        """
+        Test notification functions
+        """
         mock_create_topic.return_value = {'TopicArn': self.topic_arn}
 
         message_service.notify_sns(self.queue_name, self.dead_letter_queue_name)
