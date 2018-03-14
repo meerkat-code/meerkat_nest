@@ -24,8 +24,6 @@ else:
     engine = None
     logging.error("No database configured!")
 
-db_url = os.environ['MEERKAT_NEST_DB_URL']
-engine = create_engine(db_url)
 
 class amendData(Resource):
 
