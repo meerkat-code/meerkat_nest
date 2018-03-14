@@ -18,52 +18,7 @@
 # documentation root, use os.path.abspath to make it absolute.
 import sys
 import os
-from unittest.mock import MagicMock
 
-sys.path.insert(0, os.path.abspath('../../'))
-
-# -- Mock Modules --------------------------------------------------------------
-
-# If the module can't be installed in read the docs easily, you should add it to
-# the list of modules to mock below.  This will ensure that the build continues
-# even if the module isn't installed.
-
-MOCK_MODULES = [
-    'meerkat_libs',
-    'meerkat_libs.auth_client',
-    'meerkat_libs.logger_client',
-    'meerkat_abacus',
-    'meerkat_abacus.util',
-    'meerkat_abacus.util.epi_week',
-    'meerkat_abacus.model',
-    'meerkat_analysis',
-    'meerkat_analysis.util',
-    'meerkat_analysis.indicators',
-    'meerkat_abacus.config',
-    'api_background',
-    'api_background.export_data',
-    'numpy',
-    'pandas',
-    'pandas.tseries.offsets',
-    'yaml',
-    'shapely',
-    'shapely.wkb',
-    'shapely.wkt',
-    'shapely.geometry'
-]
-
-
-class Mock(MagicMock):
-    @classmethod
-    def __getattr__(cls, name):
-            return MagicMock()
-
-
-def mock_modules():
-    sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
-
-
-mock_modules()
 
 
 # -- General configuration ------------------------------------------------
