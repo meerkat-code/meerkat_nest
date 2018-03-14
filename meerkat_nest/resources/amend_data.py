@@ -16,6 +16,14 @@ from meerkat_nest import config
 from meerkat_nest.util import scramble, validate_request, raw_odk_data_to_dict
 from meerkat_nest import message_service
 
+
+db_url = os.environ.get('MEERKAT_NEST_DB_URL', None)
+if db_url:
+    engine = create_engine(db_url)
+else:
+    engine = None
+    logging.error("No database configured!")
+
 db_url = os.environ['MEERKAT_NEST_DB_URL']
 engine = create_engine(db_url)
 

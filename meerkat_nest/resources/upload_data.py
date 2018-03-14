@@ -18,8 +18,12 @@ from meerkat_nest.util import scramble, validate_request, hash
 from meerkat_nest import message_service
 from meerkat_nest.util import translate_patient_id
 
-db_url = os.environ['MEERKAT_NEST_DB_URL']
-engine = create_engine(db_url)
+db_url = os.environ.get('MEERKAT_NEST_DB_URL', None)
+if db_url:
+    engine = create_engine(db_url)
+else:
+    engine = None
+    logging.error("No database configured!")
 
 
 class UploadData(Resource):
