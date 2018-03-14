@@ -19,12 +19,12 @@ util/__init__.py - Various utility methods
 resources/: Folder containing the following files:
 
 * upload_data.py - Endpoint for uploading a single data point
-* amend_data.py - *NOT YET IMPLEMENTED* Endpoint for amending previously uploaded submissions
-* deactivate_data.py - *NOT YET IMPLEMENTED* Endpoint for deactivating previously uploaded submissions
-* download_data.py - *NOT YET IMPLEMENTED* Endpoint for accessing previously uploaded submissions
+* amend_data.py - *NOT YET FULLY IMPLEMENTED* Endpoint for amending previously uploaded submissions
+* deactivate_data.py - *NOT YET FULLY IMPLEMENTED* Endpoint for deactivating previously uploaded submissions
+* download_data.py - *NOT YET FULLY IMPLEMENTED* Endpoint for accessing previously uploaded submissions
 
 ---------
-Nest urls
+Nest URLs
 ---------
 
 .. autoflask:: meerkat_nest:app
@@ -37,9 +37,14 @@ Testing
 When new features for Meerkat Nest are developed they should be properly tested. The test are done using the python unittest library.
 All the tests are in the meerkat_nest/test directory.
 
-**Unit test functions**
+**Upload unit test functions**
 
-.. automodule:: meerkat_nest.test
+.. automodule:: meerkat_nest.test.test_upload
+    :members:
+
+**Pipeline test functions**
+
+.. automodule:: meerkat_nest.test.test_pipeline
     :members:
 
 ------------------
