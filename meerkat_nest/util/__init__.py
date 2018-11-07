@@ -24,7 +24,7 @@ def hash(value):
         Returns a hex digest of the hashed string
     """
     if value:
-        encrypted_value = hashlib.sha256(value.encode('utf-8') + config.salt).hexdigest()
+        encrypted_value = hashlib.sha256(str(value).encode('utf-8') + config.salt).hexdigest()
     else:
         return value
 
