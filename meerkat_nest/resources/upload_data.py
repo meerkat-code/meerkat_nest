@@ -180,6 +180,12 @@ def process(data_entry):
     processed_data_entry = format_field_keys(processed_data_entry)
     processed_data_entry = format_form_name(processed_data_entry)
 
+    while config.country_config.get('incremental_conversion', {}).\
+            get(processed_data_entry['formId'], {}).\
+            get(processed_data_entry['formVersion'], None):
+
+        processed_data_entry = incremental_conversion(processed_data_entry)
+
     return processed_data_entry
 
 
@@ -267,6 +273,34 @@ def hash_fields(data_entry):
     return data_entry_hashed
 
 
+def incremental_conversion(data_entry):
+    """
+    Converts fields in data entry based on configurations
+
+    :param data_entry: data entry
+    :return: returns the data entry with configured fields mapped
+    """
+
+    data_entry_mapped = data_entry
+
+    fields = config.country_config.get('incremental_conversion', {}).\
+            get(data_entry_mapped['formId'], {}).\
+            get(data_entry_mapped['formVersion'],[])
+
+    for field in fields:
+        if field.get('name', None) in data_entry_mapped['data'].keys():
+            old_field = field['name']
+            new_field = field.get('new_field', None)
+            if not new_field:
+                logging.warning('Incorrect mapping configuration for field ' + field.get('name'))
+                continue
+
+            data_entry_mapped['data'][new_field] = field['values'][data_entry['data'][old_field]]
+            data_entry_mapped['data'].pop(old_field)
+
+    return data_entry_mapped
+
+
 def format_field_keys(data_entry):
     """
     Formats the field names in the data entry
@@ -310,5 +344,17 @@ def format_form_name(data_entry):
 
     if rename_form:
         data_entry['formId'] = rename_form
+
+    return data_entry
+
+def incremental_conversion(data_entry):
+    """
+    Reads conversion steps from config and maps key-value-pairs to match a new form version
+
+    :param data_entry: unconverted data entry
+    :return: converted data entry
+    """
+
+    data_entry
 
     return data_entry
