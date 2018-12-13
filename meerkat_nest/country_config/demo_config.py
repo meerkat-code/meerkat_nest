@@ -63,5 +63,32 @@ country_config = {
                 "formVersion": "",
                 "data": ""
             }
+        },
+    "incremental_conversion":
+        {
+            "demo_testing":
+                {
+                    "2": {
+                            "newVersion:": "3",
+                            "map_fields": [
+                                {"name": "cd./malaria_slide",
+                                 "new_field": "malaria2./malaria_slide"},
+                                {"name": "cd./malaria_rx",
+                                 "new_field": "malaria1./malaria_rx"},
+                                {"name": "malaria./norx",
+                                 "new_field": "malaria2./norx"},
+                                {"name": "malaria./ipt",
+                                 "new_field": "malaria1./ipt"},
+                                {"name": "malaria./ipt_trim1",
+                                 "new_field": "malaria1./ipt_trim1"},
+                                {"name": "cd./tetanos_vacc_doses",
+                                 "new_field": "tetanos_vacc_doses"},
+                                {"name": "cd./age_days",
+                                 "new_field": "child_age_days"}
+                            ],
+                            "calculate_fields": [
+                            ]
+                        }
+                }
         }
 }
