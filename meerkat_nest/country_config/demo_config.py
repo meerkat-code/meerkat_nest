@@ -87,6 +87,12 @@ country_config = {
                                  "new_field": "child_age_days"}
                             ],
                             "calculate_fields": [
+                                {"name": "malaria./llin_other",
+                                 "new_field": "malaria./llin",
+                                 "function": ""},
+                                {"name": "malaria./llin_routine",
+                                 "new_field": "malaria./llin",
+                                 "function": ""}
                             ]
                         }
                 }
