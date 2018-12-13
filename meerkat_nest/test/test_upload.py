@@ -83,70 +83,11 @@ class MeerkatNestUploadTest(unittest.TestCase):
         # TODO: Test column name conversion
         pass
 
-    # Test sending data to SQS
-    @mock.patch('meerkat_nest.message_service.sns_client.publish')
-    @mock.patch('meerkat_nest.message_service.sns_client.create_topic')
-    @mock.patch('meerkat_nest.message_service.sts_client.get_caller_identity')
-    @mock.patch('meerkat_nest.message_service.sqs_client.get_queue_url')
-    @mock.patch('meerkat_nest.message_service.sqs_client.create_queue')
-    @mock.patch('meerkat_nest.message_service.sqs_client.send_message')
-    def test_data_sending(self, mock_send_message, mock_create_queue, mock_get_queue_url, mock_get_caller_identity,\
-                          mock_create_topic, mock_publish):
+    # Test sending data to Meerkat Drill
+    def test_data_sending(self):
         """
-        Test that queue push and notification functions are called correctly
+        TODO: SQS and SNS interfaces are handled in Meerkat Drill, rewrite to reflect the changes
         """
-        mock_get_caller_identity.return_value = {'Account': 'test_account'}
-        mock_get_queue_url.return_value = {'QueueUrl': 'http://queue-url.test'}
-
-        message_service.send_data(copy.deepcopy(self.data_entry))
-
-        # Check that SQS queue is created
-        self.assertTrue(mock_create_queue.called)
-        mock_create_queue.assert_called_with(
-            QueueName=self.queue_name
-        )
-
-        # Check that the notification for new messages is sent
-        self.assertTrue(mock_send_message.called)
-        
-        # TODO
-        """ dict keys in json.dumps() return value can be in any order, make a proper comparison between call
-            arguments
-        mock_send_message.assert_any_call(
-            QueueUrl=message_service.get_queue_url(self.queue_name)
-            MessageBody=json.dumps(self.data_entry['data'])
-        )
-        """
-
-    # Test notifying SNS about new data
-    @mock.patch('meerkat_nest.message_service.sns_client.publish')
-    @mock.patch('meerkat_nest.message_service.sns_client.create_topic')
-    def test_notifying(self, mock_create_topic, mock_publish):
-        """
-        Test notification functions
-        """
-        mock_create_topic.return_value = {'TopicArn': self.topic_arn}
-
-        message_service.notify_sns(self.queue_name, self.dead_letter_queue_name)
-
-        message = {
-            "queue": self.queue_name,
-            "dead-letter-queue": self.dead_letter_queue_name
-        }
-
-        # Check that SNS topic is created
-        self.assertTrue(mock_create_topic.called)
-        mock_create_topic.assert_called_with(
-            Name=self.topic
-        )
-
-        # Check that the notification for new messages is sent
-        self.assertTrue(mock_publish.called)
-        mock_publish.assert_called_with(
-            TopicArn=self.topic_arn,
-            Message=json.dumps({'default': json.dumps(message)}),
-            MessageStructure='json'
-        )
-
+        pass
 
 

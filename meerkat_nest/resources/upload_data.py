@@ -184,7 +184,13 @@ def process(data_entry):
             get(processed_data_entry['formId'], {}).\
             get(processed_data_entry['formVersion'], None):
 
+        old_form_version = processed_data_entry.get('formVersion', None)
         processed_data_entry = incremental_conversion(processed_data_entry)
+        new_form_version = processed_data_entry.get('formVersion', None)
+
+        if  not old_form_version or not new_form_version or old_form_version == new_form_version:
+            logging.warning("Incorrect form conversion configuration")
+            break
 
     return processed_data_entry
 
@@ -283,11 +289,28 @@ def incremental_conversion(data_entry):
 
     data_entry_mapped = data_entry
 
-    fields = config.country_config.get('incremental_conversion', {}).\
+    map_fields = config.country_config.get('incremental_conversion', {}).\
             get(data_entry_mapped['formId'], {}).\
-            get(data_entry_mapped['formVersion'],[])
+            get(data_entry_mapped['formVersion'],{}).\
+            get('map_fields', [])
 
-    for field in fields:
+    for field in map_fields:
+        if field.get('name', None) in data_entry_mapped['data'].keys():
+            old_field = field['name']
+            new_field = field.get('new_field', None)
+            if not new_field:
+                logging.warning('Incorrect mapping configuration for field ' + field.get('name'))
+                continue
+
+            data_entry_mapped['data'][new_field] = data_entry_mapped['data'][old_field]
+            data_entry_mapped['data'].pop(old_field)
+
+    calculate_fields = config.country_config.get('incremental_conversion', {}).\
+            get(data_entry_mapped['formId'], {}).\
+            get(data_entry_mapped['formVersion'],{}).\
+            get('calculate_fields', [])
+
+    for field in calculate_fields:
         if field.get('name', None) in data_entry_mapped['data'].keys():
             old_field = field['name']
             new_field = field.get('new_field', None)
@@ -297,6 +320,14 @@ def incremental_conversion(data_entry):
 
             data_entry_mapped['data'][new_field] = field['values'][data_entry['data'][old_field]]
             data_entry_mapped['data'].pop(old_field)
+
+
+    data_entry_mapped['formVersion'] = config.country_config.get('incremental_conversion', {}).\
+            get(data_entry_mapped['formId'], {}).\
+            get(data_entry_mapped['formVersion'],{}).\
+            get('newVersion', data_entry_mapped['formVersion'] + "_converted")
+
+    # Check new form version to avoid loops
 
     return data_entry_mapped
 
@@ -344,17 +375,5 @@ def format_form_name(data_entry):
 
     if rename_form:
         data_entry['formId'] = rename_form
-
-    return data_entry
-
-def incremental_conversion(data_entry):
-    """
-    Reads conversion steps from config and maps key-value-pairs to match a new form version
-
-    :param data_entry: unconverted data entry
-    :return: converted data entry
-    """
-
-    data_entry
 
     return data_entry
