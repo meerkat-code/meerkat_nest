@@ -89,10 +89,16 @@ country_config = {
                             "calculate_fields": [
                                 {"name": "malaria./llin_other",
                                  "new_field": "malaria./llin",
-                                 "function": ""},
+                                 "function": "llin.convert_llin"},
                                 {"name": "malaria./llin_routine",
                                  "new_field": "malaria./llin",
-                                 "function": ""}
+                                 "function": "llin.convert_llin"},
+                                {"name": "malaria./llin_routine",
+                                 "new_field": "malaria./llin",
+                                 "function": "llin.convert_llin"},
+                                {"name": "malaria./llin_routine",
+                                 "new_field": "malaria./llin",
+                                 "function": "llin.convert_llin"}
                             ]
                         }
                 }
