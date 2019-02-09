@@ -318,8 +318,8 @@ def incremental_conversion(data_entry):
                 logging.warning('Incorrect mapping configuration for field ' + field.get('name'))
                 continue
 
-            data_entry_mapped['data'][new_field] = field['values'][data_entry['data'][old_field]]
-            data_entry_mapped['data'].pop(old_field)
+
+            data_entry_mapped['data'][new_field] = ''
 
 
     data_entry_mapped['formVersion'] = config.country_config.get('incremental_conversion', {}).\

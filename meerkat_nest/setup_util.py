@@ -112,9 +112,5 @@ def setup_forms():
     except FileNotFoundError as e:
         print("No configurations found")
 
-
-setup_forms()
-
-
-#for i in range(1,100):
-#    send_to_aggregate()
+for i in range(1, 9000):
+    send_to_aggregate()
