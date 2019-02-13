@@ -289,8 +289,12 @@ def format_field_keys(data_entry):
                 data_entry['data'].pop(key)
 
     # Perform key replacements
+    data_fields = list(data_entry['data'].keys())
+
     for key in rename_fields:
-        if key in data_fields:
+        if (key in data_fields) \
+                and (data_entry['data'].get(rename_fields[key]) is None) \
+                and (data_entry['data'][key] is not None):
             data_entry['data'][rename_fields[key]] = data_entry['data'][key]
             data_entry['data'].pop(key)
 
