@@ -294,7 +294,7 @@ def format_field_keys(data_entry):
     for key in rename_fields:
         if (key in data_fields) \
                 and (data_entry['data'].get(rename_fields[key]) is None) \
-                and (data_entry['data'] is not None):
+                and (data_entry['data'][key] is not None):
             data_entry['data'][rename_fields[key]] = data_entry['data'][key]
             data_entry['data'].pop(key)
 
